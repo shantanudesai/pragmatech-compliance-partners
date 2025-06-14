@@ -91,8 +91,9 @@ const Index = () => (
             Pragmatech Compliance Partners
           </h1>
           <p className="text-xl text-gray-700 mb-6">
-            Your partner for ISO, SOC, GDPR, and AI governance compliance.
-            Consulting tailored for Indian businesses seeking global trust and regulatory confidence.
+            Your partner for seamless ISO, SOC, GDPR, and AI governance compliance.
+            <br />
+            Consulting tailored for businesses seeking global trust and regulatory confidence.
           </p>
           <div className="flex flex-col md:flex-row justify-center gap-4">
             <Link to="/services" className="inline-block px-6 py-3 bg-[#143066] text-white font-semibold rounded-lg shadow hover:bg-blue-900 transition-colors">
