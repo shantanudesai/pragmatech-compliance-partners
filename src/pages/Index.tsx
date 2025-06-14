@@ -3,7 +3,7 @@
 
 import Navbar from "@/components/Navbar";
 import ServiceCard from "@/components/ServiceCard";
-import { ShieldCheck, ShieldLock, FileCode, FileSearch, Gavel, FileShield, ArrowRight } from "lucide-react";
+import { ShieldCheck, Lock, FileCode, FileSearch, Gavel, FileLock2, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const serviceData = [
@@ -20,7 +20,7 @@ const serviceData = [
     link: "/services#iso-27001"
   },
   {
-    icon: <ShieldLock className="text-emerald-600" />,
+    icon: <Lock className="text-emerald-600" />,
     title: "ISO 27701 Compliance",
     description: "Implementing a Privacy Information Management System (PIMS) for global privacy standards.",
     bullets: [
@@ -68,7 +68,7 @@ const serviceData = [
     link: "/services#gdpr"
   },
   {
-    icon: <FileShield className="text-teal-600" />,
+    icon: <FileLock2 className="text-teal-600" />,
     title: "DPDP Act, 2023 Compliance",
     description: "Supports organizations in meeting the requirements of India's Digital Personal Data Protection Act, 2023, including data protection impact assessments, consent management, and data subject rights implementation.",
     bullets: [
