@@ -88,17 +88,17 @@ const Index = () => (
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
         <div className="text-center max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 tracking-tight leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 tracking-tight leading-tight">
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Pragmatech
             </span>
             <br />
             <span className="text-gray-800">Compliance Partners</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 mb-4 font-light">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-4 font-light">
             Your partner for seamless ISO, SOC, GDPR, and AI governance compliance.
           </p>
-          <p className="text-lg md:text-xl text-gray-500 mb-12 font-light">
+          <p className="text-base sm:text-lg md:text-xl text-gray-500 mb-12 font-light">
             Consulting tailored for businesses seeking global trust and regulatory confidence.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
@@ -122,10 +122,10 @@ const Index = () => (
       {/* Services Preview */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Our Compliance Expertise
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
             Comprehensive solutions to help your organization meet global compliance standards with confidence
           </p>
         </div>
@@ -145,22 +145,22 @@ const Index = () => (
 
       {/* Trust Indicators */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="bg-white rounded-3xl shadow-xl p-12 border border-gray-100">
+        <div className="bg-white rounded-3xl shadow-xl p-8 sm:p-12 border border-gray-100">
           <div className="text-center">
-            <h3 className="text-3xl font-bold text-gray-900 mb-8">
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">
               Trusted by Organizations Worldwide
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">50+</div>
+                <div className="text-3xl sm:text-4xl font-bold text-blue-600 mb-2">50+</div>
                 <div className="text-gray-600">Successful Implementations</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">99%</div>
+                <div className="text-3xl sm:text-4xl font-bold text-blue-600 mb-2">99%</div>
                 <div className="text-gray-600">Client Satisfaction Rate</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">24/7</div>
+                <div className="text-3xl sm:text-4xl font-bold text-blue-600 mb-2">24/7</div>
                 <div className="text-gray-600">Expert Support</div>
               </div>
             </div>

@@ -65,8 +65,8 @@ const Contact = () => {
           <div className="mt-8 text-gray-700 text-sm">
             <div className="font-bold mb-1">Firm Details:</div>
             Pragmatech Compliance Partners<br/>
-            Email: <a href="mailto:info@pragmatechcompliance.in" className="text-blue-700 underline">info@pragmatechcompliance.in</a><br/>
-            Location: Chennai, India
+            Email: <a href="mailto:contact@shantanudesai.com" className="text-blue-700 underline">contact@shantanudesai.com</a><br/>
+            Location: Pune, India
           </div>
         </div>
       </main>
