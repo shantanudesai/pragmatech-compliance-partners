@@ -3,12 +3,12 @@
 
 import Navbar from "@/components/Navbar";
 import ServiceCard from "@/components/ServiceCard";
-import { File, FilePlus, FileMinus, Search, ChevronDown, Shield, ArrowRight } from "lucide-react";
+import { ShieldCheck, ShieldLock, FileCode, FileSearch, Gavel, FileShield, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const serviceData = [
   {
-    icon: <File className="text-blue-600" />,
+    icon: <ShieldCheck className="text-blue-600" />,
     title: "ISO 27001 Compliance",
     description: "Guiding organizations to achieve and maintain ISO 27001 certification through risk assessment, policy development, and audit readiness.",
     bullets: [
@@ -20,7 +20,7 @@ const serviceData = [
     link: "/services#iso-27001"
   },
   {
-    icon: <FilePlus className="text-emerald-600" />,
+    icon: <ShieldLock className="text-emerald-600" />,
     title: "ISO 27701 Compliance",
     description: "Implementing a Privacy Information Management System (PIMS) for global privacy standards.",
     bullets: [
@@ -32,7 +32,7 @@ const serviceData = [
     link: "/services#iso-27701"
   },
   {
-    icon: <ChevronDown className="text-orange-600" />,
+    icon: <FileCode className="text-orange-600" />,
     title: "ISO 42001 Compliance",
     description: "Responsible AI governance with risk assessments, bias & ethics framework for ISO 42001.",
     bullets: [
@@ -44,7 +44,7 @@ const serviceData = [
     link: "/services#iso-42001"
   },
   {
-    icon: <Search className="text-indigo-600" />,
+    icon: <FileSearch className="text-indigo-600" />,
     title: "SOC 2 Compliance",
     description: "Preparation for SOC 2 audits through robust controls and documentation across all trust service criteria.",
     bullets: [
@@ -56,7 +56,7 @@ const serviceData = [
     link: "/services#soc-2"
   },
   {
-    icon: <FileMinus className="text-purple-600" />,
+    icon: <Gavel className="text-purple-600" />,
     title: "GDPR Compliance",
     description: "Support for meeting EU data protection requirements—gap analysis, policies, DSRs & staff training.",
     bullets: [
@@ -68,7 +68,7 @@ const serviceData = [
     link: "/services#gdpr"
   },
   {
-    icon: <Shield className="text-teal-600" />,
+    icon: <FileShield className="text-teal-600" />,
     title: "DPDP Act, 2023 Compliance",
     description: "Supports organizations in meeting the requirements of India's Digital Personal Data Protection Act, 2023, including data protection impact assessments, consent management, and data subject rights implementation.",
     bullets: [
