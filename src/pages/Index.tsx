@@ -32,16 +32,16 @@ const serviceData = [
     link: "/services#iso-27701"
   },
   {
-    icon: <FileMinus className="text-purple-600" />,
-    title: "GDPR Compliance",
-    description: "Support for meeting EU data protection requirements—gap analysis, policies, DSRs & staff training.",
+    icon: <ChevronDown className="text-orange-600" />,
+    title: "ISO 42001 Compliance",
+    description: "Responsible AI governance with risk assessments, bias & ethics framework for ISO 42001.",
     bullets: [
-      "GDPR gap assessments",
-      "DSR & consent management",
-      "Staff privacy awareness",
-      "Documentation & policy development"
+      "AI risk & impact assessment",
+      "Ethical framework development",
+      "Bias monitoring & reporting",
+      "Compliant documentation"
     ],
-    link: "/services#gdpr"
+    link: "/services#iso-42001"
   },
   {
     icon: <Search className="text-indigo-600" />,
@@ -56,16 +56,16 @@ const serviceData = [
     link: "/services#soc-2"
   },
   {
-    icon: <ChevronDown className="text-orange-600" />,
-    title: "ISO 42001 Compliance",
-    description: "Responsible AI governance with risk assessments, bias & ethics framework for ISO 42001.",
+    icon: <FileMinus className="text-purple-600" />,
+    title: "GDPR Compliance",
+    description: "Support for meeting EU data protection requirements—gap analysis, policies, DSRs & staff training.",
     bullets: [
-      "AI risk & impact assessment",
-      "Ethical framework development",
-      "Bias monitoring & reporting",
-      "Compliant documentation"
+      "GDPR gap assessments",
+      "DSR & consent management",
+      "Staff privacy awareness",
+      "Documentation & policy development"
     ],
-    link: "/services#iso-42001"
+    link: "/services#gdpr"
   },
   {
     icon: <Shield className="text-teal-600" />,
@@ -140,31 +140,6 @@ const Index = () => (
               link={d.link}
             />
           ))}
-        </div>
-      </section>
-
-      {/* Trust Indicators */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="bg-white rounded-3xl shadow-xl p-8 sm:p-12 border border-gray-100">
-          <div className="text-center">
-            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">
-              Trusted by Organizations Worldwide
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="text-3xl sm:text-4xl font-bold text-blue-600 mb-2">50+</div>
-                <div className="text-gray-600">Successful Implementations</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl sm:text-4xl font-bold text-blue-600 mb-2">99%</div>
-                <div className="text-gray-600">Client Satisfaction Rate</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl sm:text-4xl font-bold text-blue-600 mb-2">24/7</div>
-                <div className="text-gray-600">Expert Support</div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
     </main>
