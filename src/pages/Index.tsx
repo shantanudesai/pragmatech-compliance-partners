@@ -3,7 +3,7 @@
 
 import Navbar from "@/components/Navbar";
 import ServiceCard from "@/components/ServiceCard";
-import { File, FilePlus, FileMinus, Search, Check, ChevronDown } from "lucide-react";
+import { File, FilePlus, FileMinus, Search, Check, ChevronDown, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const serviceData = [
@@ -22,12 +22,12 @@ const serviceData = [
   {
     icon: <FilePlus className="text-cyan-700" />,
     title: "ISO 27701 Compliance",
-    description: "Implementing a Privacy Information Management System (PIMS) for global privacy and India's DPDP Act, 2023.",
+    description: "Implementing a Privacy Information Management System (PIMS) for global privacy standards.",
     bullets: [
       "PIMS implementation",
       "Privacy policy drafting",
       "Data mapping & impact assessment",
-      "DPDP Act, 2023 compliance",
+      "Privacy framework compliance",
     ],
     link: "/services#iso-27701"
   },
@@ -68,16 +68,16 @@ const serviceData = [
     link: "/services#iso-42001"
   },
   {
-    icon: <Check className="text-emerald-700" />,
-    title: "NIST Compliance",
-    description: "Helping organizations comply with NIST SP 800-171 to protect Controlled Unclassified Information (CUI).",
+    icon: <Shield className="text-emerald-700" />,
+    title: "DPDP Act, 2023 Compliance",
+    description: "Supports organizations in meeting the requirements of India's Digital Personal Data Protection Act, 2023, including data protection impact assessments, consent management, and data subject rights implementation.",
     bullets: [
-      "NIST 800-171 gap analysis",
-      "Policy/procedure guidance",
-      "CUI mapping & protection strategies",
-      "Preparation for assessments"
+      "DPDP compliance gap assessment",
+      "Data protection impact assessment",
+      "Consent management processes",
+      "Data subject rights implementation"
     ],
-    link: "/services#nist"
+    link: "/services#dpdp-act-2023"
   },
 ];
 

@@ -1,6 +1,6 @@
 
 import Navbar from "@/components/Navbar";
-import { Check } from "lucide-react";
+import { Check, Shield } from "lucide-react";
 import { useEffect } from "react";
 
 const services = [
@@ -24,12 +24,12 @@ const services = [
     title: "ISO 27701 Compliance",
     description: (
       <>
-        Privacy Information Management System (PIMS) implementation for global and Indian regulatory compliance (DPDP Act, 2023).
+        Privacy Information Management System (PIMS) implementation for global privacy standards.
         <ul className="mt-2 flex flex-col gap-1 text-gray-700">
           <li className="flex items-start gap-2"><Check className="text-green-600" size={18} />PIMS planning, data mapping, and privacy risk assessment</li>
-          <li className="flex items-start gap-2"><Check className="text-green-600" size={18} />Alignment with GDPR, DPDP, and international frameworks</li>
+          <li className="flex items-start gap-2"><Check className="text-green-600" size={18} />Alignment with GDPR and international frameworks</li>
           <li className="flex items-start gap-2"><Check className="text-green-600" size={18} />Policy and notice drafting</li>
-          <li className="flex items-start gap-2"><Check className="text-green-600" size={18} />Privacy program training and support</li>
+          <li className="flex items-start gap-2"><Check className="text-green-600" size={18} />Privacy framework compliance</li>
         </ul>
       </>
     )
@@ -80,16 +80,16 @@ const services = [
     )
   },
   {
-    anchor: "nist",
-    title: "NIST Compliance",
+    anchor: "dpdp-act-2023",
+    title: "DPDP Act, 2023 Compliance",
     description: (
       <>
-        NIST SP 800-171 compliance consulting for handling Controlled Unclassified Information (CUI).
+        Supports organizations in meeting the requirements of India's Digital Personal Data Protection Act, 2023, including data protection impact assessments, consent management, and data subject rights implementation.
         <ul className="mt-2 flex flex-col gap-1 text-gray-700">
-          <li className="flex items-start gap-2"><Check className="text-green-600" size={18} />NIST 800-171 gap analysis</li>
-          <li className="flex items-start gap-2"><Check className="text-green-600" size={18} />Security plan & policies development</li>
-          <li className="flex items-start gap-2"><Check className="text-green-600" size={18} />System security measures and monitoring</li>
-          <li className="flex items-start gap-2"><Check className="text-green-600" size={18} />Assessment prep and ongoing support</li>
+          <li className="flex items-start gap-2"><Shield className="text-green-600" size={18} />DPDP compliance gap assessment</li>
+          <li className="flex items-start gap-2"><Shield className="text-green-600" size={18} />Data protection impact assessment</li>
+          <li className="flex items-start gap-2"><Shield className="text-green-600" size={18} />Consent management processes</li>
+          <li className="flex items-start gap-2"><Shield className="text-green-600" size={18} />Data subject rights implementation</li>
         </ul>
       </>
     )
