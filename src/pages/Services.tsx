@@ -51,6 +51,29 @@ const services = [
     ]
   },
   {
+    anchor: "iso-42001",
+    title: "ISO 42001 Compliance",
+    description: "AI Governance: Building responsible frameworks for ethical and regulated AI.",
+    keyDeliverables: [
+      "Develop AI governance frameworks aligned with ISO 42001",
+      "Conduct risk assessments for AI systems and applications",
+      "Implement ethical AI development practices",
+      "Perform compliance audits to ensure adherence",
+      "Provide training on AI governance and ethics"
+    ],
+    clientBenefits: [
+      "Responsible and ethical AI deployment",
+      "Mitigation of AI-related risks and liabilities",
+      "Alignment with emerging AI regulations",
+      "Support for innovation within ethical boundaries"
+    ],
+    painPoints: [
+      "Lack of structured AI governance frameworks",
+      "Ethical concerns in AI development and use",
+      "Uncertainty about AI compliance requirements"
+    ]
+  },
+  {
     anchor: "gdpr",
     title: "GDPR Compliance",
     description: "EU data protection compliance from gap assessment to DSR handling.",
@@ -94,29 +117,6 @@ const services = [
       "Difficulty understanding SOC 2 requirements",
       "Time and resource constraints for audit preparation",
       "Challenges maintaining ongoing compliance"
-    ]
-  },
-  {
-    anchor: "iso-42001",
-    title: "ISO 42001 Compliance",
-    description: "AI Governance: Building responsible frameworks for ethical and regulated AI.",
-    keyDeliverables: [
-      "Develop AI governance frameworks aligned with ISO 42001",
-      "Conduct risk assessments for AI systems and applications",
-      "Implement ethical AI development practices",
-      "Perform compliance audits to ensure adherence",
-      "Provide training on AI governance and ethics"
-    ],
-    clientBenefits: [
-      "Responsible and ethical AI deployment",
-      "Mitigation of AI-related risks and liabilities",
-      "Alignment with emerging AI regulations",
-      "Support for innovation within ethical boundaries"
-    ],
-    painPoints: [
-      "Lack of structured AI governance frameworks",
-      "Ethical concerns in AI development and use",
-      "Uncertainty about AI compliance requirements"
     ]
   },
   {
