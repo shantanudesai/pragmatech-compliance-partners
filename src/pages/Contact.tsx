@@ -1,6 +1,7 @@
 
 import Navbar from "@/components/Navbar";
 import { useState } from "react";
+import { ExternalLink } from "lucide-react";
 
 const Contact = () => {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
@@ -17,6 +18,26 @@ const Contact = () => {
       <Navbar />
       <main className="pt-28 pb-20 max-w-2xl mx-auto px-4">
         <h1 className="text-3xl font-bold mb-6 text-gray-800">Contact Us</h1>
+        
+        {/* Discover Questionnaire CTA */}
+        <div className="bg-gradient-to-r from-[#143066] to-blue-800 rounded-xl shadow-lg border border-gray-100 p-8 mb-8 text-white">
+          <div className="text-center">
+            <h2 className="text-2xl font-bold mb-4">Ready to Get Started?</h2>
+            <p className="text-blue-100 mb-6 leading-relaxed">
+              Take our comprehensive Discover Questionnaire to help us understand your compliance needs and provide you with a tailored solution.
+            </p>
+            <a
+              href="https://lovable.dev/projects/29a210ee-5c43-4401-8a30-662d353f3769"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-white text-[#143066] font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors shadow-md"
+            >
+              Fill Out Discover Questionnaire
+              <ExternalLink size={18} />
+            </a>
+          </div>
+        </div>
+
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8">
           <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
             <label className="text-gray-700 font-semibold" htmlFor="name">
