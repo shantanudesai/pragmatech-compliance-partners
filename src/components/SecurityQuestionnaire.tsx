@@ -7,13 +7,25 @@ import { Textarea } from "@/components/ui/textarea";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 import QuestionnaireHeader from './questionnaire/QuestionnaireHeader';
 import SectionA from './questionnaire/SectionA';
 import { FormData } from '@/types/questionnaire';
+import { sendQuestionnaireResponse } from '@/services/emailService';
 import { useNavigate } from 'react-router-dom';
 
 const SecurityQuestionnaire = () => {
   const navigate = useNavigate();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error' | null; message: string }>({ type: null, message: '' });
+  
+  // Contact information state
+  const [contactInfo, setContactInfo] = useState({
+    name: '',
+    email: '',
+    company: ''
+  });
+
   const [formData, setFormData] = useState<FormData>({
     // Section A
     implementationReasons: [],
@@ -62,12 +74,50 @@ const SecurityQuestionnaire = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // You can add form submission logic here (send to backend, etc.)
-    alert('Thank you! Your questionnaire has been submitted. We will contact you within 24 hours with your risk-gap executive summary.');
-    navigate('/contact');
+    
+    // Validate contact information
+    if (!contactInfo.name || !contactInfo.email) {
+      setSubmitStatus({ type: 'error', message: 'Please fill in your name and email address.' });
+      return;
+    }
+
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(contactInfo.email)) {
+      setSubmitStatus({ type: 'error', message: 'Please enter a valid email address.' });
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: '' });
+
+    try {
+      const result = await sendQuestionnaireResponse(formData, contactInfo);
+      
+      if (result.success) {
+        setSubmitStatus({ 
+          type: 'success', 
+          message: 'Thank you! Your questionnaire has been submitted successfully. We will email you a personalized risk-gap executive summary within 24 hours.' 
+        });
+        
+        // Navigate to a success page or reset form after a delay
+        setTimeout(() => {
+          navigate('/contact');
+        }, 3000);
+      } else {
+        throw new Error(result.message || 'Submission failed');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      setSubmitStatus({ 
+        type: 'error', 
+        message: 'Failed to submit questionnaire. Please try again or contact us directly at pragmatechcompliancepartners@gmail.com' 
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -78,6 +128,57 @@ const SecurityQuestionnaire = () => {
             <QuestionnaireHeader />
 
             <form onSubmit={handleSubmit} className="space-y-12">
+              {/* Contact Information Section */}
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-xl font-semibold text-gray-900">
+                    Contact Information
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="contact-name" className="text-base font-medium text-gray-900 mb-2 block">
+                        Full Name *
+                      </Label>
+                      <Input
+                        id="contact-name"
+                        type="text"
+                        placeholder="Your full name"
+                        value={contactInfo.name}
+                        onChange={(e) => setContactInfo(prev => ({ ...prev, name: e.target.value }))}
+                        required
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="contact-email" className="text-base font-medium text-gray-900 mb-2 block">
+                        Email Address *
+                      </Label>
+                      <Input
+                        id="contact-email"
+                        type="email"
+                        placeholder="your.email@company.com"
+                        value={contactInfo.email}
+                        onChange={(e) => setContactInfo(prev => ({ ...prev, email: e.target.value }))}
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <Label htmlFor="contact-company" className="text-base font-medium text-gray-900 mb-2 block">
+                      Company/Organization
+                    </Label>
+                    <Input
+                      id="contact-company"
+                      type="text"
+                      placeholder="Your company name"
+                      value={contactInfo.company}
+                      onChange={(e) => setContactInfo(prev => ({ ...prev, company: e.target.value }))}
+                    />
+                  </div>
+                </CardContent>
+              </Card>
+
               <SectionA 
                 formData={formData} 
                 setFormData={setFormData} 
@@ -252,16 +353,26 @@ const SecurityQuestionnaire = () => {
                 </CardContent>
               </Card>
 
+              {/* Submit Status Alert */}
+              {submitStatus.type && (
+                <Alert className={submitStatus.type === 'success' ? 'border-green-200 bg-green-50' : 'border-red-200 bg-red-50'}>
+                  <AlertDescription className={submitStatus.type === 'success' ? 'text-green-800' : 'text-red-800'}>
+                    {submitStatus.message}
+                  </AlertDescription>
+                </Alert>
+              )}
+
               <div className="text-center pt-8">
                 <Button
                   type="submit"
-                  className="bg-[#143066] hover:bg-blue-800 text-white px-8 py-3 text-lg font-semibold rounded-lg transition-colors duration-200"
+                  className="bg-[#143066] hover:bg-blue-800 text-white px-8 py-3 text-lg font-semibold rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                   size="lg"
+                  disabled={isSubmitting}
                 >
-                  Submit & Receive My Risk-Gap Executive Summary
+                  {isSubmitting ? 'Submitting...' : 'Submit & Receive My Risk-Gap Executive Summary'}
                 </Button>
                 <p className="text-sm text-gray-600 mt-3">
-                  We'll email you a personalized assessment within 24 hours
+                  {isSubmitting ? 'Please wait while we process your submission...' : 'We\'ll email you a personalized assessment within 24 hours'}
                 </p>
               </div>
             </form>
