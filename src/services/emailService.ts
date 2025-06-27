@@ -76,7 +76,7 @@ END OF QUESTIONNAIRE SUBMISSION
 
     // Using Formspree's test endpoint - you should replace this with your actual endpoint
     // Go to https://formspree.io/ and create a form, then replace this URL
-    const formspreeEndpoint = 'https://formspree.io/f/xdkowwgz'; // This is a working test endpoint
+    const formspreeEndpoint = 'https://formspree.io/f/xwpbapal'; // This is a working test endpoint
 
     const response = await fetch(formspreeEndpoint, {
       method: 'POST',
