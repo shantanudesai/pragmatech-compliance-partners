@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { sendContactMessage } from "@/services/emailService";
@@ -7,13 +7,15 @@ import { sendContactMessage } from "@/services/emailService";
 const Contact = () => {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const formRef = useRef<HTMLFormElement>(null);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("submitting");
     setErrorMessage("");
 
-    const formData = new FormData(e.currentTarget);
+    const formElement = e.currentTarget;
+    const formData = new FormData(formElement);
     const contactData = {
       name: formData.get("name") as string,
       email: formData.get("email") as string,
@@ -25,8 +27,10 @@ const Contact = () => {
       
       if (result.success) {
         setStatus("success");
-        // Reset form
-        e.currentTarget.reset();
+        // Reset form safely using ref
+        if (formRef.current) {
+          formRef.current.reset();
+        }
         // Reset status after 5 seconds
         setTimeout(() => setStatus("idle"), 5000);
       } else {
@@ -82,7 +86,7 @@ const Contact = () => {
             </div>
           )}
 
-          <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+          <form ref={formRef} className="flex flex-col gap-4" onSubmit={handleSubmit}>
             <label className="text-gray-700 font-semibold" htmlFor="name">
               Name *
               <input
