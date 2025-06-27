@@ -1,7 +1,7 @@
-
 import Navbar from "@/components/Navbar";
 import { useState } from "react";
-import { ExternalLink } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 const Contact = () => {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
@@ -26,15 +26,13 @@ const Contact = () => {
             <p className="text-blue-100 mb-6 leading-relaxed">
               Take our comprehensive Discovery Questionnaire to help us understand your compliance needs and provide you with a tailored solution.
             </p>
-            <a
-              href="https://lovable.dev/projects/29a210ee-5c43-4401-8a30-662d353f3769"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/questionnaire"
               className="inline-flex items-center gap-2 bg-white text-[#143066] font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors shadow-md"
             >
               Fill Out Discovery Questionnaire
-              <ExternalLink size={18} />
-            </a>
+              <ArrowRight size={18} />
+            </Link>
           </div>
         </div>
 
