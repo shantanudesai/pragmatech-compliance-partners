@@ -2,15 +2,43 @@ import Navbar from "@/components/Navbar";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { sendContactMessage } from "@/services/emailService";
 
 const Contact = () => {
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // TODO: Integrate backend for emails. Simulate submit for now.
-    setStatus("success");
-    setTimeout(() => setStatus("idle"), 3000);
+    setStatus("submitting");
+    setErrorMessage("");
+
+    const formData = new FormData(e.currentTarget);
+    const contactData = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      message: formData.get("message") as string,
+    };
+
+    try {
+      const result = await sendContactMessage(contactData);
+      
+      if (result.success) {
+        setStatus("success");
+        // Reset form
+        e.currentTarget.reset();
+        // Reset status after 5 seconds
+        setTimeout(() => setStatus("idle"), 5000);
+      } else {
+        throw new Error(result.message || 'Failed to send message');
+      }
+    } catch (error) {
+      console.error('Contact form error:', error);
+      setStatus("error");
+      setErrorMessage(error instanceof Error ? error.message : 'Failed to send message. Please try again.');
+      // Reset error status after 5 seconds
+      setTimeout(() => setStatus("idle"), 5000);
+    }
   }
 
   return (
@@ -38,6 +66,22 @@ const Contact = () => {
 
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8">
           <h2 className="text-xl font-semibold mb-6 text-gray-800">Quick Connect? Fill out and we'll get back within 24 hours</h2>
+          
+          {/* Status Messages */}
+          {status === "success" && (
+            <div className="mb-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+              <div className="text-green-800 font-medium">✓ Message sent successfully!</div>
+              <div className="text-green-700 text-sm mt-1">Thank you for your message! We will get back to you within 24 hours.</div>
+            </div>
+          )}
+          
+          {status === "error" && (
+            <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg">
+              <div className="text-red-800 font-medium">✗ Failed to send message</div>
+              <div className="text-red-700 text-sm mt-1">{errorMessage}</div>
+            </div>
+          )}
+
           <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
             <label className="text-gray-700 font-semibold" htmlFor="name">
               Name *
@@ -47,7 +91,8 @@ const Contact = () => {
                 type="text"
                 required
                 autoComplete="name"
-                className="mt-1 w-full border border-gray-200 rounded px-4 py-2 text-gray-900 focus:ring-2 focus:ring-blue-200 focus:outline-none"
+                disabled={status === "submitting"}
+                className="mt-1 w-full border border-gray-200 rounded px-4 py-2 text-gray-900 focus:ring-2 focus:ring-blue-200 focus:outline-none disabled:bg-gray-100 disabled:cursor-not-allowed"
               />
             </label>
             <label className="text-gray-700 font-semibold" htmlFor="email">
@@ -58,7 +103,8 @@ const Contact = () => {
                 type="email"
                 required
                 autoComplete="email"
-                className="mt-1 w-full border border-gray-200 rounded px-4 py-2 text-gray-900 focus:ring-2 focus:ring-blue-200 focus:outline-none"
+                disabled={status === "submitting"}
+                className="mt-1 w-full border border-gray-200 rounded px-4 py-2 text-gray-900 focus:ring-2 focus:ring-blue-200 focus:outline-none disabled:bg-gray-100 disabled:cursor-not-allowed"
               />
             </label>
             <label className="text-gray-700 font-semibold" htmlFor="message">
@@ -68,19 +114,17 @@ const Contact = () => {
                 name="message"
                 required
                 rows={5}
-                className="mt-1 w-full border border-gray-200 rounded px-4 py-2 text-gray-900 focus:ring-2 focus:ring-blue-200 focus:outline-none"
+                disabled={status === "submitting"}
+                className="mt-1 w-full border border-gray-200 rounded px-4 py-2 text-gray-900 focus:ring-2 focus:ring-blue-200 focus:outline-none disabled:bg-gray-100 disabled:cursor-not-allowed"
               />
             </label>
             <button
               type="submit"
-              className="mt-2 w-full py-2 px-4 bg-[#143066] text-white font-semibold rounded hover:bg-blue-900 transition-colors"
-              disabled={status === "success"}
+              className="mt-2 w-full py-2 px-4 bg-[#143066] text-white font-semibold rounded hover:bg-blue-900 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              disabled={status === "submitting" || status === "success"}
             >
-              {status === "success" ? "Message Sent!" : "Send Message"}
+              {status === "submitting" ? "Sending..." : status === "success" ? "Message Sent!" : "Send Message"}
             </button>
-            {status === "success" && (
-              <div className="text-green-700 text-center mt-2">Thank you for your message! We will get back to you soon.</div>
-            )}
           </form>
         </div>
       </main>

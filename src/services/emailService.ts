@@ -6,6 +6,12 @@ interface ContactInfo {
   company?: string;
 }
 
+interface ContactFormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
 // Simple email service using Formspree
 export const sendQuestionnaireResponse = async (formData: FormData, contactInfo: ContactInfo) => {
   try {
@@ -121,6 +127,44 @@ END OF QUESTIONNAIRE SUBMISSION
     return { 
       success: false, 
       message: 'Failed to submit questionnaire. Please try again or contact us directly at pragmatechcompliancepartners@gmail.com',
+      error 
+    };
+  }
+};
+
+// Simple contact form submission
+export const sendContactMessage = async (contactData: ContactFormData) => {
+  try {
+    const formspreeEndpoint = 'https://formspree.io/f/xwpbapal'; // Same endpoint
+
+    const response = await fetch(formspreeEndpoint, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: contactData.name,
+        email: contactData.email,
+        _replyto: contactData.email,
+        _subject: `💌 Contact Form Message - ${contactData.name}`,
+        message: contactData.message,
+        form_type: 'contact_form', // To distinguish from questionnaire submissions
+        submission_date: new Date().toLocaleString()
+      })
+    });
+
+    if (response.ok) {
+      return { success: true, message: 'Message sent successfully!' };
+    } else {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(errorData.error || 'Failed to send message');
+    }
+  } catch (error) {
+    console.error('Contact form submission failed:', error);
+    return { 
+      success: false, 
+      message: 'Failed to send message. Please try again or email us directly at pragmatechcompliancepartners@gmail.com',
       error 
     };
   }
