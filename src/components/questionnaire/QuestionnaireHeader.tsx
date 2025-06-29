@@ -4,11 +4,10 @@ const QuestionnaireHeader = () => {
   return (
     <div className="text-center mb-12">
       <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-        Discovery Questionnaire
+        ISO 27001 Information Security Management Discovery
       </h1>
       <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-        Help us understand your compliance needs and provide you with a tailored solution.
-        This assessment will help us provide you with a comprehensive risk-gap executive summary.
+        Help us understand your Information Security Management System (ISMS) requirements and current security posture to provide you with a tailored ISO 27001 compliance solution.
       </p>
       <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
         <p className="text-sm text-blue-800">

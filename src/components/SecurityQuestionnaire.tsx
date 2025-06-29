@@ -52,7 +52,10 @@ const SecurityQuestionnaire = () => {
     // Section D
     regulatoryRequirements: '',
     thirdPartyProviders: '',
-    additionalInfo: ''
+    additionalInfo: '',
+    
+    // Additional fields
+    consent: false
   });
 
   const handleCheckboxChange = (value: string, checked: boolean) => {
@@ -87,6 +90,12 @@ const SecurityQuestionnaire = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(contactInfo.email)) {
       setSubmitStatus({ type: 'error', message: 'Please enter a valid email address.' });
+      return;
+    }
+
+    // Validate consent
+    if (!formData.consent) {
+      setSubmitStatus({ type: 'error', message: 'Please provide consent to be contacted regarding this inquiry.' });
       return;
     }
 
@@ -350,6 +359,20 @@ const SecurityQuestionnaire = () => {
                       className="min-h-[100px]"
                     />
                   </div>
+
+                  <div>
+                    <div className="flex items-center space-x-2">
+                      <Checkbox
+                        id="consent"
+                        checked={formData.consent}
+                        onCheckedChange={(checked) => setFormData(prev => ({ ...prev, consent: checked as boolean }))}
+                        required
+                      />
+                      <Label htmlFor="consent" className="text-sm">
+                        I consent to being contacted regarding this inquiry *
+                      </Label>
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
 
@@ -369,7 +392,7 @@ const SecurityQuestionnaire = () => {
                   size="lg"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? 'Submitting...' : 'Submit & Receive My Risk-Gap Executive Summary'}
+                  {isSubmitting ? 'Submitting...' : 'Submit Discovery Questionnaire'}
                 </Button>
                 <p className="text-sm text-gray-600 mt-3">
                   {isSubmitting ? 'Please wait while we process your submission...' : 'We\'ll email you a personalized assessment within 24 hours'}

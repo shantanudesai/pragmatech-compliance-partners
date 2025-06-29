@@ -1,9 +1,8 @@
-
 // Pragmatech Compliance Partners Home Page
 
 import Navbar from "@/components/Navbar";
 import ServiceCard from "@/components/ServiceCard";
-import { ShieldCheck, Lock, FileCode, FileSearch, Gavel, FileLock2, ArrowRight } from "lucide-react";
+import { ShieldCheck, Lock, FileCode, FileSearch, Gavel, FileLock2, ArrowRight, SearchCheck, Heart, Award } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const serviceData = [
@@ -78,6 +77,42 @@ const serviceData = [
       "Data subject rights implementation"
     ],
     link: "/services#dpdp-act-2023"
+  },
+  {
+    icon: <SearchCheck className="text-rose-600" />,
+    title: "IT Audit and Assurance Services",
+    description: "Comprehensive IT audits to evaluate governance, controls, and security processes with actionable recommendations.",
+    bullets: [
+      "IT audit planning & scoping",
+      "Control effectiveness evaluation",
+      "Application & infrastructure audits",
+      "Detailed reporting & remediation support"
+    ],
+    link: "/services#it-audit-assurance"
+  },
+  {
+    icon: <Heart className="text-pink-600" />,
+    title: "Healthcare IT Compliance (HIPAA & HITRUST)",
+    description: "Specialized compliance for healthcare organizations to protect PHI and meet HIPAA and HITRUST requirements.",
+    bullets: [
+      "HIPAA gap analysis & risk assessment",
+      "PHI protection policies & training",
+      "HITRUST CSF certification support",
+      "Breach notification & compliance management"
+    ],
+    link: "/services#healthcare-it-compliance"
+  },
+  {
+    icon: <Award className="text-amber-600" />,
+    title: "ISO 9001 Compliance",
+    description: "Quality Management System implementation to improve processes, customer satisfaction, and achieve ISO 9001 certification.",
+    bullets: [
+      "QMS gap analysis & development",
+      "Process documentation & training",
+      "Internal audits & certification prep",
+      "Continuous improvement framework"
+    ],
+    link: "/services#iso-9001"
   },
 ];
 

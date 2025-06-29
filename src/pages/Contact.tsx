@@ -51,23 +51,6 @@ const Contact = () => {
       <main className="pt-28 pb-20 max-w-2xl mx-auto px-4">
         <h1 className="text-3xl font-bold mb-6 text-gray-800">Contact Us</h1>
         
-        {/* Discovery Questionnaire CTA */}
-        <div className="bg-gradient-to-r from-[#143066] to-blue-800 rounded-xl shadow-lg border border-gray-100 p-8 mb-8 text-white">
-          <div className="text-center">
-            <h2 className="text-2xl font-bold mb-4">Ready to Get Started?</h2>
-            <p className="text-blue-100 mb-6 leading-relaxed">
-              Take our comprehensive Discovery Questionnaire to help us understand your compliance needs and provide you with a tailored solution.
-            </p>
-            <Link
-              to="/questionnaire"
-              className="inline-flex items-center gap-2 bg-white text-[#143066] font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors shadow-md"
-            >
-              Fill Out Discovery Questionnaire
-              <ArrowRight size={18} />
-            </Link>
-          </div>
-        </div>
-
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8">
           <h2 className="text-xl font-semibold mb-6 text-gray-800">Quick Connect? Fill out and we'll get back within 24 hours</h2>
           

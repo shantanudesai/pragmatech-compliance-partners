@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISO 9001 Quality Management Discovery Questionnaire</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .form-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .section {
+            margin-bottom: 40px;
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            color: #667eea;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            background: #fafbfc;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            background: white;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+
+        .checkbox-item:hover {
+            background: #e3f2fd;
+            border-color: #667eea;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            background: #f8f9fa;
+            border-radius: 25px;
+            border: 1px solid #e9ecef;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .radio-item:hover {
+            background: #e3f2fd;
+            border-color: #667eea;
+        }
+
+        .radio-item input[type="radio"] {
+            margin-right: 8px;
+        }
+
+        .submit-section {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        .help-text {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .form-container {
+                padding: 25px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+
+            .radio-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>ISO 9001 Quality Management Discovery</h1>
+            <p>Help us understand your Quality Management System requirements</p>
+        </div>
+
+        <form class="form-container" id="iso9001Form">
+            <!-- Organization Information -->
+            <div class="section">
+                <h2 class="section-title">Organization Information</h2>
+                
+                <div class="form-group">
+                    <label for="companyName">Company Name <span class="required">*</span></label>
+                    <input type="text" id="companyName" name="companyName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="industry">Industry/Sector <span class="required">*</span></label>
+                    <select id="industry" name="industry" required>
+                        <option value="">Select your industry</option>
+                        <option value="manufacturing">Manufacturing</option>
+                        <option value="automotive">Automotive</option>
+                        <option value="aerospace">Aerospace & Defense</option>
+                        <option value="healthcare">Healthcare & Medical Devices</option>
+                        <option value="food">Food & Beverage</option>
+                        <option value="pharmaceutical">Pharmaceutical</option>
+                        <option value="construction">Construction</option>
+                        <option value="it-software">IT & Software</option>
+                        <option value="education">Education</option>
+                        <option value="consulting">Consulting Services</option>
+                        <option value="logistics">Logistics & Transportation</option>
+                        <option value="retail">Retail</option>
+                        <option value="financial">Financial Services</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="employeeCount">Number of Employees</label>
+                    <select id="employeeCount" name="employeeCount">
+                        <option value="">Select range</option>
+                        <option value="1-10">1-10</option>
+                        <option value="11-50">11-50</option>
+                        <option value="51-100">51-100</option>
+                        <option value="101-250">101-250</option>
+                        <option value="251-500">251-500</option>
+                        <option value="501-1000">501-1000</option>
+                        <option value="1000+">1000+</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="locations">Number of Locations/Sites</label>
+                    <input type="number" id="locations" name="locations" min="1">
+                </div>
+
+                <div class="form-group">
+                    <label for="annualRevenue">Annual Revenue (optional)</label>
+                    <select id="annualRevenue" name="annualRevenue">
+                        <option value="">Select range</option>
+                        <option value="under-1m">Under $1M</option>
+                        <option value="1m-5m">$1M - $5M</option>
+                        <option value="5m-25m">$5M - $25M</option>
+                        <option value="25m-100m">$25M - $100M</option>
+                        <option value="100m-500m">$100M - $500M</option>
+                        <option value="500m+">$500M+</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Current QMS Status -->
+            <div class="section">
+                <h2 class="section-title">Current Quality Management System Status</h2>
+                
+                <div class="form-group">
+                    <label>Do you currently have any quality management system in place?</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="qms-yes" name="currentQMS" value="yes">
+                            <label for="qms-yes">Yes</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="qms-no" name="currentQMS" value="no">
+                            <label for="qms-no">No</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="qms-informal" name="currentQMS" value="informal">
+                            <label for="qms-informal">Informal processes only</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Are you currently ISO 9001 certified?</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="iso-certified" name="isoCertified" value="yes">
+                            <label for="iso-certified">Yes, currently certified</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="iso-expired" name="isoCertified" value="expired">
+                            <label for="iso-expired">Previously certified (expired)</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="iso-never" name="isoCertified" value="no">
+                            <label for="iso-never">Never been certified</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="certificationBody">Current/Previous Certification Body (if applicable)</label>
+                    <input type="text" id="certificationBody" name="certificationBody" placeholder="e.g., BSI, SGS, DNV, etc.">
+                </div>
+
+                <div class="form-group">
+                    <label for="certExpiry">Certification Expiry Date (if applicable)</label>
+                    <input type="date" id="certExpiry" name="certExpiry">
+                </div>
+
+                <div class="form-group">
+                    <label>Which quality standards/frameworks do you currently follow? (Select all that apply)</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="std-iso9001" name="currentStandards" value="iso9001">
+                            <label for="std-iso9001">ISO 9001</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="std-iso14001" name="currentStandards" value="iso14001">
+                            <label for="std-iso14001">ISO 14001</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="std-iso45001" name="currentStandards" value="iso45001">
+                            <label for="std-iso45001">ISO 45001</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="std-iatf16949" name="currentStandards" value="iatf16949">
+                            <label for="std-iatf16949">IATF 16949</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="std-as9100" name="currentStandards" value="as9100">
+                            <label for="std-as9100">AS9100</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="std-iso13485" name="currentStandards" value="iso13485">
+                            <label for="std-iso13485">ISO 13485</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="std-fda" name="currentStandards" value="fda">
+                            <label for="std-fda">FDA/GMP</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="std-six-sigma" name="currentStandards" value="six-sigma">
+                            <label for="std-six-sigma">Six Sigma</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="std-lean" name="currentStandards" value="lean">
+                            <label for="std-lean">Lean Manufacturing</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="std-none" name="currentStandards" value="none">
+                            <label for="std-none">None</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Objectives -->
+            <div class="section">
+                <h2 class="section-title">Project Objectives & Goals</h2>
+                
+                <div class="form-group">
+                    <label>What is your primary goal for this ISO 9001 project? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="goal-initial" name="primaryGoal" value="initial-certification" required>
+                            <label for="goal-initial">Initial certification</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="goal-recert" name="primaryGoal" value="recertification">
+                            <label for="goal-recert">Recertification</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="goal-improve" name="primaryGoal" value="improvement">
+                            <label for="goal-improve">System improvement</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="goal-gap" name="primaryGoal" value="gap-analysis">
+                            <label for="goal-gap">Gap analysis only</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="goal-maintain" name="primaryGoal" value="maintenance">
+                            <label for="goal-maintain">Ongoing maintenance</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>What are your key drivers for pursuing ISO 9001? (Select all that apply)</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="driver-customer" name="keyDrivers" value="customer-requirement">
+                            <label for="driver-customer">Customer requirement</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="driver-tender" name="keyDrivers" value="tender-requirement">
+                            <label for="driver-tender">Tender/bidding requirement</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="driver-quality" name="keyDrivers" value="quality-improvement">
+                            <label for="driver-quality">Quality improvement</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="driver-efficiency" name="keyDrivers" value="operational-efficiency">
+                            <label for="driver-efficiency">Operational efficiency</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="driver-competitive" name="keyDrivers" value="competitive-advantage">
+                            <label for="driver-competitive">Competitive advantage</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="driver-regulatory" name="keyDrivers" value="regulatory-compliance">
+                            <label for="driver-regulatory">Regulatory compliance</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="driver-brand" name="keyDrivers" value="brand-reputation">
+                            <label for="driver-brand">Brand reputation</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="driver-cost" name="keyDrivers" value="cost-reduction">
+                            <label for="driver-cost">Cost reduction</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="targetDate">Target certification date</label>
+                    <input type="date" id="targetDate" name="targetDate">
+                    <div class="help-text">When would you like to achieve certification?</div>
+                </div>
+            </div>
+
+            <!-- Current Quality Processes -->
+            <div class="section">
+                <h2 class="section-title">Current Quality Processes & Documentation</h2>
+                
+                <div class="form-group">
+                    <label>Do you have documented quality procedures?</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="docs-comprehensive" name="documentationLevel" value="comprehensive">
+                            <label for="docs-comprehensive">Yes, comprehensive</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="docs-basic" name="documentationLevel" value="basic">
+                            <label for="docs-basic">Yes, basic level</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="docs-minimal" name="documentationLevel" value="minimal">
+                            <label for="docs-minimal">Minimal documentation</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="docs-none" name="documentationLevel" value="none">
+                            <label for="docs-none">No formal documentation</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Which quality processes do you currently have in place? (Select all that apply)</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="process-policy" name="currentProcesses" value="quality-policy">
+                            <label for="process-policy">Quality Policy & Objectives</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="process-planning" name="currentProcesses" value="quality-planning">
+                            <label for="process-planning">Quality Planning</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="process-control" name="currentProcesses" value="process-control">
+                            <label for="process-control">Process Control Procedures</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="process-inspection" name="currentProcesses" value="inspection-testing">
+                            <label for="process-inspection">Inspection & Testing</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="process-nonconformity" name="currentProcesses" value="nonconformity-management">
+                            <label for="process-nonconformity">Nonconformity Management</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="process-corrective" name="currentProcesses" value="corrective-action">
+                            <label for="process-corrective">Corrective Action Process</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="process-preventive" name="currentProcesses" value="preventive-action">
+                            <label for="process-preventive">Preventive Action Process</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="process-audit" name="currentProcesses" value="internal-audit">
+                            <label for="process-audit">Internal Audit Program</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="process-review" name="currentProcesses" value="management-review">
+                            <label for="process-review">Management Review</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="process-training" name="currentProcesses" value="training-competence">
+                            <label for="process-training">Training & Competence</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="process-supplier" name="currentProcesses" value="supplier-management">
+                            <label for="process-supplier">Supplier Management</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="process-customer" name="currentProcesses" value="customer-satisfaction">
+                            <label for="process-customer">Customer Satisfaction Monitoring</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>How do you currently measure quality performance? (Select all that apply)</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="measure-kpi" name="qualityMeasures" value="quality-kpis">
+                            <label for="measure-kpi">Quality KPIs/Metrics</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="measure-customer" name="qualityMeasures" value="customer-feedback">
+                            <label for="measure-customer">Customer feedback surveys</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="measure-defect" name="qualityMeasures" value="defect-tracking">
+                            <label for="measure-defect">Defect/error tracking</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="measure-process" name="qualityMeasures" value="process-monitoring">
+                            <label for="measure-process">Process monitoring</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="measure-supplier" name="qualityMeasures" value="supplier-performance">
+                            <label for="measure-supplier">Supplier performance</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="measure-none" name="qualityMeasures" value="none">
+                            <label for="measure-none">No formal measurement</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Requirements -->
+            <div class="section">
+                <h2 class="section-title">Service Requirements</h2>
+                
+                <div class="form-group">
+                    <label>What type of support do you need? (Select all that apply) <span class="required">*</span></label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="service-gap" name="serviceTypes" value="gap-analysis" required>
+                            <label for="service-gap">Gap Analysis</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="service-documentation" name="serviceTypes" value="documentation">
+                            <label for="service-documentation">Documentation Development</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="service-implementation" name="serviceTypes" value="implementation">
+                            <label for="service-implementation">System Implementation</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="service-training" name="serviceTypes" value="training">
+                            <label for="service-training">Staff Training</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="service-audit" name="serviceTypes" value="internal-audit">
+                            <label for="service-audit">Internal Audit Support</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="service-assessment" name="serviceTypes" value="pre-assessment">
+                            <label for="service-assessment">Pre-certification Assessment</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="service-ongoing" name="serviceTypes" value="ongoing-support">
+                            <label for="service-ongoing">Ongoing Maintenance Support</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="service-consulting" name="serviceTypes" value="general-consulting">
+                            <label for="service-consulting">General Quality Consulting</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Preferred delivery method</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="delivery-onsite" name="deliveryMethod" value="onsite">
+                            <label for="delivery-onsite">On-site only</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="delivery-remote" name="deliveryMethod" value="remote">
+                            <label for="delivery-remote">Remote only</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="delivery-hybrid" name="deliveryMethod" value="hybrid">
+                            <label for="delivery-hybrid">Hybrid (on-site + remote)</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="delivery-flexible" name="deliveryMethod" value="flexible">
+                            <label for="delivery-flexible">Flexible/no preference</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="budget">Estimated budget range</label>
+                    <select id="budget" name="budget">
+                        <option value="">Select budget range</option>
+                        <option value="under-10k">Under $10,000</option>
+                        <option value="10k-25k">$10,000 - $25,000</option>
+                        <option value="25k-50k">$25,000 - $50,000</option>
+                        <option value="50k-100k">$50,000 - $100,000</option>
+                        <option value="100k-250k">$100,000 - $250,000</option>
+                        <option value="250k+">$250,000+</option>
+                        <option value="not-sure">Not sure</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="urgency">Project urgency</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="urgency-asap" name="urgency" value="asap">
+                            <label for="urgency-asap">ASAP (within 1 month)</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="urgency-3months" name="urgency" value="3-months">
+                            <label for="urgency-3months">Within 3 months</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="urgency-6months" name="urgency" value="6-months">
+                            <label for="urgency-6months">Within 6 months</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="urgency-planning" name="urgency" value="planning">
+                            <label for="urgency-planning">Planning phase (6+ months)</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Challenges & Pain Points -->
+            <div class="section">
+                <h2 class="section-title">Challenges & Pain Points</h2>
+                
+                <div class="form-group">
+                    <label>What are your main quality-related challenges? (Select all that apply)</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="challenge-consistency" name="qualityChallenges" value="process-consistency">
+                            <label for="challenge-consistency">Lack of process consistency</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="challenge-documentation" name="qualityChallenges" value="poor-documentation">
+                            <label for="challenge-documentation">Poor or missing documentation</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="challenge-training" name="qualityChallenges" value="staff-training">
+                            <label for="challenge-training">Inadequate staff training</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="challenge-measurement" name="qualityChallenges" value="measurement-analysis">
+                            <label for="challenge-measurement">Lack of measurement & analysis</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="challenge-customer" name="qualityChallenges" value="customer-complaints">
+                            <label for="challenge-customer">High customer complaints</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="challenge-rework" name="qualityChallenges" value="rework-waste">
+                            <label for="challenge-rework">Excessive rework/waste</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="challenge-supplier" name="qualityChallenges" value="supplier-issues">
+                            <label for="challenge-supplier">Supplier quality issues</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="challenge-audit" name="qualityChallenges" value="audit-findings">
+                            <label for="challenge-audit">Recurring audit findings</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="challenge-resources" name="qualityChallenges" value="resource-constraints">
+                            <label for="challenge-resources">Resource constraints</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="challenge-culture" name="qualityChallenges" value="quality-culture">
+                            <label for="challenge-culture">Lack of quality culture</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="specificChallenges">Please describe any specific quality challenges you're facing</label>
+                    <textarea id="specificChallenges" name="specificChallenges" placeholder="Describe your specific quality challenges, pain points, or areas for improvement..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Have you had any previous failed attempts at ISO 9001 implementation?</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="failed-yes" name="previousFailures" value="yes">
+                            <label for="failed-yes">Yes</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="failed-no" name="previousFailures" value="no">
+                            <label for="failed-no">No</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="failureReasons">If yes, what were the main reasons for the previous failures?</label>
+                    <textarea id="failureReasons" name="failureReasons" placeholder="Describe what went wrong in previous attempts..."></textarea>
+                </div>
+            </div>
+
+            <!-- Organizational Readiness -->
+            <div class="section">
+                <h2 class="section-title">Organizational Readiness</h2>
+                
+                <div class="form-group">
+                    <label>What is the management commitment level for this ISO 9001 project?</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="commitment-high" name="managementCommitment" value="high">
+                            <label for="commitment-high">Very high - Full support</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="commitment-moderate" name="managementCommitment" value="moderate">
+                            <label for="commitment-moderate">Moderate support</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="commitment-limited" name="managementCommitment" value="limited">
+                            <label for="commitment-limited">Limited support</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="commitment-uncertain" name="managementCommitment" value="uncertain">
+                            <label for="commitment-uncertain">Uncertain</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Who will be the Quality Management Representative/Champion?</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="qmr-assigned" name="qmrStatus" value="assigned">
+                            <label for="qmr-assigned">Already assigned</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="qmr-identified" name="qmrStatus" value="identified">
+                            <label for="qmr-identified">Person identified</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="qmr-tbd" name="qmrStatus" value="tbd">
+                            <label for="qmr-tbd">To be determined</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>How many people can you dedicate to the ISO 9001 project?</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="team-1" name="projectTeamSize" value="1-person">
+                            <label for="team-1">1 person part-time</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="team-2-3" name="projectTeamSize" value="2-3-people">
+                            <label for="team-2-3">2-3 people part-time</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="team-dedicated" name="projectTeamSize" value="dedicated-team">
+                            <label for="team-dedicated">Dedicated project team</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="team-uncertain" name="projectTeamSize" value="uncertain">
+                            <label for="team-uncertain">Not yet determined</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>What is your organization's change readiness level?</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="change-ready" name="changeReadiness" value="ready">
+                            <label for="change-ready">Very ready for change</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="change-moderate" name="changeReadiness" value="moderate">
+                            <label for="change-moderate">Moderately ready</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="change-resistant" name="changeReadiness" value="resistant">
+                            <label for="change-resistant">Some resistance expected</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="change-uncertain" name="changeReadiness" value="uncertain">
+                            <label for="change-uncertain">Uncertain</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Information -->
+            <div class="section">
+                <h2 class="section-title">Technical Information</h2>
+                
+                <div class="form-group">
+                    <label>What is the complexity of your products/services?</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="complexity-simple" name="productComplexity" value="simple">
+                            <label for="complexity-simple">Simple/standardized</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="complexity-moderate" name="productComplexity" value="moderate">
+                            <label for="complexity-moderate">Moderate complexity</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="complexity-high" name="productComplexity" value="high">
+                            <label for="complexity-high">Highly complex</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="complexity-varied" name="productComplexity" value="varied">
+                            <label for="complexity-varied">Mixed complexity</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Do you have regulatory requirements specific to your industry?</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="regulatory-strict" name="regulatoryRequirements" value="strict">
+                            <label for="regulatory-strict">Yes, strict requirements</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="regulatory-some" name="regulatoryRequirements" value="some">
+                            <label for="regulatory-some">Some requirements</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="regulatory-minimal" name="regulatoryRequirements" value="minimal">
+                            <label for="regulatory-minimal">Minimal requirements</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="regulatory-none" name="regulatoryRequirements" value="none">
+                            <label for="regulatory-none">No specific requirements</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="regulatoryDetails">Please specify any regulatory requirements or standards that apply</label>
+                    <textarea id="regulatoryDetails" name="regulatoryDetails" placeholder="e.g., FDA, CE marking, specific industry standards..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Do you use any quality management software or systems?</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="software-comprehensive" name="qualitySoftware" value="comprehensive">
+                            <label for="software-comprehensive">Yes, comprehensive QMS software</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="software-basic" name="qualitySoftware" value="basic">
+                            <label for="software-basic">Basic software tools</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="software-spreadsheets" name="qualitySoftware" value="spreadsheets">
+                            <label for="software-spreadsheets">Mainly spreadsheets</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="software-none" name="qualitySoftware" value="none">
+                            <label for="software-none">No software tools</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="softwareDetails">If yes, please specify the software/systems you use</label>
+                    <input type="text" id="softwareDetails" name="softwareDetails" placeholder="e.g., SAP QM, MasterControl, TrackWise, etc.">
+                </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="section">
+                <h2 class="section-title">Contact Information</h2>
+                
+                <div class="form-group">
+                    <label for="contactName">Primary Contact Name <span class="required">*</span></label>
+                    <input type="text" id="contactName" name="contactName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="jobTitle">Job Title <span class="required">*</span></label>
+                    <input type="text" id="jobTitle" name="jobTitle" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+
+                <div class="form-group">
+                    <label for="companyAddress">Company Address</label>
+                    <textarea id="companyAddress" name="companyAddress" rows="3" placeholder="Full company address..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="preferredContact">Preferred Contact Method</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="contact-email" name="preferredContact" value="email">
+                            <label for="contact-email">Email</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="contact-phone" name="preferredContact" value="phone">
+                            <label for="contact-phone">Phone</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="contact-either" name="preferredContact" value="either">
+                            <label for="contact-either">Either</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Information -->
+            <div class="section">
+                <h2 class="section-title">Additional Information</h2>
+                
+                <div class="form-group">
+                    <label for="additionalComments">Additional comments or specific requirements</label>
+                    <textarea id="additionalComments" name="additionalComments" rows="4" placeholder="Please share any additional information about your project, specific requirements, concerns, or questions..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>How did you hear about our services?</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="source-google" name="referralSource" value="google">
+                            <label for="source-google">Google search</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="source-referral" name="referralSource" value="referral">
+                            <label for="source-referral">Referral</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="source-linkedin" name="referralSource" value="linkedin">
+                            <label for="source-linkedin">LinkedIn</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="source-website" name="referralSource" value="website">
+                            <label for="source-website">Company website</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="source-event" name="referralSource" value="event">
+                            <label for="source-event">Event/Conference</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="source-other" name="referralSource" value="other">
+                            <label for="source-other">Other</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="newsletter" name="newsletter" value="yes">
+                        <label for="newsletter">I would like to receive quality management tips and updates via email</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="consent" name="consent" value="yes" required>
+                        <label for="consent">I consent to being contacted regarding this inquiry <span class="required">*</span></label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit Section -->
+            <div class="submit-section">
+                <button type="submit" class="submit-btn">Submit Discovery Questionnaire</button>
+                <div class="help-text" style="margin-top: 15px;">
+                    We'll review your responses and get back to you within 24 hours with a customized proposal.
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('iso9001Form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect form data
+            const formData = new FormData(this);
+            const data = {};
+            
+            // Handle regular form fields
+            for (let [key, value] of formData.entries()) {
+                if (data[key]) {
+                    // If key exists, convert to array or add to existing array
+                    if (Array.isArray(data[key])) {
+                        data[key].push(value);
+                    } else {
+                        data[key] = [data[key], value];
+                    }
+                } else {
+                    data[key] = value;
+                }
+            }
+
+            // Handle checkboxes that might not be checked
+            const checkboxGroups = ['currentStandards', 'keyDrivers', 'currentProcesses', 'qualityMeasures', 'serviceTypes', 'qualityChallenges'];
+            checkboxGroups.forEach(group => {
+                const checkboxes = document.querySelectorAll(`input[name="${group}"]:checked`);
+                data[group] = Array.from(checkboxes).map(cb => cb.value);
+            });
+
+            // Show success message
+            alert('Thank you for your submission! We will review your requirements and contact you within 24 hours with a customized proposal for your ISO 9001 project.');
+            
+            // Log the data (in real implementation, this would be sent to a server)
+            console.log('Form Data:', data);
+            
+            // Optional: Reset form
+            // this.reset();
+        });
+
+        // Dynamic form interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show/hide fields based on certification status
+            const certifiedRadios = document.querySelectorAll('input[name="isoCertified"]');
+            const certBodyField = document.getElementById('certificationBody').parentElement;
+            const certExpiryField = document.getElementById('certExpiry').parentElement;
+            
+            function toggleCertificationFields() {
+                const selectedValue = document.querySelector('input[name="isoCertified"]:checked')?.value;
+                if (selectedValue === 'yes' || selectedValue === 'expired') {
+                    certBodyField.style.display = 'block';
+                    certExpiryField.style.display = 'block';
+                } else {
+                    certBodyField.style.display = 'none';
+                    certExpiryField.style.display = 'none';
+                }
+            }
+
+            certifiedRadios.forEach(radio => {
+                radio.addEventListener('change', toggleCertificationFields);
+            });
+
+            // Show/hide failure reasons field
+            const failureRadios = document.querySelectorAll('input[name="previousFailures"]');
+            const failureReasonsField = document.getElementById('failureReasons').parentElement;
+            
+            function toggleFailureReasons() {
+                const selectedValue = document.querySelector('input[name="previousFailures"]:checked')?.value;
+                if (selectedValue === 'yes') {
+                    failureReasonsField.style.display = 'block';
+                } else {
+                    failureReasonsField.style.display = 'none';
+                }
+            }
+
+            failureRadios.forEach(radio => {
+                radio.addEventListener('change', toggleFailureReasons);
+            });
+
+            // Show/hide software details field
+            const softwareRadios = document.querySelectorAll('input[name="qualitySoftware"]');
+            const softwareDetailsField = document.getElementById('softwareDetails').parentElement;
+            
+            function toggleSoftwareDetails() {
+                const selectedValue = document.querySelector('input[name="qualitySoftware"]:checked')?.value;
+                if (selectedValue === 'comprehensive' || selectedValue === 'basic') {
+                    softwareDetailsField.style.display = 'block';
+                } else {
+                    softwareDetailsField.style.display = 'none';
+                }
+            }
+
+            softwareRadios.forEach(radio => {
+                radio.addEventListener('change', toggleSoftwareDetails);
+            });
+
+            // Initialize field visibility
+            toggleCertificationFields();
+            toggleFailureReasons();
+            toggleSoftwareDetails();
+        });
+    </script>
+</body>
+</html>

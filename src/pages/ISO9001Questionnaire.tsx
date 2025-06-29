@@ -1,8 +1,8 @@
-import SecurityQuestionnaire from "@/components/SecurityQuestionnaire";
+import ISO9001Questionnaire from "@/components/ISO9001Questionnaire";
 import Navbar from "@/components/Navbar";
 import { useEffect } from "react";
 
-const Questionnaire = () => {
+const ISO9001QuestionnairePage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -11,10 +11,10 @@ const Questionnaire = () => {
     <div className="min-h-screen bg-[#f8f9fb]">
       <Navbar />
       <div className="pt-20">
-        <SecurityQuestionnaire />
+        <ISO9001Questionnaire />
       </div>
     </div>
   );
 };
 
-export default Questionnaire; 
+export default ISO9001QuestionnairePage; 

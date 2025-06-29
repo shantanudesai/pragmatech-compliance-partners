@@ -1,7 +1,7 @@
-
 import Navbar from "@/components/Navbar";
-import { Check, Shield, Target, AlertTriangle, CheckCircle2, Users, FileText } from "lucide-react";
+import { Check, Shield, Target, AlertTriangle, CheckCircle2, Users, FileText, ArrowRight } from "lucide-react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const services = [
   {
@@ -141,6 +141,75 @@ const services = [
       "Challenges implementing consent mechanisms",
       "Difficulty managing data subject rights requests"
     ]
+  },
+  {
+    anchor: "it-audit-assurance",
+    title: "IT Audit and Assurance Services",
+    description: "Comprehensive IT audits to evaluate governance, internal controls, and security processes for improved risk management.",
+    keyDeliverables: [
+      "Plan and scope IT audits based on client risk priorities and regulatory requirements",
+      "Evaluate IT governance, internal controls, and security processes for effectiveness",
+      "Audit applications, infrastructure, and third-party vendors for compliance gaps",
+      "Deliver detailed audit reports with actionable recommendations for improvement",
+      "Support remediation efforts and follow-up audits to ensure issue resolution"
+    ],
+    clientBenefits: [
+      "Improved IT governance and control effectiveness",
+      "Reduced operational risks through identified gaps",
+      "Enhanced client trust with audit-ready processes",
+      "Increased efficiency in IT operations and compliance"
+    ],
+    painPoints: [
+      "Lack of visibility into IT control weaknesses",
+      "Resource constraints for conducting thorough audits",
+      "Challenges meeting client or regulatory audit expectations"
+    ]
+  },
+  {
+    anchor: "healthcare-it-compliance",
+    title: "Healthcare IT Compliance (HIPAA & HITRUST)",
+    description: "Specialized compliance services for healthcare organizations to protect PHI and meet HIPAA and HITRUST standards.",
+    keyDeliverables: [
+      "Conduct a gap analysis to assess compliance with HIPAA regulations and HITRUST CSF requirements",
+      "Perform risk assessments to identify vulnerabilities in handling Protected Health Information (PHI)",
+      "Develop and implement policies for HIPAA Security, Privacy, and Breach Notification Rules",
+      "Provide training on HIPAA/HITRUST requirements and best practices for staff",
+      "Support HITRUST CSF certification preparation, including audit readiness and remediation"
+    ],
+    clientBenefits: [
+      "Ensured compliance with HIPAA and HITRUST standards, reducing regulatory risks",
+      "Enhanced protection of sensitive health information",
+      "Increased trust from patients and partners through certification",
+      "Streamlined processes for managing PHI securely"
+    ],
+    painPoints: [
+      "Complexity of navigating HIPAA and HITRUST requirements",
+      "Lack of in-house expertise to manage health data compliance",
+      "Challenges in preparing for HITRUST certification audits"
+    ]
+  },
+  {
+    anchor: "iso-9001",
+    title: "ISO 9001 Compliance",
+    description: "Quality Management System implementation to enhance product/service quality and achieve ISO 9001 certification.",
+    keyDeliverables: [
+      "Conduct a gap analysis to assess current quality management practices against ISO 9001 standards",
+      "Develop a tailored Quality Management System (QMS) with documented processes and procedures",
+      "Provide training on ISO 9001 principles and quality management best practices",
+      "Perform internal audits to ensure readiness for certification",
+      "Support certification audit preparation and post-audit corrective actions"
+    ],
+    clientBenefits: [
+      "Improved product and service quality consistency",
+      "Enhanced customer satisfaction and loyalty",
+      "Increased operational efficiency through streamlined processes",
+      "Competitive advantage with ISO 9001 certification"
+    ],
+    painPoints: [
+      "Inconsistent quality leading to customer complaints",
+      "Lack of structured processes for quality management",
+      "Challenges in achieving and maintaining certification"
+    ]
   }
 ];
 
@@ -241,6 +310,177 @@ const Services = () => {
                       </ul>
                     </div>
                   </div>
+
+                  {/* ISO 27001 ISMS Discovery Questionnaire CTA */}
+                  {service.anchor === 'iso-27001' && (
+                    <div className="mt-12 bg-gradient-to-r from-[#143066] to-blue-800 rounded-2xl shadow-lg p-8 text-white">
+                      <div className="text-center">
+                        <h3 className="text-2xl font-bold mb-4">Ready to Start Your ISMS Journey?</h3>
+                        <p className="text-blue-100 mb-6 leading-relaxed">
+                          Complete our comprehensive Information Security Management System (ISMS) Discovery Questionnaire to assess your current security posture and receive a tailored roadmap for ISO 27001 certification.
+                        </p>
+                        <Link
+                          to="/iso27001-questionnaire"
+                          className="inline-flex items-center gap-2 bg-white text-[#143066] font-semibold px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors shadow-md text-lg"
+                        >
+                          Start ISMS Assessment
+                          <ArrowRight size={20} />
+                        </Link>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* ISO 27701 Privacy Discovery Questionnaire CTA */}
+                  {service.anchor === 'iso-27701' && (
+                    <div className="mt-12 bg-gradient-to-r from-purple-600 to-blue-700 rounded-2xl shadow-lg p-8 text-white">
+                      <div className="text-center">
+                        <h3 className="text-2xl font-bold mb-4">Ready to Enhance Your Privacy Management?</h3>
+                        <p className="text-purple-100 mb-6 leading-relaxed">
+                          Complete our comprehensive Privacy Information Management System (PIMS) Discovery Questionnaire to assess your current privacy posture and receive a tailored roadmap for ISO 27701 certification.
+                        </p>
+                        <Link
+                          to="/iso27701-questionnaire"
+                          className="inline-flex items-center gap-2 bg-white text-purple-700 font-semibold px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors shadow-md text-lg"
+                        >
+                          Start Privacy Assessment
+                          <ArrowRight size={20} />
+                        </Link>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* ISO 42001 AI Governance Discovery Questionnaire CTA */}
+                  {service.anchor === 'iso-42001' && (
+                    <div className="mt-12 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl shadow-lg p-8 text-white">
+                      <div className="text-center">
+                        <h3 className="text-2xl font-bold mb-4">Ready to Govern Your AI Systems?</h3>
+                        <p className="text-blue-100 mb-6 leading-relaxed">
+                          Complete our comprehensive AI Management System (AIMS) Discovery Questionnaire to assess your current AI governance and receive a tailored roadmap for ISO 42001 implementation.
+                        </p>
+                        <Link
+                          to="/iso42001-questionnaire"
+                          className="inline-flex items-center gap-2 bg-white text-blue-700 font-semibold px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors shadow-md text-lg"
+                        >
+                          Start AI Governance Assessment
+                          <ArrowRight size={20} />
+                        </Link>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* GDPR Compliance Discovery Questionnaire CTA */}
+                  {service.anchor === 'gdpr' && (
+                    <div className="mt-12 bg-gradient-to-r from-green-600 to-emerald-700 rounded-2xl shadow-lg p-8 text-white">
+                      <div className="text-center">
+                        <h3 className="text-2xl font-bold mb-4">Ready to Achieve GDPR Compliance?</h3>
+                        <p className="text-green-100 mb-6 leading-relaxed">
+                          Complete our comprehensive GDPR Compliance Discovery Questionnaire to assess your current data protection practices and receive a tailored roadmap for full GDPR compliance.
+                        </p>
+                        <Link
+                          to="/gdpr-questionnaire"
+                          className="inline-flex items-center gap-2 bg-white text-green-700 font-semibold px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors shadow-md text-lg"
+                        >
+                          Start GDPR Assessment
+                          <ArrowRight size={20} />
+                        </Link>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* SOC 2 Compliance Discovery Questionnaire CTA */}
+                  {service.anchor === 'soc-2' && (
+                    <div className="mt-12 bg-gradient-to-r from-cyan-600 to-blue-700 rounded-2xl shadow-lg p-8 text-white">
+                      <div className="text-center">
+                        <h3 className="text-2xl font-bold mb-4">Ready to Achieve SOC 2 Compliance?</h3>
+                        <p className="text-cyan-100 mb-6 leading-relaxed">
+                          Complete our comprehensive SOC 2 Compliance Discovery Questionnaire to assess your current control environment and receive a tailored roadmap for SOC 2 attestation.
+                        </p>
+                        <Link
+                          to="/soc2-questionnaire"
+                          className="inline-flex items-center gap-2 bg-white text-cyan-700 font-semibold px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors shadow-md text-lg"
+                        >
+                          Start SOC 2 Assessment
+                          <ArrowRight size={20} />
+                        </Link>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* DPDP Act 2023 Compliance Discovery Questionnaire CTA */}
+                  {service.anchor === 'dpdp-act-2023' && (
+                    <div className="mt-12 bg-gradient-to-r from-orange-600 to-red-700 rounded-2xl shadow-lg p-8 text-white">
+                      <div className="text-center">
+                        <h3 className="text-2xl font-bold mb-4">Ready for India DPDP Act Compliance?</h3>
+                        <p className="text-orange-100 mb-6 leading-relaxed">
+                          Complete our comprehensive India DPDP Act 2023 Compliance Discovery Questionnaire to assess your current data protection practices and receive a tailored roadmap for compliance.
+                        </p>
+                        <Link
+                          to="/dpdp-questionnaire"
+                          className="inline-flex items-center gap-2 bg-white text-orange-700 font-semibold px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors shadow-md text-lg"
+                        >
+                          Start DPDP Assessment
+                          <ArrowRight size={20} />
+                        </Link>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* IT Audit and Assurance Discovery Questionnaire CTA */}
+                  {service.anchor === 'it-audit-assurance' && (
+                    <div className="mt-12 bg-gradient-to-r from-gray-600 to-slate-700 rounded-2xl shadow-lg p-8 text-white">
+                      <div className="text-center">
+                        <h3 className="text-2xl font-bold mb-4">Ready to Strengthen Your IT Controls?</h3>
+                        <p className="text-gray-100 mb-6 leading-relaxed">
+                          Complete our comprehensive IT Audit and Assurance Discovery Questionnaire to assess your current IT governance and receive a tailored roadmap for enhanced IT controls and assurance.
+                        </p>
+                        <Link
+                          to="/it-audit-questionnaire"
+                          className="inline-flex items-center gap-2 bg-white text-gray-700 font-semibold px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors shadow-md text-lg"
+                        >
+                          Start IT Audit Assessment
+                          <ArrowRight size={20} />
+                        </Link>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Healthcare IT Compliance Discovery Questionnaire CTA */}
+                  {service.anchor === 'healthcare-it-compliance' && (
+                    <div className="mt-12 bg-gradient-to-r from-rose-600 to-pink-700 rounded-2xl shadow-lg p-8 text-white">
+                      <div className="text-center">
+                        <h3 className="text-2xl font-bold mb-4">Ready to Secure Your Healthcare Data?</h3>
+                        <p className="text-rose-100 mb-6 leading-relaxed">
+                          Complete our comprehensive Healthcare IT Compliance Discovery Questionnaire to assess your current HIPAA and HITRUST posture and receive a tailored roadmap for healthcare compliance.
+                        </p>
+                        <Link
+                          to="/healthcare-it-questionnaire"
+                          className="inline-flex items-center gap-2 bg-white text-rose-700 font-semibold px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors shadow-md text-lg"
+                        >
+                          Start Healthcare Compliance Assessment
+                          <ArrowRight size={20} />
+                        </Link>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* ISO 9001 QMS Discovery Questionnaire CTA */}
+                  {service.anchor === 'iso-9001' && (
+                    <div className="mt-12 bg-gradient-to-r from-amber-600 to-orange-700 rounded-2xl shadow-lg p-8 text-white">
+                      <div className="text-center">
+                        <h3 className="text-2xl font-bold mb-4">Ready to Transform Your Quality Management?</h3>
+                        <p className="text-amber-100 mb-6 leading-relaxed">
+                          Complete our comprehensive Quality Management System (QMS) Discovery Questionnaire to assess your current quality processes and receive a tailored roadmap for ISO 9001 certification.
+                        </p>
+                        <Link
+                          to="/iso9001-questionnaire"
+                          className="inline-flex items-center gap-2 bg-white text-amber-700 font-semibold px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors shadow-md text-lg"
+                        >
+                          Start QMS Assessment
+                          <ArrowRight size={20} />
+                        </Link>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </section>
             ))}
