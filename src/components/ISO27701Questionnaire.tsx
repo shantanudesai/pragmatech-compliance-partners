@@ -14,6 +14,7 @@ import { sendISO27701QuestionnaireResponse } from '@/services/emailService';
 const ISO27701Questionnaire = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error' | null; message: string }>({ type: null, message: '' });
+  const [consent, setConsent] = useState(false);
   
   const [formData, setFormData] = useState<ISO27701FormData>({
     // Contact Information
@@ -47,6 +48,7 @@ const ISO27701Questionnaire = () => {
     privacyRegulations: [],
     dpoStatus: '',
     additionalInfo: '',
+    contactEmail: '',
   });
 
   const handleCheckboxChange = (field: keyof ISO27701FormData, value: string, checked: boolean) => {
@@ -74,6 +76,12 @@ const ISO27701Questionnaire = () => {
       return;
     }
 
+    // Validate consent
+    if (!consent) {
+      setSubmitStatus({ type: 'error', message: 'Please provide consent to be contacted regarding this inquiry.' });
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: '' });
 
@@ -98,6 +106,33 @@ const ISO27701Questionnaire = () => {
       setIsSubmitting(false);
     }
   };
+
+  // Show success screen if submitted successfully
+  if (submitStatus.type === 'success') {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50">
+        <div className="max-w-3xl mx-auto px-6 py-16">
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-12 text-center">
+            <div className="mb-6">
+              <div className="mx-auto w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+                <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">Thank You!</h2>
+              <p className="text-gray-600">{submitStatus.message}</p>
+            </div>
+            <Button 
+              onClick={() => window.location.href = '/services'}
+              className="bg-purple-600 hover:bg-purple-700"
+            >
+              Return to Services
+            </Button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50">
@@ -574,6 +609,23 @@ const ISO27701Questionnaire = () => {
                 </CardContent>
               </Card>
 
+              {/* Consent Checkbox */}
+              <Card>
+                <CardContent className="pt-6">
+                  <div className="flex items-center space-x-2">
+                    <Checkbox
+                      id="consent"
+                      checked={consent}
+                      onCheckedChange={(checked) => setConsent(checked as boolean)}
+                      required
+                    />
+                    <Label htmlFor="consent" className="text-sm">
+                      I consent to being contacted regarding this inquiry *
+                    </Label>
+                  </div>
+                </CardContent>
+              </Card>
+
               {/* Submit Button */}
               <div className="flex justify-center pt-8">
                 <Button 
@@ -586,10 +638,10 @@ const ISO27701Questionnaire = () => {
               </div>
 
               {/* Status Messages */}
-              {submitStatus.type && (
+              {submitStatus.type === 'error' && (
                 <div className="mt-6">
-                  <Alert className={submitStatus.type === 'success' ? 'border-green-200 bg-green-50' : 'border-red-200 bg-red-50'}>
-                    <AlertDescription className={submitStatus.type === 'success' ? 'text-green-800' : 'text-red-800'}>
+                  <Alert className="border-red-200 bg-red-50">
+                    <AlertDescription className="text-red-800">
                       {submitStatus.message}
                     </AlertDescription>
                   </Alert>

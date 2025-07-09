@@ -46,6 +46,7 @@ const ITAuditQuestionnaire: React.FC = () => {
     type: 'idle' | 'success' | 'error';
     message?: string;
   }>({ type: 'idle' });
+  const [consent, setConsent] = useState(false);
 
   const handleInputChange = (name: keyof ITAuditFormData, value: string) => {
     setFormData(prev => ({ ...prev, [name]: value }));
@@ -78,6 +79,15 @@ const ITAuditQuestionnaire: React.FC = () => {
       setSubmitStatus({ 
         type: 'error', 
         message: 'Please enter a valid email address.' 
+      });
+      return;
+    }
+
+    // Validate consent
+    if (!consent) {
+      setSubmitStatus({ 
+        type: 'error', 
+        message: 'Please provide consent to be contacted regarding this inquiry.' 
       });
       return;
     }
@@ -885,6 +895,23 @@ const ITAuditQuestionnaire: React.FC = () => {
                       onChange={(e) => handleInputChange('auditConcerns', e.target.value)}
                       rows={4}
                     />
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Consent Checkbox */}
+              <Card>
+                <CardContent className="pt-6">
+                  <div className="flex items-center space-x-2">
+                    <Checkbox
+                      id="consent"
+                      checked={consent}
+                      onCheckedChange={(checked) => setConsent(checked as boolean)}
+                      required
+                    />
+                    <Label htmlFor="consent" className="text-sm">
+                      I consent to being contacted regarding this inquiry *
+                    </Label>
                   </div>
                 </CardContent>
               </Card>

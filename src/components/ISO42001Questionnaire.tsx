@@ -46,8 +46,13 @@ const ISO42001Questionnaire: React.FC = () => {
     contactEmail: ''
   });
 
+  const [consent, setConsent] = useState(false);
+
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: 'idle' | 'success' | 'error';
+    message?: string;
+  }>({ type: 'idle' });
 
   const handleInputChange = (name: keyof ISO42001FormData, value: string) => {
     setFormData(prev => ({ ...prev, [name]: value }));
@@ -67,41 +72,73 @@ const ISO42001Questionnaire: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Basic validation
-    if (!formData.fullName || !formData.email || !formData.contactEmail || !formData.industry) {
-      alert('Please fill in all required fields.');
+    // Basic validation - only check for fields that exist and are required
+    if (!formData.fullName || !formData.email || !formData.industry) {
+      setSubmitStatus({ type: 'error', message: 'Please fill in all required fields.' });
       return;
     }
     
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email) || !emailRegex.test(formData.contactEmail)) {
-      alert('Please enter valid email addresses.');
+    if (!emailRegex.test(formData.email)) {
+      setSubmitStatus({ type: 'error', message: 'Please enter a valid email address.' });
+      return;
+    }
+
+    // Validate consent
+    if (!consent) {
+      setSubmitStatus({ type: 'error', message: 'Please provide consent to be contacted regarding this inquiry.' });
       return;
     }
     
     setIsSubmitting(true);
-    setSubmitStatus('idle');
+    setSubmitStatus({ type: 'idle' });
     
     try {
-      await sendISO42001QuestionnaireResponse(formData);
-      setSubmitStatus('success');
-      // Reset form
-      setFormData({
-        fullName: '', email: '', company: '', industry: '',
-        primaryReason: '', primaryReasonOther: '', aiGovernanceObjectives: [], aiGovernanceObjectivesOther: '',
-        aiAdoptionStage: '', executiveSponsorship: '', aiSystemsInUse: [], aiDevelopmentApproach: '',
-        aiRisksConcerns: [], currentAiGovernanceMaturity: '', desiredAimsScope: '', targetImplementationTimeline: '',
-        estimatedBudget: '', specificAiRegulations: [], keyStakeholders: [], aiImpactAssessmentNeeds: [],
-        additionalInformation: '', contactEmail: ''
+      // Set contactEmail to email value for backend compatibility
+      const submissionData = { ...formData, contactEmail: formData.email };
+      await sendISO42001QuestionnaireResponse(submissionData);
+      setSubmitStatus({ 
+        type: 'success', 
+        message: 'Thank you! Your questionnaire has been submitted successfully. We\'ll be in touch soon.' 
       });
     } catch (error) {
       console.error('Error submitting questionnaire:', error);
-      setSubmitStatus('error');
+      setSubmitStatus({ 
+        type: 'error', 
+        message: 'There was an error submitting your questionnaire. Please try again.' 
+      });
     } finally {
       setIsSubmitting(false);
     }
   };
+
+  // Show success screen if submitted successfully
+  if (submitStatus.type === 'success') {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+        <div className="max-w-3xl mx-auto px-6 py-16">
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-12 text-center">
+            <div className="mb-6">
+              <div className="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">Thank You!</h2>
+              <p className="text-gray-600">{submitStatus.message}</p>
+            </div>
+            <Button 
+              onClick={() => window.location.href = '/services'}
+              className="bg-blue-600 hover:bg-blue-700"
+            >
+              Return to Services
+            </Button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-4 sm:px-6 lg:px-8">
@@ -117,15 +154,9 @@ const ISO42001Questionnaire: React.FC = () => {
           </CardHeader>
           
           <CardContent className="p-8">
-            {submitStatus === 'success' && (
-              <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-md">
-                <p className="text-green-800">Thank you! Your questionnaire has been submitted successfully. We'll be in touch soon.</p>
-              </div>
-            )}
-            
-            {submitStatus === 'error' && (
+            {submitStatus.type === 'error' && (
               <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-md">
-                <p className="text-red-800">There was an error submitting your questionnaire. Please try again.</p>
+                <p className="text-red-800">{submitStatus.message}</p>
               </div>
             )}
 
@@ -562,6 +593,21 @@ const ISO42001Questionnaire: React.FC = () => {
                       onChange={(e) => handleInputChange('additionalInformation', e.target.value)}
                     />
                   </div>
+                </div>
+              </div>
+
+              {/* Consent Checkbox */}
+              <div className="bg-gray-50 p-6 rounded-lg">
+                <div className="flex items-center space-x-2">
+                  <Checkbox
+                    id="consent"
+                    checked={consent}
+                    onCheckedChange={(checked) => setConsent(checked as boolean)}
+                    required
+                  />
+                  <Label htmlFor="consent" className="text-sm">
+                    I consent to being contacted regarding this inquiry *
+                  </Label>
                 </div>
               </div>
 
