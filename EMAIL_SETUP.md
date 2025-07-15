@@ -12,7 +12,7 @@ The questionnaire is currently configured to send responses to your email using 
 ### Step 2: Create a New Form
 1. In your Formspree dashboard, click "New Form"
 2. Enter form name: "Discovery Questionnaire"
-3. Set the email to: `pragmatechcompliancepartners@gmail.com`
+3. Set the email to: `contact@pragmatechcompliance.com`
 4. Copy the form endpoint URL (it will look like: `https://formspree.io/f/xxxxxxxx`)
 
 ### Step 3: Update the Code
@@ -49,7 +49,7 @@ After setup, test the form by:
 
 ## Backup Method
 
-If Formspree fails, the code includes error handling that displays a message to contact you directly at `pragmatechcompliancepartners@gmail.com`.
+If Formspree fails, the code includes error handling that displays a message to contact you directly at `contact@pragmatechcompliance.com`.
 
 ## Cost
 

@@ -126,7 +126,7 @@ END OF QUESTIONNAIRE SUBMISSION
     console.error('Email sending failed:', error);
     return { 
       success: false, 
-      message: 'Failed to submit questionnaire. Please try again or contact us directly at pragmatechcompliancepartners@gmail.com',
+      message: 'Failed to submit questionnaire. Please try again or contact us directly at contact@pragmatechcompliance.com',
       error 
     };
   }
@@ -164,7 +164,7 @@ export const sendContactMessage = async (contactData: ContactFormData) => {
     console.error('Contact form submission failed:', error);
     return { 
       success: false, 
-      message: 'Failed to send message. Please try again or email us directly at pragmatechcompliancepartners@gmail.com',
+      message: 'Failed to send message. Please try again or email us directly at contact@pragmatechcompliance.com',
       error 
     };
   }
@@ -188,7 +188,7 @@ Best regards,
 ${contactInfo.name}
   `);
   
-  return `mailto:pragmatechcompliancepartners@gmail.com?subject=${subject}&body=${body}`;
+  return `mailto:contact@pragmatechcompliance.com?subject=${subject}&body=${body}`;
 };
 
 // ISO 9001 questionnaire email service
@@ -340,7 +340,7 @@ END OF ISO 9001 QUESTIONNAIRE SUBMISSION
     console.error('Email sending failed:', error);
     return { 
       success: false, 
-      message: 'Failed to submit questionnaire. Please try again or contact us directly at pragmatechcompliancepartners@gmail.com',
+      message: 'Failed to submit questionnaire. Please try again or contact us directly at contact@pragmatechcompliance.com',
       error 
     };
   }
@@ -443,7 +443,7 @@ END OF ISO 27701 QUESTIONNAIRE SUBMISSION
     console.error('Email sending failed:', error);
     return { 
       success: false, 
-      message: 'Failed to submit questionnaire. Please try again or contact us directly at pragmatechcompliancepartners@gmail.com',
+      message: 'Failed to submit questionnaire. Please try again or contact us directly at contact@pragmatechcompliance.com',
       error 
     };
   }
@@ -551,7 +551,7 @@ END OF ISO 42001 QUESTIONNAIRE SUBMISSION
     console.error('Email sending failed:', error);
     return { 
       success: false, 
-      message: 'Failed to submit questionnaire. Please try again or contact us directly at pragmatechcompliancepartners@gmail.com',
+      message: 'Failed to submit questionnaire. Please try again or contact us directly at contact@pragmatechcompliance.com',
       error 
     };
   }
@@ -655,7 +655,7 @@ END OF GDPR QUESTIONNAIRE SUBMISSION
     console.error('Email sending failed:', error);
     return { 
       success: false, 
-      message: 'Failed to submit questionnaire. Please try again or contact us directly at pragmatechcompliancepartners@gmail.com',
+      message: 'Failed to submit questionnaire. Please try again or contact us directly at contact@pragmatechcompliance.com',
       error 
     };
   }
@@ -766,7 +766,7 @@ END OF SOC 2 QUESTIONNAIRE SUBMISSION
     console.error('Email sending failed:', error);
     return { 
       success: false, 
-      message: 'Failed to submit questionnaire. Please try again or contact us directly at pragmatechcompliancepartners@gmail.com',
+      message: 'Failed to submit questionnaire. Please try again or contact us directly at contact@pragmatechcompliance.com',
       error 
     };
   }
@@ -878,7 +878,7 @@ END OF DPDP ACT QUESTIONNAIRE SUBMISSION
     console.error('Email sending failed:', error);
     return { 
       success: false, 
-      message: 'Failed to submit questionnaire. Please try again or contact us directly at pragmatechcompliancepartners@gmail.com',
+      message: 'Failed to submit questionnaire. Please try again or contact us directly at contact@pragmatechcompliance.com',
       error 
     };
   }
@@ -993,7 +993,7 @@ END OF IT AUDIT QUESTIONNAIRE SUBMISSION
     console.error('Email sending failed:', error);
     return { 
       success: false, 
-      message: 'Failed to submit questionnaire. Please try again or contact us directly at pragmatechcompliancepartners@gmail.com',
+      message: 'Failed to submit questionnaire. Please try again or contact us directly at contact@pragmatechcompliance.com',
       error 
     };
   }
@@ -1112,7 +1112,7 @@ END OF HEALTHCARE IT COMPLIANCE QUESTIONNAIRE SUBMISSION
     console.error('Email sending failed:', error);
     return { 
       success: false, 
-      message: 'Failed to submit questionnaire. Please try again or contact us directly at pragmatechcompliancepartners@gmail.com',
+      message: 'Failed to submit questionnaire. Please try again or contact us directly at contact@pragmatechcompliance.com',
       error 
     };
   }

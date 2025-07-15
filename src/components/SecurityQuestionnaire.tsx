@@ -120,7 +120,7 @@ const SecurityQuestionnaire = () => {
       console.error('Submission error:', error);
       setSubmitStatus({ 
         type: 'error', 
-        message: 'Failed to submit questionnaire. Please try again or contact us directly at pragmatechcompliancepartners@gmail.com' 
+        message: 'Failed to submit questionnaire. Please try again or contact us directly at contact@pragmatechcompliance.com' 
       });
     } finally {
       setIsSubmitting(false);
