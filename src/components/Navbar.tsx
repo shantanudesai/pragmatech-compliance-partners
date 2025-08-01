@@ -7,6 +7,7 @@ import { useState } from "react";
 const navLinks = [
   { name: "Home", path: "/" },
   { name: "Services", path: "/services" },
+  { name: "Blog", path: "/blog" },
   { name: "About", path: "/about" },
   { name: "Contact", path: "/contact" },
 ];
@@ -20,13 +21,28 @@ const Navbar = () => {
   return (
     <nav className="w-full bg-white border-b border-gray-200 shadow-sm fixed top-0 z-30">
       <div className="container max-w-6xl mx-auto flex items-center justify-between h-16 px-4 sm:px-6">
-        {/* Logo - responsive text sizing */}
+        {/* Logo */}
         <Link 
           to="/" 
-          className="font-black text-sm sm:text-lg md:text-xl tracking-tight text-[#143066] hover:text-blue-700 transition-colors"
+          className="flex items-center hover:opacity-80 transition-opacity"
         >
-          <span className="block sm:hidden">Pragmatech</span>
-          <span className="hidden sm:block">Pragmatech Compliance Partners</span>
+          <div className="flex items-center space-x-3">
+            {/* Logo Image */}
+            <img 
+              src="/logo.png" 
+              alt="Pragmatech Logo" 
+              className="h-10 w-auto"
+            />
+            {/* Company Name */}
+            <div className="hidden sm:block">
+              <div className="text-lg font-bold text-gray-900 leading-tight">PRAGMATECH</div>
+              <div className="text-sm text-gray-600 leading-tight">COMPLIANCE PARTNERS</div>
+            </div>
+            {/* Mobile: Just show logo */}
+            <div className="sm:hidden">
+              <div className="text-sm font-bold text-gray-900">PRAGMATECH</div>
+            </div>
+          </div>
         </Link>
 
         {/* Desktop Navigation */}

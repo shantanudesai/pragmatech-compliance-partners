@@ -8,6 +8,8 @@ import Index from "./pages/Index";
 import Services from "./pages/Services";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Blog from "./pages/Blog";
+import BlogPostPage from "./pages/blog/[slug]";
 import Questionnaire from "./pages/Questionnaire";
 import ISO9001QuestionnairePage from "./pages/ISO9001Questionnaire";
 import ISO27701QuestionnairePage from "./pages/ISO27701Questionnaire";
@@ -31,6 +33,8 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/iso27001-questionnaire" element={<Questionnaire />} />
