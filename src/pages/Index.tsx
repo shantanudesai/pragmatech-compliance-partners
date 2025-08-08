@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import ServiceCard from "@/components/ServiceCard";
 import { ShieldCheck, Lock, FileCode, FileSearch, Gavel, FileLock2, ArrowRight, SearchCheck, Heart, Award } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useRef } from "react";
 
 const serviceData = [
   {
@@ -16,7 +17,7 @@ const serviceData = [
       "Employee awareness training",
       "Audit preparation & support",
     ],
-    link: "/services#iso-27001"
+    link: "/services/iso-27001"
   },
   {
     icon: <Lock className="text-emerald-600" />,
@@ -28,7 +29,7 @@ const serviceData = [
       "Data mapping & impact assessment",
       "Privacy framework compliance",
     ],
-    link: "/services#iso-27701"
+    link: "/services/iso-27701"
   },
   {
     icon: <FileCode className="text-orange-600" />,
@@ -40,7 +41,7 @@ const serviceData = [
       "Bias monitoring & reporting",
       "Compliant documentation"
     ],
-    link: "/services#iso-42001"
+    link: "/services/iso-42001"
   },
   {
     icon: <FileSearch className="text-indigo-600" />,
@@ -52,7 +53,7 @@ const serviceData = [
       "Documentation and process setup",
       "Audit support"
     ],
-    link: "/services#soc-2"
+    link: "/services/soc-2"
   },
   {
     icon: <Gavel className="text-purple-600" />,
@@ -64,7 +65,7 @@ const serviceData = [
       "Staff privacy awareness",
       "Documentation & policy development"
     ],
-    link: "/services#gdpr"
+    link: "/services/gdpr"
   },
   {
     icon: <FileLock2 className="text-teal-600" />,
@@ -76,7 +77,7 @@ const serviceData = [
       "Consent management processes",
       "Data subject rights implementation"
     ],
-    link: "/services#dpdp-act-2023"
+    link: "/services/dpdp-act-2023"
   },
   {
     icon: <SearchCheck className="text-rose-600" />,
@@ -88,7 +89,7 @@ const serviceData = [
       "Application & infrastructure audits",
       "Detailed reporting & remediation support"
     ],
-    link: "/services#it-audit-assurance"
+    link: "/services/it-audit-assurance"
   },
   {
     icon: <Heart className="text-pink-600" />,
@@ -100,7 +101,7 @@ const serviceData = [
       "HITRUST CSF certification support",
       "Breach notification & compliance management"
     ],
-    link: "/services#healthcare-it-compliance"
+    link: "/services/healthcare-it-compliance"
   },
   {
     icon: <Award className="text-amber-600" />,
@@ -112,73 +113,81 @@ const serviceData = [
       "Internal audits & certification prep",
       "Continuous improvement framework"
     ],
-    link: "/services#iso-9001"
+    link: "/services/iso-9001"
   },
 ];
 
-const Index = () => (
-  <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
-    <Navbar />
-    <main className="pt-24 pb-20">
-      {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
-        <div className="text-center max-w-4xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 tracking-tight leading-tight">
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Pragmatech
-            </span>
-            <br />
-            <span className="text-gray-800">Compliance Partners</span>
-          </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-4 font-light">
-            Your partner for seamless ISO, SOC, GDPR, and AI governance compliance.
-          </p>
-          <p className="text-base sm:text-lg md:text-xl text-gray-500 mb-12 font-light">
-            Consulting tailored for businesses seeking global trust and regulatory confidence.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
-            <Link 
-              to="/services" 
-              className="group inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300 text-lg"
-            >
-              Explore Services
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link 
-              to="/contact" 
-              className="inline-flex items-center justify-center px-8 py-4 bg-white border-2 border-gray-200 text-gray-800 font-semibold rounded-full shadow-lg hover:border-blue-200 hover:shadow-xl transition-all duration-300 text-lg"
-            >
-              Get In Touch
-            </Link>
-          </div>
-        </div>
-      </section>
+const Index = () => {
+  const servicesRef = useRef<HTMLDivElement>(null);
 
-      {/* Services Preview */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Our Compliance Expertise
-          </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-            Comprehensive solutions to help your organization meet global compliance standards with confidence
-          </p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {serviceData.map((d, i) => (
-            <ServiceCard
-              key={d.title}
-              icon={d.icon}
-              title={d.title}
-              description={d.description}
-              bullets={d.bullets}
-              link={d.link}
-            />
-          ))}
-        </div>
-      </section>
-    </main>
-  </div>
-);
+  const scrollToServices = () => {
+    servicesRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
+      <Navbar />
+      <main className="pt-24 pb-20">
+        {/* Hero Section */}
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 tracking-tight leading-tight">
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Pragmatech
+              </span>
+              <br />
+              <span className="text-gray-800">Compliance Partners</span>
+            </h1>
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-4 font-light">
+              Your partner for seamless ISO, SOC, GDPR, and AI governance compliance.
+            </p>
+            <p className="text-base sm:text-lg md:text-xl text-gray-500 mb-12 font-light">
+              Consulting tailored for businesses seeking global trust and regulatory confidence.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
+              <button 
+                onClick={scrollToServices}
+                className="group inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300 text-lg"
+              >
+                Explore Services
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+              <Link 
+                to="/contact" 
+                className="inline-flex items-center justify-center px-8 py-4 bg-white border-2 border-gray-200 text-gray-800 font-semibold rounded-full shadow-lg hover:border-blue-200 hover:shadow-xl transition-all duration-300 text-lg"
+              >
+                Get In Touch
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Services Preview */}
+        <section ref={servicesRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Our Compliance Expertise
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+              Comprehensive solutions to help your organization meet global compliance standards with confidence
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {serviceData.map((d, i) => (
+              <ServiceCard
+                key={d.title}
+                icon={d.icon}
+                title={d.title}
+                description={d.description}
+                bullets={d.bullets}
+                link={d.link}
+              />
+            ))}
+          </div>
+        </section>
+      </main>
+    </div>
+  );
+};
 
 export default Index;

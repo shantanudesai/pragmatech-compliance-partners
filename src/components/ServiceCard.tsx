@@ -1,6 +1,7 @@
 
 import { ReactNode } from "react";
 import { Check, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface ServiceCardProps {
   icon: ReactNode;
@@ -38,13 +39,13 @@ const ServiceCard = ({
       ))}
     </ul>
     
-    <a
-      href={link}
+    <Link
+      to={link}
       className="group/link inline-flex items-center justify-center w-full px-6 py-3 bg-gray-50 hover:bg-blue-600 text-gray-900 hover:text-white font-semibold rounded-xl transition-all duration-300 border border-gray-200 hover:border-blue-600 mt-auto"
     >
       Learn More
       <ArrowRight className="ml-2 h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
-    </a>
+    </Link>
   </div>
 );
 

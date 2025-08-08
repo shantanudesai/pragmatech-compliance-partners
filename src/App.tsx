@@ -10,6 +10,15 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
 import BlogPostPage from "./pages/blog/[slug]";
+import ISO27001Service from "./pages/services/ISO27001Service";
+import ISO27701Service from "./pages/services/ISO27701Service";
+import ISO42001Service from "./pages/services/ISO42001Service";
+import SOC2Service from "./pages/services/SOC2Service";
+import GDPRService from "./pages/services/GDPRService";
+import DPDPService from "./pages/services/DPDPService";
+import ITAuditService from "./pages/services/ITAuditService";
+import HealthcareITService from "./pages/services/HealthcareITService";
+import ISO9001Service from "./pages/services/ISO9001Service";
 import Questionnaire from "./pages/Questionnaire";
 import ISO9001QuestionnairePage from "./pages/ISO9001Questionnaire";
 import ISO27701QuestionnairePage from "./pages/ISO27701Questionnaire";
@@ -33,6 +42,15 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/services/iso-27001" element={<ISO27001Service />} />
+          <Route path="/services/iso-27701" element={<ISO27701Service />} />
+          <Route path="/services/iso-42001" element={<ISO42001Service />} />
+          <Route path="/services/soc-2" element={<SOC2Service />} />
+          <Route path="/services/gdpr" element={<GDPRService />} />
+          <Route path="/services/dpdp-act-2023" element={<DPDPService />} />
+          <Route path="/services/it-audit-assurance" element={<ITAuditService />} />
+          <Route path="/services/healthcare-it-compliance" element={<HealthcareITService />} />
+          <Route path="/services/iso-9001" element={<ISO9001Service />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/about" element={<About />} />
