@@ -13,7 +13,7 @@ export const blogPosts: BlogPost[] = [
     slug: 'ai-model-vs-solution-lifecycle',
     title: 'Model vs. Solution: Why the Distinction Matters in AI Lifecycle Planning',
     author: 'Pragmatech Team',
-    date: '2025-01-15',
+    date: '2025-08-24',
     description: "Understanding the critical difference between AI model and AI solution lifecycles for better compliance, documentation, and audit readiness.",
     heroImage: '/logosmall.png',
     readingTime: '8 min read',
