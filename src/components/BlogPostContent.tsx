@@ -138,6 +138,643 @@ const ActionStep = ({ icon: Icon, title, description }: { icon: any, title: stri
   </div>
 );
 
+// RBI FREE-AI Framework Blog Post Component
+const RBIFreeAIPost: React.FC<{ post: any }> = ({ post }) => {
+  const frameworkData = {
+    sutras: [
+      { title: "Trust is the Foundation", description: "Building unshakeable confidence in AI systems through transparency and reliability" },
+      { title: "People First", description: "Ensuring AI serves humanity, not the other way around" },
+      { title: "Innovation Over Restraint", description: "Encouraging responsible innovation while managing risks" },
+      { title: "Fairness and Equity", description: "Promoting inclusive AI that serves all segments of society" },
+      { title: "Accountability", description: "Clear ownership and responsibility for AI decisions and outcomes" },
+      { title: "Understandable by Design", description: "Making AI systems explainable and interpretable" },
+      { title: "Safety, Resilience, Sustainability", description: "Building robust AI systems for long-term stability" }
+    ],
+    pillars: [
+      { title: "Infrastructure", count: "5 recommendations", description: "Building foundational AI capabilities and shared resources" },
+      { title: "Policy", count: "4 recommendations", description: "Adaptive regulatory frameworks and guidelines" },
+      { title: "Capacity", count: "4 recommendations", description: "Building skills and institutional capabilities" },
+      { title: "Governance", count: "5 recommendations", description: "Board-level oversight and management frameworks" },
+      { title: "Protection", count: "4 recommendations", description: "Consumer and systemic risk safeguards" },
+      { title: "Assurance", count: "4 recommendations", description: "Compliance, auditing, and disclosure mechanisms" }
+    ]
+  };
+
+  return (
+    <main className="min-h-screen bg-gradient-to-b from-white to-zinc-50/50">
+      {/* Navigation */}
+      <nav className="border-b border-gray-100 bg-white/80 backdrop-blur-sm sticky top-0 z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-4">
+            <Link
+              to="/blog"
+              className="inline-flex items-center text-base font-medium text-gray-500 hover:text-gray-900 transition-colors"
+            >
+              <ArrowLeft className="mr-2 h-5 w-5" />
+              Back to Blog
+            </Link>
+            <div className="flex space-x-8">
+              <Link to="/blog" className="text-base font-medium text-gray-500 hover:text-gray-900 transition-colors">
+                Blog
+              </Link>
+              <Link to="/about" className="text-base font-medium text-gray-500 hover:text-gray-900 transition-colors">
+                About
+              </Link>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <div className="relative bg-gradient-to-br from-blue-900 via-indigo-900 to-blue-900 py-20 mb-16 overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 20% 20%, #3b82f6 0%, transparent 50%), 
+                             radial-gradient(circle at 80% 80%, #6366f1 0%, transparent 50%),
+                             radial-gradient(circle at 40% 40%, #1e40af 0%, transparent 30%)`,
+          }}></div>
+        </div>
+        
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
+          <article className="max-w-6xl mx-auto">
+            <header className="text-center mb-16">
+              <div className="flex items-center justify-center space-x-8 text-sm text-gray-300 mb-12">
+                <div className="flex items-center bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+                  <User className="h-4 w-4 mr-2 text-blue-400" />
+                  <span className="text-white">{post.author}</span>
+                </div>
+                <div className="flex items-center bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+                  <Calendar className="h-4 w-4 mr-2 text-blue-400" />
+                  <span className="text-white">{new Date(post.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}</span>
+                </div>
+                <div className="flex items-center bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+                  <Clock className="h-4 w-4 mr-2 text-blue-400" />
+                  <span className="text-white">{post.readingTime}</span>
+                </div>
+              </div>
+              
+              {/* RBI FREE-AI Visual */}
+              <div className="mb-12 flex justify-center">
+                <div className="relative">
+                  {/* Pragmatech Logo Area */}
+                  <div className="flex items-center justify-center mb-8">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
+                        <CheckCircle className="h-6 w-6 text-white" />
+                      </div>
+                      <div className="text-left">
+                        <div className="text-2xl font-bold text-white">PRAGMATECH</div>
+                        <div className="text-sm text-blue-200">Compliance Partners</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* FREE-AI Framework Visual */}
+                  <div className="flex items-center justify-center space-x-8 mb-8">
+                    {/* RBI Circle */}
+                    <div className="relative">
+                      <div className="w-32 h-32 rounded-full border-4 border-blue-400 bg-blue-500/20 backdrop-blur-sm flex items-center justify-center">
+                        <div className="text-center">
+                          <div className="w-10 h-10 mx-auto mb-2 border-2 border-blue-300 rounded-full flex items-center justify-center">
+                            <Building className="h-6 w-6 text-blue-200" />
+                          </div>
+                          <div className="text-xs text-blue-200 font-semibold">RBI</div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Connection Arrow */}
+                    <div className="flex items-center">
+                      <ArrowRight className="h-8 w-8 text-white" />
+                    </div>
+                    
+                    {/* FREE-AI Circle */}
+                    <div className="relative">
+                      <div className="w-40 h-40 rounded-full border-4 border-indigo-400 bg-indigo-500/20 backdrop-blur-sm flex items-center justify-center">
+                        <div className="text-center">
+                          <div className="text-lg font-bold text-indigo-200 mb-1">FREE-AI</div>
+                          <div className="text-xs text-indigo-300">7 Sutras</div>
+                          <div className="text-xs text-indigo-300">6 Pillars</div>
+                          <div className="text-xs text-indigo-300">26 Actions</div>
+                        </div>
+                      </div>
+                      {/* Connection nodes */}
+                      <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-indigo-300 rounded-full"></div>
+                      <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-indigo-300 rounded-full"></div>
+                      <div className="absolute -left-4 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-indigo-300 rounded-full"></div>
+                      <div className="absolute -right-4 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-indigo-300 rounded-full"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="max-w-5xl mx-auto">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6 font-heading leading-tight">
+                  RBI's FREE-AI Framework
+                </h1>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-blue-200 mb-8 font-heading leading-tight">
+                  A Blueprint for Responsible AI in Finance
+                </h2>
+                <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                  {post.description}
+                </p>
+              </div>
+            </header>
+          </article>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-24">
+        <article className="max-w-5xl mx-auto">
+
+          {/* Executive Summary */}
+          <div className="prose prose-lg max-w-none mx-auto mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">A Watershed Moment for AI in Finance</h2>
+            <p className="text-xl text-gray-600 leading-relaxed mb-6">
+              The Reserve Bank of India has delivered something extraordinary: a comprehensive framework that doesn't just regulate AI in finance—it actively champions responsible innovation. The <strong>Framework for Responsible and Ethical Enablement of AI (FREE-AI)</strong> represents a paradigm shift from restrictive oversight to enabling leadership.
+            </p>
+            <p className="text-lg text-gray-600 leading-relaxed mb-6">
+              This isn't merely another policy document. It's a blueprint for how emerging economies can lead in responsible AI adoption while addressing the unique challenges of financial inclusion, linguistic diversity, and technological sovereignty.
+            </p>
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 mb-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Why This Matters Now</h3>
+              <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                While global regulators struggle with the pace of AI innovation, RBI has chosen a different path: <strong>"Innovation Over Restraint"</strong> as one of its core principles. This framework positions India not as a follower of AI governance, but as a thoughtful pioneer shaping how financial AI should be deployed responsibly at scale.
+              </p>
+              <div className="bg-white/80 rounded-xl p-6 border border-blue-200">
+                <h4 className="text-lg font-semibold text-gray-900 mb-3">Built on Rigorous Research & Expertise</h4>
+                <p className="text-gray-700 leading-relaxed">
+                  This framework emerges from extensive deliberations by a multi-stakeholder committee comprising <strong>industry veterans, academic experts, fintech leaders, and regulatory specialists</strong>. The recommendations are grounded in comprehensive market research across India's diverse financial ecosystem, with detailed findings and stakeholder consultations documented in the report's annexures—ensuring every principle reflects real-world insights and practical implementation considerations.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* The 7 Sutras */}
+          <SectionDivider title="The 7 Sutras: Philosophical Foundations" />
+          <div className="mb-16">
+            <p className="text-lg text-gray-600 leading-relaxed mb-8">
+              RBI grounds its framework in seven fundamental principles—called "Sutras"—that reflect both universal AI ethics and India's cultural wisdom. These aren't abstract ideals; they're operational principles that guide every recommendation in the framework.
+            </p>
+            
+            {/* Indian-inspired decorative border */}
+            <div className="relative bg-gradient-to-br from-orange-50 via-red-50 to-orange-50 rounded-3xl p-8 mb-8">
+              {/* Decorative Indian patterns */}
+              <div className="absolute top-4 left-4 w-16 h-16 opacity-10">
+                <div className="w-full h-full" style={{
+                  backgroundImage: `radial-gradient(circle, #ff6b35 2px, transparent 2px)`,
+                  backgroundSize: '8px 8px'
+                }}></div>
+              </div>
+              <div className="absolute top-4 right-4 w-16 h-16 opacity-10">
+                <div className="w-full h-full" style={{
+                  backgroundImage: `radial-gradient(circle, #ff6b35 2px, transparent 2px)`,
+                  backgroundSize: '8px 8px'
+                }}></div>
+              </div>
+              <div className="absolute bottom-4 left-4 w-16 h-16 opacity-10">
+                <div className="w-full h-full" style={{
+                  backgroundImage: `radial-gradient(circle, #ff6b35 2px, transparent 2px)`,
+                  backgroundSize: '8px 8px'
+                }}></div>
+              </div>
+              <div className="absolute bottom-4 right-4 w-16 h-16 opacity-10">
+                <div className="w-full h-full" style={{
+                  backgroundImage: `radial-gradient(circle, #ff6b35 2px, transparent 2px)`,
+                  backgroundSize: '8px 8px'
+                }}></div>
+              </div>
+              
+              {/* Professional header */}
+              <div className="text-center mb-12 relative">
+                <div className="inline-flex items-center justify-center bg-white/90 backdrop-blur-sm px-12 py-8 rounded-2xl shadow-xl border border-orange-200/50">
+                  <div className="text-center">
+                    <div className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">FREE-AI Framework</div>
+                    <div className="text-lg md:text-xl text-gray-600 font-medium">7 Sutras for Responsible AI</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {frameworkData.sutras.map((sutra, index) => (
+                  <div key={index} className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-orange-200/50 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden">
+                    {/* Indian-inspired decorative corner */}
+                    <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden">
+                      <div className="absolute top-2 right-2 w-8 h-8 border-2 border-orange-300 rounded-full opacity-20"></div>
+                      <div className="absolute top-1 right-1 w-4 h-4 bg-orange-400 rounded-full opacity-30"></div>
+                    </div>
+                    
+                    <div className="flex items-start space-x-6">
+                      <div className="flex-shrink-0">
+                        {/* Indian-inspired sutra number design */}
+                        <div className="relative">
+                          <div className="w-16 h-16 bg-gradient-to-br from-orange-500 via-red-500 to-orange-600 rounded-full flex items-center justify-center shadow-lg border-4 border-white">
+                            <span className="text-white font-bold text-lg">{index + 1}</span>
+                          </div>
+                          {/* Decorative dots around the number */}
+                          <div className="absolute -top-1 -left-1 w-2 h-2 bg-orange-400 rounded-full opacity-70"></div>
+                          <div className="absolute -top-1 -right-1 w-2 h-2 bg-red-400 rounded-full opacity-70"></div>
+                          <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-red-400 rounded-full opacity-70"></div>
+                          <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-orange-400 rounded-full opacity-70"></div>
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <div className="mb-3">
+                          <div className="text-sm font-semibold text-orange-600 mb-1">SUTRA NO: {index + 1}</div>
+                          <h4 className="text-xl font-bold text-gray-900 mb-2">{sutra.title}</h4>
+                          <div className="w-12 h-0.5 bg-gradient-to-r from-orange-500 to-red-500 rounded-full"></div>
+                        </div>
+                        <p className="text-gray-700 leading-relaxed">{sutra.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Clean Trust Foundation section */}
+            <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-2xl p-8 border border-slate-200 relative overflow-hidden">
+              {/* Subtle decorative elements */}
+              <div className="absolute top-0 right-0 w-24 h-24 opacity-5">
+                <div className="w-full h-full bg-gradient-to-br from-blue-500 to-slate-400 rounded-full"></div>
+              </div>
+              <div className="absolute bottom-0 left-0 w-16 h-16 opacity-5">
+                <div className="w-full h-full bg-gradient-to-br from-slate-400 to-blue-500 rounded-full"></div>
+              </div>
+              
+              <div className="relative">
+                <h4 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                  <Shield className="h-8 w-8 mr-4 text-blue-600" />
+                  Trust as the Foundation: The Non-Negotiable
+                </h4>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Unlike technology frameworks that treat trust as an outcome, FREE-AI positions it as the <em>prerequisite</em>. In finance—where decisions impact livelihoods, dreams, and economic stability—this philosophical grounding isn't just wise; it's essential. Every subsequent recommendation flows from this foundational commitment.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Strategic Pillars Mind Map */}
+          <SectionDivider title="6 Strategic Pillars: From Vision to Action" />
+          <div className="mb-16">
+            <p className="text-lg text-gray-600 leading-relaxed mb-12">
+              The framework translates philosophical principles into actionable strategy through six interconnected pillars. Together, they represent 26 specific recommendations that span infrastructure, policy, capacity building, governance, protection, and assurance.
+            </p>
+            
+            {/* Simplified Pillars Layout */}
+            <div className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-3xl p-8">
+              {/* Header with central concept */}
+              <div className="text-center mb-12">
+                <div className="inline-flex items-center justify-center w-32 h-32 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-full shadow-xl mb-6">
+                  <div className="text-center text-white">
+                    <div className="text-xl font-bold mb-1">FREE-AI</div>
+                    <div className="text-sm font-semibold">FRAMEWORK</div>
+                    <div className="text-xs opacity-90">6 Pillars</div>
+                  </div>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">26 Strategic Recommendations</h3>
+                <p className="text-gray-600">Organized across six interconnected pillars</p>
+              </div>
+              
+              {/* Clean Grid Layout */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {/* Infrastructure */}
+                <div className="bg-white rounded-2xl p-6 shadow-lg border border-blue-200 hover:shadow-xl transition-all duration-300">
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mr-4">
+                      <span className="text-white font-bold">1</span>
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900">Infrastructure</h4>
+                      <div className="text-sm text-blue-600 font-semibold">5 recommendations</div>
+                    </div>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="flex items-start"><div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div><span className="text-sm text-gray-700">Establish AI Kosh for centralized data infrastructure</span></div>
+                    <div className="flex items-start"><div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div><span className="text-sm text-gray-700">Create AI Innovation Sandboxes for safe experimentation</span></div>
+                    <div className="flex items-start"><div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div><span className="text-sm text-gray-700">Develop indigenous financial AI models</span></div>
+                    <div className="flex items-start"><div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div><span className="text-sm text-gray-700">Integrate AI with Digital Public Infrastructure</span></div>
+                    <div className="flex items-start"><div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div><span className="text-sm text-gray-700">Provide funding and incentives for AI innovation</span></div>
+                  </div>
+                </div>
+                
+                {/* Policy */}
+                <div className="bg-white rounded-2xl p-6 shadow-lg border border-indigo-200 hover:shadow-xl transition-all duration-300">
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-full flex items-center justify-center mr-4">
+                      <span className="text-white font-bold">2</span>
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900">Policy</h4>
+                      <div className="text-sm text-indigo-600 font-semibold">4 recommendations</div>
+                    </div>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="flex items-start"><div className="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-3 flex-shrink-0"></div><span className="text-sm text-gray-700">Develop adaptive AI policies and guidelines</span></div>
+                    <div className="flex items-start"><div className="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-3 flex-shrink-0"></div><span className="text-sm text-gray-700">Implement affirmative action via AI</span></div>
+                    <div className="flex items-start"><div className="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-3 flex-shrink-0"></div><span className="text-sm text-gray-700">Establish graded liability framework</span></div>
+                    <div className="flex items-start"><div className="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-3 flex-shrink-0"></div><span className="text-sm text-gray-700">Create AI institutional framework</span></div>
+                  </div>
+                </div>
+                
+                {/* Capacity */}
+                <div className="bg-white rounded-2xl p-6 shadow-lg border border-purple-200 hover:shadow-xl transition-all duration-300">
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mr-4">
+                      <span className="text-white font-bold">3</span>
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900">Capacity</h4>
+                      <div className="text-sm text-purple-600 font-semibold">4 recommendations</div>
+                    </div>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="flex items-start"><div className="w-2 h-2 bg-purple-500 rounded-full mt-2 mr-3 flex-shrink-0"></div><span className="text-sm text-gray-700">Build capacity for regulated entities and regulators</span></div>
+                    <div className="flex items-start"><div className="w-2 h-2 bg-purple-500 rounded-full mt-2 mr-3 flex-shrink-0"></div><span className="text-sm text-gray-700">Share best practices across the sector</span></div>
+                    <div className="flex items-start"><div className="w-2 h-2 bg-purple-500 rounded-full mt-2 mr-3 flex-shrink-0"></div><span className="text-sm text-gray-700">Provide recognition and rewards for innovation</span></div>
+                    <div className="flex items-start"><div className="w-2 h-2 bg-purple-500 rounded-full mt-2 mr-3 flex-shrink-0"></div><span className="text-sm text-gray-700">Foster collaborative learning initiatives</span></div>
+                  </div>
+                </div>
+                
+                {/* Governance */}
+                <div className="bg-white rounded-2xl p-6 shadow-lg border border-emerald-200 hover:shadow-xl transition-all duration-300">
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center mr-4">
+                      <span className="text-white font-bold">4</span>
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900">Governance</h4>
+                      <div className="text-sm text-emerald-600 font-semibold">5 recommendations</div>
+                    </div>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="flex items-start"><div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 mr-3 flex-shrink-0"></div><span className="text-sm text-gray-700">Implement board-approved AI policies</span></div>
+                    <div className="flex items-start"><div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 mr-3 flex-shrink-0"></div><span className="text-sm text-gray-700">Establish data lifecycle governance</span></div>
+                    <div className="flex items-start"><div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 mr-3 flex-shrink-0"></div><span className="text-sm text-gray-700">Manage model lifecycle and audit processes</span></div>
+                    <div className="flex items-start"><div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 mr-3 flex-shrink-0"></div><span className="text-sm text-gray-700">Define product approval processes</span></div>
+                    <div className="flex items-start"><div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 mr-3 flex-shrink-0"></div><span className="text-sm text-gray-700">Ensure executive accountability</span></div>
+                  </div>
+                </div>
+                
+                {/* Protection */}
+                <div className="bg-white rounded-2xl p-6 shadow-lg border border-orange-200 hover:shadow-xl transition-all duration-300">
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center mr-4">
+                      <span className="text-white font-bold">5</span>
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900">Protection</h4>
+                      <div className="text-sm text-orange-600 font-semibold">4 recommendations</div>
+                    </div>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="flex items-start"><div className="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0"></div><span className="text-sm text-gray-700">Strengthen consumer protection measures</span></div>
+                    <div className="flex items-start"><div className="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0"></div><span className="text-sm text-gray-700">Enhance cybersecurity frameworks</span></div>
+                    <div className="flex items-start"><div className="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0"></div><span className="text-sm text-gray-700">Implement red teaming and business continuity</span></div>
+                    <div className="flex items-start"><div className="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0"></div><span className="text-sm text-gray-700">Establish incident reporting systems</span></div>
+                  </div>
+                </div>
+                
+                {/* Assurance */}
+                <div className="bg-white rounded-2xl p-6 shadow-lg border border-rose-200 hover:shadow-xl transition-all duration-300">
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-br from-rose-500 to-rose-600 rounded-full flex items-center justify-center mr-4">
+                      <span className="text-white font-bold">6</span>
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900">Assurance</h4>
+                      <div className="text-sm text-rose-600 font-semibold">4 recommendations</div>
+                    </div>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="flex items-start"><div className="w-2 h-2 bg-rose-500 rounded-full mt-2 mr-3 flex-shrink-0"></div><span className="text-sm text-gray-700">Create AI inventory and repositories</span></div>
+                    <div className="flex items-start"><div className="w-2 h-2 bg-rose-500 rounded-full mt-2 mr-3 flex-shrink-0"></div><span className="text-sm text-gray-700">Mandate public disclosure requirements</span></div>
+                    <div className="flex items-start"><div className="w-2 h-2 bg-rose-500 rounded-full mt-2 mr-3 flex-shrink-0"></div><span className="text-sm text-gray-700">Develop compliance toolkits</span></div>
+                    <div className="flex items-start"><div className="w-2 h-2 bg-rose-500 rounded-full mt-2 mr-3 flex-shrink-0"></div><span className="text-sm text-gray-700">Enable sector risk intelligence</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Innovation-First Approach */}
+          <SectionDivider title="Innovation and Risk: Friends, Not Foes" />
+          <div className="mb-16">
+            <div className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-2xl p-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                <Rocket className="inline h-8 w-8 mr-3 text-emerald-600" />
+                The Progressive Perspective
+              </h3>
+              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                Most regulatory frameworks treat innovation and risk management as competing priorities. FREE-AI rejects this false dichotomy. Instead, it positions <strong>responsible risk-taking</strong> as the pathway to sustainable innovation.
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <h4 className="text-lg font-semibold text-gray-900 mb-3">Innovation Enablers</h4>
+                  <ul className="space-y-2 text-gray-700">
+                    <li className="flex items-start"><CheckCircle className="h-5 w-5 text-emerald-600 mr-2 mt-0.5 flex-shrink-0" />AI Innovation Sandboxes</li>
+                    <li className="flex items-start"><CheckCircle className="h-5 w-5 text-emerald-600 mr-2 mt-0.5 flex-shrink-0" />Indigenous Financial AI Models</li>
+                    <li className="flex items-start"><CheckCircle className="h-5 w-5 text-emerald-600 mr-2 mt-0.5 flex-shrink-0" />Funding & Incentive Mechanisms</li>
+                    <li className="flex items-start"><CheckCircle className="h-5 w-5 text-emerald-600 mr-2 mt-0.5 flex-shrink-0" />Recognition for Innovation</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold text-gray-900 mb-3">Risk Safeguards</h4>
+                  <ul className="space-y-2 text-gray-700">
+                    <li className="flex items-start"><Shield className="h-5 w-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" />Graded Liability Framework</li>
+                    <li className="flex items-start"><Shield className="h-5 w-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" />Red Teaming & Stress Testing</li>
+                    <li className="flex items-start"><Shield className="h-5 w-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" />Incident Reporting Systems</li>
+                    <li className="flex items-start"><Shield className="h-5 w-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" />Continuous Monitoring</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Inclusion Focus */}
+          <SectionDivider title="Technology for All: The Inclusion Imperative" />
+          <div className="mb-16">
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                <Heart className="inline h-8 w-8 mr-3 text-purple-600" />
+                Beyond Digital Divides
+              </h3>
+              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                Here's where FREE-AI truly shines: it doesn't just acknowledge the risk of AI-driven exclusion—it makes <strong>concrete, actionable recommendations</strong> to ensure AI benefits reach every segment of Indian society.
+              </p>
+              
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                  <h4 className="text-lg font-semibold text-gray-900 mb-4">Specific Inclusion Measures</h4>
+                  <div className="space-y-4">
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <div>
+                        <strong className="text-gray-900">Multilingual AI Models:</strong>
+                        <span className="text-gray-700"> Indigenous models that understand India's linguistic diversity</span>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <div>
+                        <strong className="text-gray-900">Affirmative Action via AI:</strong>
+                        <span className="text-gray-700"> Using AI to actively promote financial inclusion</span>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <div>
+                        <strong className="text-gray-900">Alternative Credit Models:</strong>
+                        <span className="text-gray-700"> AI-powered scoring for the underbanked</span>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <div>
+                        <strong className="text-gray-900">DPI Integration:</strong>
+                        <span className="text-gray-700"> Leveraging India's digital infrastructure for inclusive AI</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-white rounded-xl p-6 border border-purple-200">
+                  <h4 className="text-lg font-semibold text-gray-900 mb-3">The Pragmatech Perspective</h4>
+                  <p className="text-gray-700 text-sm leading-relaxed">
+                    Unlike many AI policy papers that treat inclusion as an afterthought, FREE-AI makes it central to the framework. This isn't just good policy—it's good business. Financial institutions that embrace inclusive AI will capture markets others miss while building sustainable competitive advantages.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Global Context */}
+          <SectionDivider title="Global Benchmarking, Indian Context" />
+          <div className="mb-16">
+            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                <Globe className="inline h-8 w-8 mr-3 text-blue-600" />
+                The Middle Path: Learning Without Copying
+              </h3>
+              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                RBI has studied global approaches—from EU's comprehensive AI Act to China's sector-specific regulations—but chosen a uniquely Indian path that balances global standards with domestic priorities.
+              </p>
+              
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse bg-white rounded-lg shadow-sm overflow-hidden">
+                  <thead>
+                    <tr className="bg-blue-600 text-white">
+                      <th className="px-6 py-4 text-left font-semibold">Approach</th>
+                      <th className="px-6 py-4 text-left font-semibold">Examples</th>
+                      <th className="px-6 py-4 text-left font-semibold">India's Adaptation</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="bg-gray-50">
+                      <td className="px-6 py-4 font-semibold text-blue-900">Centralized Omnibus Laws</td>
+                      <td className="px-6 py-4 text-gray-700">EU AI Act</td>
+                      <td className="px-6 py-4 text-gray-700">Sectoral guidelines with adaptive policies</td>
+                    </tr>
+                    <tr className="bg-white">
+                      <td className="px-6 py-4 font-semibold text-blue-900">Innovation Sandboxes</td>
+                      <td className="px-6 py-4 text-gray-700">Singapore, UK</td>
+                      <td className="px-6 py-4 text-gray-700">AI-specific sandboxes with DPI integration</td>
+                    </tr>
+                    <tr className="bg-gray-50">
+                      <td className="px-6 py-4 font-semibold text-blue-900">Institutional Frameworks</td>
+                      <td className="px-6 py-4 text-gray-700">US NIST, China CAC</td>
+                      <td className="px-6 py-4 text-gray-700">Multi-stakeholder governance with industry collaboration</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          {/* Implementation Roadmap */}
+          <SectionDivider title="From Framework to Practice" />
+          <div className="mb-16">
+            <p className="text-lg text-gray-600 leading-relaxed mb-8">
+              The real test of any framework lies in implementation. FREE-AI excels here, providing concrete, actionable recommendations that financial institutions can implement immediately.
+            </p>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6">
+                <h4 className="text-lg font-semibold text-gray-900 mb-4">
+                  <CheckCircle className="inline h-6 w-6 mr-2 text-green-600" />
+                  Immediate Actions
+                </h4>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li>• Board-approved AI policies</li>
+                  <li>• AI inventory and mapping</li>
+                  <li>• Risk assessment frameworks</li>
+                  <li>• Consumer protection measures</li>
+                </ul>
+              </div>
+              
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6">
+                <h4 className="text-lg font-semibold text-gray-900 mb-4">
+                  <Clock className="inline h-6 w-6 mr-2 text-blue-600" />
+                  Medium-term Goals
+                </h4>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li>• Model lifecycle management</li>
+                  <li>• Audit and compliance systems</li>
+                  <li>• Capacity building programs</li>
+                  <li>• Industry collaboration</li>
+                </ul>
+              </div>
+              
+              <div className="bg-gradient-to-br from-purple-50 to-violet-50 rounded-xl p-6">
+                <h4 className="text-lg font-semibold text-gray-900 mb-4">
+                  <Rocket className="inline h-6 w-6 mr-2 text-purple-600" />
+                  Strategic Vision
+                </h4>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li>• Indigenous AI ecosystem</li>
+                  <li>• Global leadership in responsible AI</li>
+                  <li>• Inclusive financial innovation</li>
+                  <li>• Sustainable AI practices</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Call to Action */}
+          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-center text-white">
+            <h3 className="text-2xl font-bold mb-4">Ready to Navigate the FREE-AI Framework?</h3>
+            <p className="text-xl mb-6 opacity-90">
+              At Pragmatech, we're helping financial institutions translate RBI's visionary framework into practical, audit-ready implementation strategies.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-full shadow-lg hover:bg-gray-50 transition-all duration-300 text-lg"
+              >
+                Partner with Us
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+              <Link
+                to="/services/iso-42001"
+                className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-blue-600 transition-all duration-300 text-lg"
+              >
+                Explore AI Governance
+              </Link>
+            </div>
+          </div>
+
+        </article>
+      </div>
+    </main>
+  );
+};
+
 // AI Model vs Solution Blog Post Component
 const AIModelVsSolutionPost: React.FC<{ post: any }> = ({ post }) => {
   const lifecyclePhases = [
@@ -464,6 +1101,11 @@ const BlogPostContent: React.FC<BlogPostContentProps> = ({ slug }) => {
         </div>
       </main>
     );
+  }
+
+  // Handle RBI FREE-AI Framework blog post
+  if (slug === 'rbi-free-ai-framework-guide') {
+    return <RBIFreeAIPost post={post} />;
   }
 
   // Handle AI Model vs Solution blog post
