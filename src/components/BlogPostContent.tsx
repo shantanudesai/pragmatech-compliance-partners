@@ -29,7 +29,11 @@ import {
   CheckCircle,
   BarChart,
   Rocket,
-  Info
+  Info,
+  HelpCircle,
+  Code,
+  Mail,
+  ExternalLink
 } from "lucide-react";
 
 interface BlogPostContentProps {
@@ -142,13 +146,13 @@ const ActionStep = ({ icon: Icon, title, description }: { icon: any, title: stri
 const RBIFreeAIPost: React.FC<{ post: any }> = ({ post }) => {
   const frameworkData = {
     sutras: [
-      { title: "Trust is the Foundation", description: "Building unshakeable confidence in AI systems through transparency and reliability" },
-      { title: "People First", description: "Ensuring AI serves humanity, not the other way around" },
-      { title: "Innovation Over Restraint", description: "Encouraging responsible innovation while managing risks" },
-      { title: "Fairness and Equity", description: "Promoting inclusive AI that serves all segments of society" },
-      { title: "Accountability", description: "Clear ownership and responsibility for AI decisions and outcomes" },
-      { title: "Understandable by Design", description: "Making AI systems explainable and interpretable" },
-      { title: "Safety, Resilience, Sustainability", description: "Building robust AI systems for long-term stability" }
+      { title: "Trust is the Foundation", description: "Trust is non-negotiable and should remain uncompromised. AI systems should enhance and not erode public trust in the financial system." },
+      { title: "People First", description: "AI should augment human decision-making but defer to human judgment and citizen interest. Citizens should be made aware of AI-generated content." },
+      { title: "Innovation Over Restraint", description: "Foster responsible innovation with purpose. All other things being equal, responsible innovation should be prioritised over cautionary restraint." },
+      { title: "Fairness and Equity", description: "AI outcomes should be fair and non-discriminatory. AI should not accentuate exclusion and inequity." },
+      { title: "Accountability", description: "Accountability rests with the entities deploying AI. Clear responsibility and ownership for AI system outcomes." },
+      { title: "Understandable by Design", description: "Ensure explainability for trust. AI decisions must be transparent and explainable to users and regulators." },
+      { title: "Safety, Resilience, Sustainability", description: "AI systems should be secure, resilient and energy efficient. Building robust systems that can withstand challenges." }
     ],
     pillars: [
       { title: "Infrastructure", count: "5 recommendations", description: "Building foundational AI capabilities and shared resources" },
@@ -293,24 +297,273 @@ const RBIFreeAIPost: React.FC<{ post: any }> = ({ post }) => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-24">
         <article className="max-w-5xl mx-auto">
 
-          {/* Executive Summary */}
+          {/* Executive Summary - More Human & Narrative */}
           <div className="prose prose-lg max-w-none mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">A Watershed Moment for AI in Finance</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">A Framework Born from Empathy</h2>
             <p className="text-xl text-gray-600 leading-relaxed mb-6">
-              The Reserve Bank of India has delivered something extraordinary: a comprehensive framework that doesn't just regulate AI in finance—it actively champions responsible innovation. The <strong>Framework for Responsible and Ethical Enablement of AI (FREE-AI)</strong> represents a paradigm shift from restrictive oversight to enabling leadership.
+              Picture this: A smallholder farmer in rural Rajasthan, who has never stepped into a bank, needs credit for the upcoming planting season. A street vendor in Chennai who speaks only Tamil and has no formal credit history but has been faithfully making mobile payments for years. A fintech startup in Bangalore with a brilliant AI idea but lacking the massive infrastructure budget of big banks. Computer science students in Pune wanting to experiment with financial AI models for their research. Traditional financial systems would turn most of them away. But what if AI could see all their potential?
             </p>
             <p className="text-lg text-gray-600 leading-relaxed mb-6">
-              This isn't merely another policy document. It's a blueprint for how emerging economies can lead in responsible AI adoption while addressing the unique challenges of financial inclusion, linguistic diversity, and technological sovereignty.
+              This isn't science fiction—it's the future envisioned by the Reserve Bank of India's groundbreaking <strong>Framework for Responsible and Ethical Enablement of AI (FREE-AI)</strong>. In a watershed moment for India's financial sector, the RBI has released not just another regulatory document, but a compassionate blueprint for how the world's largest democracy intends to harness artificial intelligence for those who need it most.
             </p>
+            
+            {/* Authentic RBI Quote */}
+            <div className="bg-gradient-to-r from-indigo-600 to-blue-600 rounded-xl p-6 mb-8 text-white">
+              <div className="flex items-start">
+                <div className="flex-shrink-0">
+                  <svg className="h-8 w-8 text-blue-200" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                  </svg>
+                </div>
+                <div className="ml-4">
+                  <blockquote className="text-lg font-medium leading-relaxed">
+                    "In developing economies like India, where millions remain outside the ambit of formal finance, AI can help assess creditworthiness using non-traditional data sources such as utility payments, mobile usage patterns, GST filings, or e-commerce behaviour, thereby including 'thin-file' or 'new-to-credit' borrowers."
+                  </blockquote>
+                  <cite className="mt-3 block text-sm text-blue-200 font-medium">
+                    — RBI Framework for Responsible and Ethical Enablement of AI (FREE-AI), Page 8
+                  </cite>
+                </div>
+              </div>
+            </div>
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 mb-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Why This Matters Now</h3>
               <p className="text-lg text-gray-700 leading-relaxed mb-4">
                 While global regulators struggle with the pace of AI innovation, RBI has chosen a different path: <strong>"Innovation Over Restraint"</strong> as one of its core principles. This framework positions India not as a follower of AI governance, but as a thoughtful pioneer shaping how financial AI should be deployed responsibly at scale.
               </p>
+              
+              {/* Innovation Philosophy Quote */}
+              <div className="bg-white border-l-4 border-green-500 p-6 rounded-r-lg shadow-sm mb-4">
+                <div className="flex">
+                  <div className="flex-shrink-0">
+                    <Rocket className="h-6 w-6 text-green-500" />
+                  </div>
+                  <div className="ml-4">
+                    <blockquote className="text-lg text-gray-900 font-medium italic">
+                      "All other things being equal, responsible innovation should be prioritised over cautionary restraint. AI should serve as a catalyst for augmentation and impactful innovation."
+                    </blockquote>
+                    <cite className="mt-2 block text-sm text-gray-600 font-medium">
+                      — RBI FREE-AI Framework, Page 37
+                    </cite>
+                  </div>
+                </div>
+              </div>
               <div className="bg-white/80 rounded-xl p-6 border border-blue-200">
                 <h4 className="text-lg font-semibold text-gray-900 mb-3">Built on Rigorous Research & Expertise</h4>
                 <p className="text-gray-700 leading-relaxed">
                   This framework emerges from extensive deliberations by a multi-stakeholder committee comprising <strong>industry veterans, academic experts, fintech leaders, and regulatory specialists</strong>. The recommendations are grounded in comprehensive market research across India's diverse financial ecosystem, with detailed findings and stakeholder consultations documented in the report's annexures—ensuring every principle reflects real-world insights and practical implementation considerations.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* AI for Financial Inclusion - The Heart of FREE-AI */}
+          <SectionDivider title="AI as a Bridge to Dignity: The Inclusion Imperative" />
+          <div className="mb-16">
+            <p className="text-lg text-gray-600 leading-relaxed mb-8">
+              What truly sets FREE-AI apart isn't just its technical sophistication—it's its profound recognition that <strong>700 million Indians remain outside the formal financial system</strong>. The framework doesn't just acknowledge this gap; it reimagines AI as the bridge to financial dignity for every citizen.
+            </p>
+            
+            {/* Serving the Underserved Quote */}
+            <div className="bg-gradient-to-r from-emerald-600 to-green-600 rounded-xl p-6 mb-8 text-white">
+              <div className="flex items-start">
+                <div className="flex-shrink-0">
+                  <Heart className="h-8 w-8 text-green-200" />
+                </div>
+                <div className="ml-4">
+                  <blockquote className="text-lg font-medium leading-relaxed">
+                    "AI should uphold fairness, it should not accentuate exclusion and inequity. AI should be leveraged to address financial inclusion and access to financial services for all."
+                  </blockquote>
+                  <cite className="mt-3 block text-sm text-green-200 font-medium">
+                    — RBI FREE-AI Framework, Page 37
+                  </cite>
+                </div>
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+              <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border border-green-200">
+                <h4 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+                  <Users className="h-6 w-6 mr-3 text-green-600" />
+                  Alternative Credit Scoring: Seeing Beyond the Numbers
+                </h4>
+                <p className="text-gray-700 mb-4">
+                  For millions of Indians, their financial worth isn't captured in traditional credit scores. The framework champions AI solutions that recognize value in unexpected places:
+                </p>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li className="flex items-start">
+                    <CheckCircle className="h-4 w-4 mr-2 text-green-600 mt-0.5 flex-shrink-0" />
+                    <span><strong>Utility bill patterns</strong> revealing consistent payment behavior</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="h-4 w-4 mr-2 text-green-600 mt-0.5 flex-shrink-0" />
+                    <span><strong>Mobile usage data</strong> indicating financial stability</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="h-4 w-4 mr-2 text-green-600 mt-0.5 flex-shrink-0" />
+                    <span><strong>GST filing history</strong> for small businesses</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="h-4 w-4 mr-2 text-green-600 mt-0.5 flex-shrink-0" />
+                    <span><strong>Seasonal income patterns</strong> for agricultural communities</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200">
+                <h4 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+                  <Globe className="h-6 w-6 mr-3 text-blue-600" />
+                  Breaking Language & Digital Barriers
+                </h4>
+                <p className="text-gray-700 mb-4">
+                  True inclusion means meeting people where they are—in their own language, at their comfort level with technology.
+                </p>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li className="flex items-start">
+                    <CheckCircle className="h-4 w-4 mr-2 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <span><strong>Multilingual, voice-enabled chatbots</strong> for rural populations</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="h-4 w-4 mr-2 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <span><strong>Conversational AI</strong> integrated with UPI and Aadhaar</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="h-4 w-4 mr-2 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <span><strong>Trinity Models</strong> (Language-Task-Domain-specific AI)</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="h-4 w-4 mr-2 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <span><strong>Indigenous AI models</strong> reflecting India's cultural diversity</span>
+                  </li>
+                </ul>
+                
+                {/* Trinity Models Quote */}
+                <div className="bg-white border border-blue-300 rounded-lg p-4 mt-4">
+                  <blockquote className="text-sm text-gray-700 italic">
+                    "An alternate approach could be Trinity Models designed on specific Language-Task-Domain (LTD) combinations. For example, a model focused on Marathi (Language) + Credit Risk FAQs (Task) + MSME Finance (Domain)."
+                  </blockquote>
+                  <cite className="mt-2 block text-xs text-gray-500">— RBI FREE-AI Framework, Page 9</cite>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-8 border border-amber-200 mb-8">
+              <h4 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+                <Building2 className="h-6 w-6 mr-3 text-amber-600" />
+                Shared Infrastructure: Democratizing AI Innovation
+              </h4>
+              <p className="text-gray-700 mb-4">
+                Recognizing that smaller banks, NBFCs, cooperatives, startups, and academic institutions lack the resources of large corporations, FREE-AI recommends a revolutionary approach that levels the playing field:
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="bg-white rounded-lg p-4 border border-amber-200">
+                  <h5 className="font-semibold text-gray-900 mb-2">Shared AI Compute "Landing Zones"</h5>
+                  <p className="text-sm text-gray-700">
+                    Common infrastructure that allows even resource-limited institutions to access powerful AI capabilities affordably.
+                  </p>
+                </div>
+                <div className="bg-white rounded-lg p-4 border border-amber-200">
+                  <h5 className="font-semibold text-gray-900 mb-2">Innovation Sandboxes for All</h5>
+                  <p className="text-sm text-gray-700">
+                    Safe testing environments where startups, students, and researchers can experiment with financial AI without regulatory burden.
+                  </p>
+                </div>
+                <div className="bg-white rounded-lg p-4 border border-amber-200">
+                  <h5 className="font-semibold text-gray-900 mb-2">Equitable Access Framework</h5>
+                  <p className="text-sm text-gray-700">
+                    Ensuring AI adoption reaches startups, academic institutions, rural areas, and emerging players—not just tech giants.
+                  </p>
+                </div>
+              </div>
+              
+              {/* Shared Infrastructure Quote */}
+              <div className="bg-white border-l-4 border-amber-500 p-6 rounded-r-lg shadow-sm mt-6">
+                <blockquote className="text-base text-gray-800 italic leading-relaxed">
+                  "It would democratise access to innovation by making it possible for large and small players, FinTechs and technology entities to build trustworthy AI services."
+                </blockquote>
+                <cite className="mt-3 block text-sm text-gray-600 font-medium">
+                  — RBI FREE-AI Framework on Data Infrastructure, Page 41
+                </cite>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-8 border border-purple-200">
+              <h4 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+                <Heart className="h-6 w-6 mr-3 text-purple-600" />
+                AI as an Engine for Affirmative Action
+              </h4>
+              <p className="text-gray-700 mb-4">
+                Perhaps most remarkably, FREE-AI envisions AI not just as a tool for efficiency, but as an active force for social equity:
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <h5 className="font-semibold text-gray-900 mb-2">Regulatory Relief for Inclusion</h5>
+                  <p className="text-sm text-gray-700 mb-3">
+                    Relaxed compliance expectations for low-risk, inclusion-focused AI solutions like small-ticket digital loans.
+                  </p>
+                </div>
+                <div>
+                  <h5 className="font-semibold text-gray-900 mb-2">DPI 2.0 Vision</h5>
+                  <p className="text-sm text-gray-700 mb-3">
+                    Upgrading India's Digital Public Infrastructure with AI-driven, personalized service delivery for all citizens.
+                  </p>
+                </div>
+              </div>
+              <div className="bg-white rounded-lg p-4 border border-purple-200 mt-4">
+                <p className="text-sm text-gray-700 italic text-center">
+                  "AI should address the needs of those outside the current system, not just improve the experience for those already included."
+                </p>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-br from-cyan-50 to-teal-50 rounded-xl p-8 border border-cyan-200">
+              <h4 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+                <Rocket className="h-6 w-6 mr-3 text-cyan-600" />
+                Empowering the Innovation Ecosystem
+              </h4>
+              <p className="text-gray-700 mb-6">
+                FREE-AI recognizes that breakthrough innovations often come from unexpected places—not just established banks, but from the creative minds of entrepreneurs, students, and researchers who see problems differently.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="bg-white rounded-lg p-6 border border-cyan-200">
+                  <div className="flex items-center mb-3">
+                    <Building className="h-5 w-5 mr-2 text-cyan-600" />
+                    <h5 className="font-semibold text-gray-900">For Fintech Startups</h5>
+                  </div>
+                  <ul className="text-sm text-gray-700 space-y-2">
+                    <li>• Access to shared AI infrastructure without massive upfront costs</li>
+                    <li>• Regulatory sandboxes for testing innovative financial AI solutions</li>
+                    <li>• Clear guidelines enabling rapid, compliant innovation</li>
+                    <li>• Level playing field with established financial institutions</li>
+                  </ul>
+                </div>
+                <div className="bg-white rounded-lg p-6 border border-cyan-200">
+                  <div className="flex items-center mb-3">
+                    <GraduationCap className="h-5 w-5 mr-2 text-cyan-600" />
+                    <h5 className="font-semibold text-gray-900">For Students & Researchers</h5>
+                  </div>
+                  <ul className="text-sm text-gray-700 space-y-2">
+                    <li>• AI Innovation Sandboxes as learning laboratories</li>
+                    <li>• Access to anonymized financial datasets for research</li>
+                    <li>• Collaborative platforms for academic-industry partnerships</li>
+                    <li>• Opportunity to contribute to indigenous AI model development</li>
+                  </ul>
+                </div>
+                <div className="bg-white rounded-lg p-6 border border-cyan-200">
+                  <div className="flex items-center mb-3">
+                    <Users className="h-5 w-5 mr-2 text-cyan-600" />
+                    <h5 className="font-semibold text-gray-900">For Small Institutions</h5>
+                  </div>
+                  <ul className="text-sm text-gray-700 space-y-2">
+                    <li>• Shared compute resources reducing AI adoption barriers</li>
+                    <li>• Pre-built compliance frameworks and toolkits</li>
+                    <li>• Collaborative learning from best practices across the ecosystem</li>
+                    <li>• Support for serving previously excluded populations</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="bg-white rounded-lg p-4 border border-cyan-200 mt-6">
+                <p className="text-sm text-gray-700 italic text-center">
+                  "The framework positions innovation as a <strong>shared responsibility and opportunity</strong>—ensuring that breakthrough AI solutions can emerge from any corner of India's diverse talent pool."
                 </p>
               </div>
             </div>
@@ -563,188 +816,9 @@ const RBIFreeAIPost: React.FC<{ post: any }> = ({ post }) => {
             </div>
           </div>
 
-          {/* Innovation-First Approach */}
-          <SectionDivider title="Innovation and Risk: Friends, Not Foes" />
-          <div className="mb-16">
-            <div className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                <Rocket className="inline h-8 w-8 mr-3 text-emerald-600" />
-                The Progressive Perspective
-              </h3>
-              <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                Most regulatory frameworks treat innovation and risk management as competing priorities. FREE-AI rejects this false dichotomy. Instead, it positions <strong>responsible risk-taking</strong> as the pathway to sustainable innovation.
-              </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-3">Innovation Enablers</h4>
-                  <ul className="space-y-2 text-gray-700">
-                    <li className="flex items-start"><CheckCircle className="h-5 w-5 text-emerald-600 mr-2 mt-0.5 flex-shrink-0" />AI Innovation Sandboxes</li>
-                    <li className="flex items-start"><CheckCircle className="h-5 w-5 text-emerald-600 mr-2 mt-0.5 flex-shrink-0" />Indigenous Financial AI Models</li>
-                    <li className="flex items-start"><CheckCircle className="h-5 w-5 text-emerald-600 mr-2 mt-0.5 flex-shrink-0" />Funding & Incentive Mechanisms</li>
-                    <li className="flex items-start"><CheckCircle className="h-5 w-5 text-emerald-600 mr-2 mt-0.5 flex-shrink-0" />Recognition for Innovation</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-3">Risk Safeguards</h4>
-                  <ul className="space-y-2 text-gray-700">
-                    <li className="flex items-start"><Shield className="h-5 w-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" />Graded Liability Framework</li>
-                    <li className="flex items-start"><Shield className="h-5 w-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" />Red Teaming & Stress Testing</li>
-                    <li className="flex items-start"><Shield className="h-5 w-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" />Incident Reporting Systems</li>
-                    <li className="flex items-start"><Shield className="h-5 w-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" />Continuous Monitoring</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          {/* Inclusion Focus */}
-          <SectionDivider title="Technology for All: The Inclusion Imperative" />
-          <div className="mb-16">
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                <Heart className="inline h-8 w-8 mr-3 text-purple-600" />
-                Beyond Digital Divides
-              </h3>
-              <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                Here's where FREE-AI truly shines: it doesn't just acknowledge the risk of AI-driven exclusion—it makes <strong>concrete, actionable recommendations</strong> to ensure AI benefits reach every segment of Indian society.
-              </p>
-              
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-4">Specific Inclusion Measures</h4>
-                  <div className="space-y-4">
-                    <div className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <div>
-                        <strong className="text-gray-900">Multilingual AI Models:</strong>
-                        <span className="text-gray-700"> Indigenous models that understand India's linguistic diversity</span>
-                      </div>
-                    </div>
-                    <div className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <div>
-                        <strong className="text-gray-900">Affirmative Action via AI:</strong>
-                        <span className="text-gray-700"> Using AI to actively promote financial inclusion</span>
-                      </div>
-                    </div>
-                    <div className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <div>
-                        <strong className="text-gray-900">Alternative Credit Models:</strong>
-                        <span className="text-gray-700"> AI-powered scoring for the underbanked</span>
-                      </div>
-                    </div>
-                    <div className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <div>
-                        <strong className="text-gray-900">DPI Integration:</strong>
-                        <span className="text-gray-700"> Leveraging India's digital infrastructure for inclusive AI</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="bg-white rounded-xl p-6 border border-purple-200">
-                  <h4 className="text-lg font-semibold text-gray-900 mb-3">The Pragmatech Perspective</h4>
-                  <p className="text-gray-700 text-sm leading-relaxed">
-                    Unlike many AI policy papers that treat inclusion as an afterthought, FREE-AI makes it central to the framework. This isn't just good policy—it's good business. Financial institutions that embrace inclusive AI will capture markets others miss while building sustainable competitive advantages.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          {/* Global Context */}
-          <SectionDivider title="Global Benchmarking, Indian Context" />
-          <div className="mb-16">
-            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                <Globe className="inline h-8 w-8 mr-3 text-blue-600" />
-                The Middle Path: Learning Without Copying
-              </h3>
-              <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                RBI has studied global approaches—from EU's comprehensive AI Act to China's sector-specific regulations—but chosen a uniquely Indian path that balances global standards with domestic priorities.
-              </p>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full border-collapse bg-white rounded-lg shadow-sm overflow-hidden">
-                  <thead>
-                    <tr className="bg-blue-600 text-white">
-                      <th className="px-6 py-4 text-left font-semibold">Approach</th>
-                      <th className="px-6 py-4 text-left font-semibold">Examples</th>
-                      <th className="px-6 py-4 text-left font-semibold">India's Adaptation</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr className="bg-gray-50">
-                      <td className="px-6 py-4 font-semibold text-blue-900">Centralized Omnibus Laws</td>
-                      <td className="px-6 py-4 text-gray-700">EU AI Act</td>
-                      <td className="px-6 py-4 text-gray-700">Sectoral guidelines with adaptive policies</td>
-                    </tr>
-                    <tr className="bg-white">
-                      <td className="px-6 py-4 font-semibold text-blue-900">Innovation Sandboxes</td>
-                      <td className="px-6 py-4 text-gray-700">Singapore, UK</td>
-                      <td className="px-6 py-4 text-gray-700">AI-specific sandboxes with DPI integration</td>
-                    </tr>
-                    <tr className="bg-gray-50">
-                      <td className="px-6 py-4 font-semibold text-blue-900">Institutional Frameworks</td>
-                      <td className="px-6 py-4 text-gray-700">US NIST, China CAC</td>
-                      <td className="px-6 py-4 text-gray-700">Multi-stakeholder governance with industry collaboration</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
 
-          {/* Implementation Roadmap */}
-          <SectionDivider title="From Framework to Practice" />
-          <div className="mb-16">
-            <p className="text-lg text-gray-600 leading-relaxed mb-8">
-              The real test of any framework lies in implementation. FREE-AI excels here, providing concrete, actionable recommendations that financial institutions can implement immediately.
-            </p>
-            
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6">
-                <h4 className="text-lg font-semibold text-gray-900 mb-4">
-                  <CheckCircle className="inline h-6 w-6 mr-2 text-green-600" />
-                  Immediate Actions
-                </h4>
-                <ul className="space-y-2 text-sm text-gray-700">
-                  <li>• Board-approved AI policies</li>
-                  <li>• AI inventory and mapping</li>
-                  <li>• Risk assessment frameworks</li>
-                  <li>• Consumer protection measures</li>
-                </ul>
-              </div>
-              
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6">
-                <h4 className="text-lg font-semibold text-gray-900 mb-4">
-                  <Clock className="inline h-6 w-6 mr-2 text-blue-600" />
-                  Medium-term Goals
-                </h4>
-                <ul className="space-y-2 text-sm text-gray-700">
-                  <li>• Model lifecycle management</li>
-                  <li>• Audit and compliance systems</li>
-                  <li>• Capacity building programs</li>
-                  <li>• Industry collaboration</li>
-                </ul>
-              </div>
-              
-              <div className="bg-gradient-to-br from-purple-50 to-violet-50 rounded-xl p-6">
-                <h4 className="text-lg font-semibold text-gray-900 mb-4">
-                  <Rocket className="inline h-6 w-6 mr-2 text-purple-600" />
-                  Strategic Vision
-                </h4>
-                <ul className="space-y-2 text-sm text-gray-700">
-                  <li>• Indigenous AI ecosystem</li>
-                  <li>• Global leadership in responsible AI</li>
-                  <li>• Inclusive financial innovation</li>
-                  <li>• Sustainable AI practices</li>
-                </ul>
-              </div>
-            </div>
-          </div>
 
           {/* Call to Action */}
           <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-center text-white">
@@ -766,6 +840,58 @@ const RBIFreeAIPost: React.FC<{ post: any }> = ({ post }) => {
               >
                 Explore AI Governance
               </Link>
+            </div>
+          </div>
+          
+          {/* Reader Engagement & Questions */}
+          <div className="bg-gray-50 rounded-xl p-8 mb-8">
+            <h4 className="text-xl font-bold text-gray-900 mb-6 text-center">Questions for Reflection</h4>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-white rounded-lg p-6 border border-gray-200">
+                <h5 className="font-semibold text-gray-900 mb-3 flex items-center">
+                  <HelpCircle className="h-5 w-5 mr-2 text-blue-600" />
+                  For Financial Leaders
+                </h5>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li>• How does your current AI governance compare to the 7 Sutras?</li>
+                  <li>• Which of the 26 recommendations should you prioritize first?</li>
+                  <li>• How can you ensure your AI initiatives align with "People First" principles?</li>
+                </ul>
+              </div>
+              <div className="bg-white rounded-lg p-6 border border-gray-200">
+                <h5 className="font-semibold text-gray-900 mb-3 flex items-center">
+                  <Code className="h-5 w-5 mr-2 text-green-600" />
+                  For Technical Teams
+                </h5>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li>• What explainability techniques are you currently using?</li>
+                  <li>• How do you test for algorithmic bias in your models?</li>
+                  <li>• Are your data protection methods FREE-AI compliant?</li>
+                </ul>
+              </div>
+            </div>
+            <div className="text-center mt-6">
+              <p className="text-gray-600 mb-4">
+                <strong>Share your experiences and challenges</strong> implementing responsible AI in financial services.
+              </p>
+              <div className="flex justify-center space-x-4">
+                <a
+                  href="mailto:hello@pragmatechcompliance.com?subject=FREE-AI Framework Discussion"
+                  className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm"
+                >
+                  <Mail className="h-4 w-4 mr-2" />
+                  Email Your Thoughts
+                </a>
+                <a
+                  href="https://linkedin.com/company/pragmatechcompliance"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-4 py-2 bg-blue-800 text-white rounded-lg hover:bg-blue-900 transition-colors text-sm"
+                >
+                  <ExternalLink className="h-4 w-4 mr-2" />
+                  Connect on LinkedIn
+                </a>
+              </div>
             </div>
           </div>
 
