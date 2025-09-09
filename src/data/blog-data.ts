@@ -13,7 +13,7 @@ export const blogPosts: BlogPost[] = [
     slug: 'rbi-free-ai-framework-guide',
     title: 'RBI\'s FREE-AI Framework: A Blueprint for Responsible AI in Finance',
     author: 'Pragmatech Team',
-    date: '2025-08-24',
+    date: '2025-09-09',
     description: "Exploring RBI's comprehensive Framework for Responsible and Ethical Enablement of AI (FREE-AI) and its 7 Sutras, 6 Strategic Pillars, and 26 actionable recommendations for the financial sector.",
     heroImage: '/logosmall.png',
     readingTime: '12 min read',

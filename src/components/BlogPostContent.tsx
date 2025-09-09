@@ -222,71 +222,58 @@ const RBIFreeAIPost: React.FC<{ post: any }> = ({ post }) => {
                 </div>
               </div>
               
-              {/* RBI FREE-AI Visual */}
-              <div className="mb-12 flex justify-center">
-                <div className="relative">
-                  {/* Pragmatech Logo Area */}
-                  <div className="flex items-center justify-center mb-8">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
-                        <CheckCircle className="h-6 w-6 text-white" />
-                      </div>
-                      <div className="text-left">
-                        <div className="text-2xl font-bold text-white">PRAGMATECH</div>
-                        <div className="text-sm text-blue-200">Compliance Partners</div>
+              {/* Side-by-side layout: Image left, Content right */}
+              <div className="max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                  {/* Left: RBI Report Cover Image */}
+                  <div className="flex justify-center lg:justify-end">
+                    <div className="relative max-w-sm">
+                      <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-2xl">
+                        <img 
+                          src="/rbi-free-ai-report-cover.png" 
+                          alt="RBI FREE-AI Committee Report - Framework for Responsible and Ethical Enablement of Artificial Intelligence"
+                          className="w-full h-auto rounded-xl shadow-lg"
+                        />
+                        <div className="mt-4 text-center">
+                          <a 
+                            href="https://rbidocs.rbi.org.in/rdocs/PublicationReport/Pdfs/FREEAIR130820250A24FF2D4578453F824C72ED9F5D5851.PDF"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm text-blue-200 font-medium hover:text-blue-100 transition-colors underline"
+                          >
+                            Official RBI FREE-AI Committee Report
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
                   
-                  {/* FREE-AI Framework Visual */}
-                  <div className="flex items-center justify-center space-x-8 mb-8">
-                    {/* RBI Circle */}
-                    <div className="relative">
-                      <div className="w-32 h-32 rounded-full border-4 border-blue-400 bg-blue-500/20 backdrop-blur-sm flex items-center justify-center">
-                        <div className="text-center">
-                          <div className="w-10 h-10 mx-auto mb-2 border-2 border-blue-300 rounded-full flex items-center justify-center">
-                            <Building className="h-6 w-6 text-blue-200" />
-                          </div>
-                          <div className="text-xs text-blue-200 font-semibold">RBI</div>
+                  {/* Right: Content */}
+                  <div className="text-center lg:text-left">
+                    {/* Pragmatech Logo Area */}
+                    <div className="flex items-center justify-center lg:justify-start mb-8">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
+                          <CheckCircle className="h-6 w-6 text-white" />
+                        </div>
+                        <div className="text-left">
+                          <div className="text-2xl font-bold text-white">PRAGMATECH</div>
+                          <div className="text-sm text-blue-200">Compliance Partners</div>
                         </div>
                       </div>
                     </div>
                     
-                    {/* Connection Arrow */}
-                    <div className="flex items-center">
-                      <ArrowRight className="h-8 w-8 text-white" />
-                    </div>
-                    
-                    {/* FREE-AI Circle */}
-                    <div className="relative">
-                      <div className="w-40 h-40 rounded-full border-4 border-indigo-400 bg-indigo-500/20 backdrop-blur-sm flex items-center justify-center">
-                        <div className="text-center">
-                          <div className="text-lg font-bold text-indigo-200 mb-1">FREE-AI</div>
-                          <div className="text-xs text-indigo-300">7 Sutras</div>
-                          <div className="text-xs text-indigo-300">6 Pillars</div>
-                          <div className="text-xs text-indigo-300">26 Actions</div>
-                        </div>
-                      </div>
-                      {/* Connection nodes */}
-                      <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-indigo-300 rounded-full"></div>
-                      <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-indigo-300 rounded-full"></div>
-                      <div className="absolute -left-4 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-indigo-300 rounded-full"></div>
-                      <div className="absolute -right-4 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-indigo-300 rounded-full"></div>
-                    </div>
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6 font-heading leading-tight">
+                      RBI's FREE-AI Framework
+                    </h1>
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-blue-200 mb-8 font-heading leading-tight">
+                      A Blueprint for Responsible AI in Finance
+                    </h2>
+                    <p className="text-xl text-gray-300 leading-relaxed">
+                      {post.description}
+                    </p>
                   </div>
                 </div>
-              </div>
-              
-              <div className="max-w-5xl mx-auto">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6 font-heading leading-tight">
-                  RBI's FREE-AI Framework
-                </h1>
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-blue-200 mb-8 font-heading leading-tight">
-                  A Blueprint for Responsible AI in Finance
-                </h2>
-                <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                  {post.description}
-                </p>
               </div>
             </header>
           </article>
@@ -304,7 +291,7 @@ const RBIFreeAIPost: React.FC<{ post: any }> = ({ post }) => {
               Picture this: A smallholder farmer in rural Rajasthan, who has never stepped into a bank, needs credit for the upcoming planting season. A street vendor in Chennai who speaks only Tamil and has no formal credit history but has been faithfully making mobile payments for years. A fintech startup in Bangalore with a brilliant AI idea but lacking the massive infrastructure budget of big banks. Computer science students in Pune wanting to experiment with financial AI models for their research. Traditional financial systems would turn most of them away. But what if AI could see all their potential?
             </p>
             <p className="text-lg text-gray-600 leading-relaxed mb-6">
-              This isn't science fiction—it's the future envisioned by the Reserve Bank of India's groundbreaking <strong>Framework for Responsible and Ethical Enablement of AI (FREE-AI)</strong>. In a watershed moment for India's financial sector, the RBI has released not just another regulatory document, but a compassionate blueprint for how the world's largest democracy intends to harness artificial intelligence for those who need it most.
+              This isn't about algorithms and systems—it's about people. The RBI's <a href="https://rbidocs.rbi.org.in/rdocs/PublicationReport/Pdfs/FREEAIR130820250A24FF2D4578453F824C72ED9F5D5851.PDF" target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-600 hover:text-blue-800 underline">Framework for Responsible and Ethical Enablement of AI (FREE-AI)</a> is a call to build technology that respects human dignity, safeguards rights, and earns public trust.
             </p>
             
             {/* Authentic RBI Quote */}
@@ -824,14 +811,14 @@ const RBIFreeAIPost: React.FC<{ post: any }> = ({ post }) => {
           <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-center text-white">
             <h3 className="text-2xl font-bold mb-4">Ready to Navigate the FREE-AI Framework?</h3>
             <p className="text-xl mb-6 opacity-90">
-              At Pragmatech, we're helping financial institutions translate RBI's visionary framework into practical, audit-ready implementation strategies.
+              At Pragmatech, we help translate RBI's visionary framework into practical, audit-ready implementation strategies.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link
                 to="/contact"
                 className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-full shadow-lg hover:bg-gray-50 transition-all duration-300 text-lg"
               >
-                Partner with Us
+                Connect with us
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
               <Link
@@ -876,14 +863,14 @@ const RBIFreeAIPost: React.FC<{ post: any }> = ({ post }) => {
               </p>
               <div className="flex justify-center space-x-4">
                 <a
-                  href="mailto:hello@pragmatechcompliance.com?subject=FREE-AI Framework Discussion"
+                  href="mailto:contact@pragmatechcompliance.com?subject=FREE-AI Framework Discussion"
                   className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm"
                 >
                   <Mail className="h-4 w-4 mr-2" />
                   Email Your Thoughts
                 </a>
                 <a
-                  href="https://linkedin.com/company/pragmatechcompliance"
+                  href="https://www.linkedin.com/in/shantanudesai/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center px-4 py-2 bg-blue-800 text-white rounded-lg hover:bg-blue-900 transition-colors text-sm"
