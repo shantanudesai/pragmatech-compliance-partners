@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { FileCode, ArrowRight, CheckCircle, Users, FileText, Award } from "lucide-react";
 import { useEffect } from "react";
 import Navbar from "../../components/Navbar";
+import ISO42001HighLevelStructure from "../../components/ISO42001HighLevelStructure";
 
 const ISO42001Service = () => {
   useEffect(() => {
@@ -90,6 +91,11 @@ const ISO42001Service = () => {
               </p>
             </div>
           </div>
+        </section>
+
+        {/* ISO 42001 High Level Structure */}
+        <section id="iso42001-structure" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 scroll-mt-24">
+          <ISO42001HighLevelStructure />
         </section>
 
         {/* Benefits Section */}
