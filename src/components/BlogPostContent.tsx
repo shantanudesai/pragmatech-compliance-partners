@@ -888,6 +888,773 @@ const RBIFreeAIPost: React.FC<{ post: any }> = ({ post }) => {
   );
 };
 
+// SOC Reports Comparison Blog Post Component
+const SOCReportsComparisonPost: React.FC<{ post: any }> = ({ post }) => {
+  const socComparisonData = {
+    soc1: {
+      focus: "Financial reporting controls and processes",
+      audience: "Financial auditors, accounting firms, compliance teams",
+      distribution: "Restricted to specified users under NDA",
+      criteria: "Not applicable - focuses on control objectives",
+      detail: "Detailed control descriptions and testing results",
+      types: "Type I and Type II",
+      timeline: "Type I: 1-3 months, Type II: 6-12 months",
+      industries: "Payroll processors, investment advisors, loan servicers, medical claims processors",
+      standards: "SSAE 18 AT-C 320",
+      testing: "Tests controls meeting identified control objectives"
+    },
+    soc2: {
+      focus: "Security, availability, processing integrity, confidentiality, and privacy controls",
+      audience: "Customers, business partners, IT executives, security teams",
+      distribution: "Restricted to specified users under NDA",
+      criteria: "Based on 5 TSC: Security (required), Availability, Processing Integrity, Confidentiality, Privacy",
+      detail: "Detailed control descriptions and testing results",
+      types: "Type I and Type II",
+      timeline: "Type I: 3-6 months, Type II: 6-12 months",
+      industries: "SaaS companies, cloud providers, data centers, managed IT services",
+      standards: "SSAE 18 AT-C 105 and SSAE 21 AT-C 205",
+      testing: "Tests controls meeting Trust Service Criteria"
+    },
+    soc3: {
+      focus: "Public summary of SOC 2 findings",
+      audience: "General public, prospects, marketing purposes",
+      distribution: "Public distribution, can be posted on websites",
+      criteria: "Same TSC as SOC 2 but summarized",
+      detail: "High-level summary, no detailed control descriptions",
+      types: "Only Type II (requires completed SOC 2 Type II)",
+      timeline: "Same timeline as SOC 2 (prepared simultaneously)",
+      industries: "Same as SOC 2 but for public assurance",
+      standards: "Same as SOC 2",
+      testing: "Summary of SOC 2 control testing results"
+    }
+  };
+
+  const typeComparison = {
+    type1: {
+      coverage: "Point-in-time assessment (specific date)",
+      scope: "Design suitability of controls",
+      value: "Demonstrates controls are properly designed",
+      preference: "Less preferred, used for initial compliance demonstration"
+    },
+    type2: {
+      coverage: "Period assessment (typically 6-12 months)",
+      scope: "Design suitability + operating effectiveness over time",
+      value: "Proves controls work effectively in practice",
+      preference: "Strongly preferred by enterprise clients and auditors"
+    }
+  };
+
+  return (
+    <main className="min-h-screen bg-gradient-to-b from-white to-zinc-50/50">
+      {/* Navigation */}
+      <nav className="border-b border-gray-100 bg-white/80 backdrop-blur-sm sticky top-0 z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-4">
+            <Link
+              to="/blog"
+              className="inline-flex items-center text-base font-medium text-gray-500 hover:text-gray-900 transition-colors"
+            >
+              <ArrowLeft className="mr-2 h-5 w-5" />
+              Back to Blog
+            </Link>
+            <div className="flex space-x-8">
+              <Link to="/blog" className="text-base font-medium text-gray-500 hover:text-gray-900 transition-colors">
+                Blog
+              </Link>
+              <Link to="/about" className="text-base font-medium text-gray-500 hover:text-gray-900 transition-colors">
+                About
+              </Link>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <div className="relative bg-gradient-to-br from-emerald-900 via-teal-900 to-emerald-900 py-20 mb-16 overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 20% 20%, #10b981 0%, transparent 50%), 
+                             radial-gradient(circle at 80% 80%, #14b8a6 0%, transparent 50%),
+                             radial-gradient(circle at 40% 40%, #059669 0%, transparent 30%)`,
+          }}></div>
+        </div>
+        
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
+          <article className="max-w-6xl mx-auto">
+            <header className="text-center mb-16">
+              <div className="flex items-center justify-center space-x-8 text-sm text-gray-300 mb-12">
+                <div className="flex items-center bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+                  <User className="h-4 w-4 mr-2 text-emerald-400" />
+                  <span className="text-white">{post.author}</span>
+                </div>
+                <div className="flex items-center bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+                  <Calendar className="h-4 w-4 mr-2 text-emerald-400" />
+                  <span className="text-white">{new Date(post.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}</span>
+                </div>
+                <div className="flex items-center bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+                  <Clock className="h-4 w-4 mr-2 text-emerald-400" />
+                  <span className="text-white">{post.readingTime}</span>
+                </div>
+              </div>
+              
+              {/* Pragmatech Logo Area */}
+              <div className="flex items-center justify-center mb-8">
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-lg flex items-center justify-center">
+                    <CheckCircle className="h-6 w-6 text-white" />
+                  </div>
+                  <div className="text-left">
+                    <div className="text-2xl font-bold text-white">PRAGMATECH</div>
+                    <div className="text-sm text-emerald-200">Compliance Partners</div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* SOC Visual Representation */}
+              <div className="mb-12 flex justify-center">
+                <div className="flex items-center justify-center space-x-8">
+                  {/* SOC 1 */}
+                  <div className="relative">
+                    <div className="w-24 h-24 rounded-full border-4 border-blue-400 bg-blue-500/20 backdrop-blur-sm flex items-center justify-center">
+                      <div className="text-center">
+                        <DollarSign className="h-8 w-8 mx-auto mb-1 text-blue-300" />
+                        <div className="text-xs text-blue-200 font-semibold">SOC 1</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* SOC 2 */}
+                  <div className="relative">
+                    <div className="w-24 h-24 rounded-full border-4 border-emerald-400 bg-emerald-500/20 backdrop-blur-sm flex items-center justify-center">
+                      <div className="text-center">
+                        <Shield className="h-8 w-8 mx-auto mb-1 text-emerald-300" />
+                        <div className="text-xs text-emerald-200 font-semibold">SOC 2</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* SOC 3 */}
+                  <div className="relative">
+                    <div className="w-24 h-24 rounded-full border-4 border-teal-400 bg-teal-500/20 backdrop-blur-sm flex items-center justify-center">
+                      <div className="text-center">
+                        <Globe className="h-8 w-8 mx-auto mb-1 text-teal-300" />
+                        <div className="text-xs text-teal-200 font-semibold">SOC 3</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="max-w-4xl mx-auto">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6 font-heading leading-tight">
+                  SOC Reports Demystified
+                </h1>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-emerald-200 mb-8 font-heading leading-tight">
+                  A Complete Comparison Guide
+                </h2>
+                <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                  {post.description}
+                </p>
+              </div>
+            </header>
+          </article>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-24">
+        <article className="max-w-5xl mx-auto">
+
+          {/* Introduction */}
+          <div className="prose prose-lg max-w-none mx-auto mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Understanding SOC Reports: The Foundation of Trust</h2>
+            <p className="text-xl text-gray-600 leading-relaxed mb-6">
+              In today's interconnected business landscape, organizations increasingly rely on third-party service providers for critical operations. Whether it's cloud computing, payroll processing, or data management, the question remains: <strong>How do you verify that your service providers have adequate controls in place?</strong>
+            </p>
+            <p className="text-lg text-gray-600 leading-relaxed mb-6">
+              This is where SOC (Service Organization Control) reports come into play. Developed by the American Institute of Certified Public Accountants (AICPA), SOC reports provide standardized frameworks for evaluating and reporting on the controls at service organizations.
+            </p>
+            <p className="text-lg text-gray-600 leading-relaxed">
+              However, with three different types of SOC reports—each serving distinct purposes and audiences—choosing the right one can be confusing. This comprehensive guide will clarify the differences and help you make informed decisions for your organization's compliance strategy.
+            </p>
+          </div>
+
+          {/* SOC Reports Overview */}
+          <SectionDivider title="The Three Types of SOC Reports" />
+          <div className="mb-16">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+              {/* SOC 1 Card */}
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-200 hover:shadow-xl transition-all duration-300">
+                <div className="flex items-center mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mr-4">
+                    <DollarSign className="h-8 w-8 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900">SOC 1</h3>
+                    <div className="text-sm text-blue-600 font-semibold">Financial Focus</div>
+                  </div>
+                </div>
+                <p className="text-gray-700 mb-4 leading-relaxed">
+                  Evaluates controls relevant to financial reporting. Perfect for organizations that handle financial data or processes that could impact their clients' financial statements.
+                </p>
+                <div className="bg-white rounded-lg p-4 border border-blue-200">
+                  <h4 className="font-semibold text-gray-900 mb-2">Best For:</h4>
+                  <ul className="text-sm text-gray-700 space-y-1">
+                    <li>• Payroll processors</li>
+                    <li>• Investment advisors</li>
+                    <li>• Loan servicers</li>
+                    <li>• Medical claims processors</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* SOC 2 Card */}
+              <div className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-2xl p-8 border border-emerald-200 hover:shadow-xl transition-all duration-300">
+                <div className="flex items-center mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center mr-4">
+                    <Shield className="h-8 w-8 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900">SOC 2</h3>
+                    <div className="text-sm text-emerald-600 font-semibold">Security & Operations</div>
+                  </div>
+                </div>
+                <p className="text-gray-700 mb-4 leading-relaxed">
+                  Focuses on security, availability, processing integrity, confidentiality, and privacy controls. The gold standard for technology service providers.
+                </p>
+                <div className="bg-white rounded-lg p-4 border border-emerald-200">
+                  <h4 className="font-semibold text-gray-900 mb-2">Best For:</h4>
+                  <ul className="text-sm text-gray-700 space-y-1">
+                    <li>• SaaS companies</li>
+                    <li>• Cloud providers</li>
+                    <li>• Data centers</li>
+                    <li>• Managed IT services</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* SOC 3 Card */}
+              <div className="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-2xl p-8 border border-teal-200 hover:shadow-xl transition-all duration-300">
+                <div className="flex items-center mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-teal-500 to-teal-600 rounded-full flex items-center justify-center mr-4">
+                    <Globe className="h-8 w-8 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900">SOC 3</h3>
+                    <div className="text-sm text-teal-600 font-semibold">Public Summary</div>
+                  </div>
+                </div>
+                <p className="text-gray-700 mb-4 leading-relaxed">
+                  A public, summarized version of SOC 2 findings. Ideal for marketing and building public trust without revealing sensitive details.
+                </p>
+                <div className="bg-white rounded-lg p-4 border border-teal-200">
+                  <h4 className="font-semibold text-gray-900 mb-2">Best For:</h4>
+                  <ul className="text-sm text-gray-700 space-y-1">
+                    <li>• Public assurance</li>
+                    <li>• Marketing purposes</li>
+                    <li>• Website display</li>
+                    <li>• General prospects</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Detailed Comparison Table */}
+          <SectionDivider title="Comprehensive Comparison: SOC 1 vs SOC 2 vs SOC 3" />
+          <div className="mb-16">
+            <p className="text-lg text-gray-600 leading-relaxed mb-8">
+              While all SOC reports serve the purpose of providing assurance about service organization controls, they differ significantly in scope, audience, and application. Here's a detailed breakdown:
+            </p>
+            
+            <div className="overflow-x-auto bg-white rounded-2xl shadow-lg border border-gray-200">
+              <table className="w-full border-collapse">
+                <thead>
+                  <tr className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white">
+                    <th className="px-6 py-4 text-left font-semibold">Aspect</th>
+                    <th className="px-6 py-4 text-left font-semibold">SOC 1</th>
+                    <th className="px-6 py-4 text-left font-semibold">SOC 2</th>
+                    <th className="px-6 py-4 text-left font-semibold">SOC 3</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-gray-200 hover:bg-gray-50">
+                    <td className="px-6 py-4 font-semibold text-emerald-900 bg-emerald-50">Primary Focus</td>
+                    <td className="px-6 py-4 text-gray-700">{socComparisonData.soc1.focus}</td>
+                    <td className="px-6 py-4 text-gray-700">{socComparisonData.soc2.focus}</td>
+                    <td className="px-6 py-4 text-gray-700">{socComparisonData.soc3.focus}</td>
+                  </tr>
+                  <tr className="border-b border-gray-200 hover:bg-gray-50">
+                    <td className="px-6 py-4 font-semibold text-emerald-900 bg-emerald-50">Target Audience</td>
+                    <td className="px-6 py-4 text-gray-700">{socComparisonData.soc1.audience}</td>
+                    <td className="px-6 py-4 text-gray-700">{socComparisonData.soc2.audience}</td>
+                    <td className="px-6 py-4 text-gray-700">{socComparisonData.soc3.audience}</td>
+                  </tr>
+                  <tr className="border-b border-gray-200 hover:bg-gray-50">
+                    <td className="px-6 py-4 font-semibold text-emerald-900 bg-emerald-50">Report Distribution</td>
+                    <td className="px-6 py-4 text-gray-700">{socComparisonData.soc1.distribution}</td>
+                    <td className="px-6 py-4 text-gray-700">{socComparisonData.soc2.distribution}</td>
+                    <td className="px-6 py-4 text-gray-700">{socComparisonData.soc3.distribution}</td>
+                  </tr>
+                  <tr className="border-b border-gray-200 hover:bg-gray-50">
+                    <td className="px-6 py-4 font-semibold text-emerald-900 bg-emerald-50">Trust Service Criteria</td>
+                    <td className="px-6 py-4 text-gray-700">{socComparisonData.soc1.criteria}</td>
+                    <td className="px-6 py-4 text-gray-700">{socComparisonData.soc2.criteria}</td>
+                    <td className="px-6 py-4 text-gray-700">{socComparisonData.soc3.criteria}</td>
+                  </tr>
+                  <tr className="border-b border-gray-200 hover:bg-gray-50">
+                    <td className="px-6 py-4 font-semibold text-emerald-900 bg-emerald-50">Level of Detail</td>
+                    <td className="px-6 py-4 text-gray-700">{socComparisonData.soc1.detail}</td>
+                    <td className="px-6 py-4 text-gray-700">{socComparisonData.soc2.detail}</td>
+                    <td className="px-6 py-4 text-gray-700">{socComparisonData.soc3.detail}</td>
+                  </tr>
+                  <tr className="border-b border-gray-200 hover:bg-gray-50">
+                    <td className="px-6 py-4 font-semibold text-emerald-900 bg-emerald-50">Report Types Available</td>
+                    <td className="px-6 py-4 text-gray-700">{socComparisonData.soc1.types}</td>
+                    <td className="px-6 py-4 text-gray-700">{socComparisonData.soc2.types}</td>
+                    <td className="px-6 py-4 text-gray-700">{socComparisonData.soc3.types}</td>
+                  </tr>
+                  <tr className="border-b border-gray-200 hover:bg-gray-50">
+                    <td className="px-6 py-4 font-semibold text-emerald-900 bg-emerald-50">Typical Timeline</td>
+                    <td className="px-6 py-4 text-gray-700">{socComparisonData.soc1.timeline}</td>
+                    <td className="px-6 py-4 text-gray-700">{socComparisonData.soc2.timeline}</td>
+                    <td className="px-6 py-4 text-gray-700">{socComparisonData.soc3.timeline}</td>
+                  </tr>
+                  <tr className="border-b border-gray-200 hover:bg-gray-50">
+                    <td className="px-6 py-4 font-semibold text-emerald-900 bg-emerald-50">Common Industries</td>
+                    <td className="px-6 py-4 text-gray-700">{socComparisonData.soc1.industries}</td>
+                    <td className="px-6 py-4 text-gray-700">{socComparisonData.soc2.industries}</td>
+                    <td className="px-6 py-4 text-gray-700">{socComparisonData.soc3.industries}</td>
+                  </tr>
+                  <tr className="border-b border-gray-200 hover:bg-gray-50">
+                    <td className="px-6 py-4 font-semibold text-emerald-900 bg-emerald-50">Standards/Framework</td>
+                    <td className="px-6 py-4 text-gray-700">{socComparisonData.soc1.standards}</td>
+                    <td className="px-6 py-4 text-gray-700">{socComparisonData.soc2.standards}</td>
+                    <td className="px-6 py-4 text-gray-700">{socComparisonData.soc3.standards}</td>
+                  </tr>
+                  <tr className="hover:bg-gray-50">
+                    <td className="px-6 py-4 font-semibold text-emerald-900 bg-emerald-50">Control Testing</td>
+                    <td className="px-6 py-4 text-gray-700">{socComparisonData.soc1.testing}</td>
+                    <td className="px-6 py-4 text-gray-700">{socComparisonData.soc2.testing}</td>
+                    <td className="px-6 py-4 text-gray-700">{socComparisonData.soc3.testing}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Type I vs Type II */}
+          <SectionDivider title="Type I vs Type II Reports: Understanding the Difference" />
+          <div className="mb-16">
+            <p className="text-lg text-gray-600 leading-relaxed mb-8">
+              Beyond choosing between SOC 1, 2, or 3, you must also decide between Type I and Type II reports. This choice significantly impacts the value and credibility of your assessment.
+            </p>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+              {/* Type I */}
+              <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-8 border border-amber-200">
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-500 rounded-full flex items-center justify-center mr-4">
+                    <span className="text-white font-bold text-lg">I</span>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900">Type I Report</h3>
+                    <div className="text-sm text-amber-600 font-semibold">Point-in-Time Assessment</div>
+                  </div>
+                </div>
+                
+                <div className="space-y-4">
+                  <div className="bg-white rounded-lg p-4 border border-amber-200">
+                    <h4 className="font-semibold text-gray-900 mb-2">Time Coverage</h4>
+                    <p className="text-sm text-gray-700">{typeComparison.type1.coverage}</p>
+                  </div>
+                  <div className="bg-white rounded-lg p-4 border border-amber-200">
+                    <h4 className="font-semibold text-gray-900 mb-2">Testing Scope</h4>
+                    <p className="text-sm text-gray-700">{typeComparison.type1.scope}</p>
+                  </div>
+                  <div className="bg-white rounded-lg p-4 border border-amber-200">
+                    <h4 className="font-semibold text-gray-900 mb-2">Value to Clients</h4>
+                    <p className="text-sm text-gray-700">{typeComparison.type1.value}</p>
+                  </div>
+                  <div className="bg-white rounded-lg p-4 border border-amber-200">
+                    <h4 className="font-semibold text-gray-900 mb-2">Enterprise Preference</h4>
+                    <p className="text-sm text-gray-700">{typeComparison.type1.preference}</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Type II */}
+              <div className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-2xl p-8 border border-emerald-200">
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-500 rounded-full flex items-center justify-center mr-4">
+                    <span className="text-white font-bold text-lg">II</span>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900">Type II Report</h3>
+                    <div className="text-sm text-emerald-600 font-semibold">Period Assessment</div>
+                  </div>
+                </div>
+                
+                <div className="space-y-4">
+                  <div className="bg-white rounded-lg p-4 border border-emerald-200">
+                    <h4 className="font-semibold text-gray-900 mb-2">Time Coverage</h4>
+                    <p className="text-sm text-gray-700">{typeComparison.type2.coverage}</p>
+                  </div>
+                  <div className="bg-white rounded-lg p-4 border border-emerald-200">
+                    <h4 className="font-semibold text-gray-900 mb-2">Testing Scope</h4>
+                    <p className="text-sm text-gray-700">{typeComparison.type2.scope}</p>
+                  </div>
+                  <div className="bg-white rounded-lg p-4 border border-emerald-200">
+                    <h4 className="font-semibold text-gray-900 mb-2">Value to Clients</h4>
+                    <p className="text-sm text-gray-700">{typeComparison.type2.value}</p>
+                  </div>
+                  <div className="bg-white rounded-lg p-4 border border-emerald-200">
+                    <h4 className="font-semibold text-gray-900 mb-2">Enterprise Preference</h4>
+                    <p className="text-sm text-gray-700 font-semibold">{typeComparison.type2.preference}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-8 border border-blue-200">
+              <h4 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+                <Info className="h-6 w-6 mr-3 text-blue-600" />
+                Key Recommendation
+              </h4>
+              <p className="text-gray-700 leading-relaxed">
+                While Type I reports can be valuable for initial assessments or when time constraints exist, <strong>Type II reports are strongly recommended</strong> for organizations serious about demonstrating their control effectiveness. Enterprise clients and auditors consistently prefer Type II reports because they provide evidence that controls not only exist but actually work over time.
+              </p>
+            </div>
+          </div>
+
+          {/* Trust Service Criteria Deep Dive */}
+          <SectionDivider title="Understanding Trust Service Criteria (TSC)" />
+          <div className="mb-16">
+            <p className="text-lg text-gray-600 leading-relaxed mb-8">
+              SOC 2 and SOC 3 reports are built around five Trust Service Criteria. While Security is mandatory, organizations can choose which additional criteria apply to their services.
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Security - Required */}
+              <div className="bg-gradient-to-br from-red-50 to-pink-50 rounded-xl p-6 border border-red-200 relative">
+                <div className="absolute top-4 right-4">
+                  <span className="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">REQUIRED</span>
+                </div>
+                <div className="flex items-center mb-4">
+                  <Shield className="h-8 w-8 text-red-600 mr-3" />
+                  <h4 className="text-xl font-bold text-gray-900">Security</h4>
+                </div>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  Protection against unauthorized access to systems and data. Covers logical and physical access controls, system configurations, and data protection measures.
+                </p>
+              </div>
+
+              {/* Availability */}
+              <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border border-green-200">
+                <div className="flex items-center mb-4">
+                  <Monitor className="h-8 w-8 text-green-600 mr-3" />
+                  <h4 className="text-xl font-bold text-gray-900">Availability</h4>
+                </div>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  System accessibility for operation, use, or monitoring as agreed upon. Includes network performance, backup procedures, and disaster recovery capabilities.
+                </p>
+              </div>
+
+              {/* Processing Integrity */}
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200">
+                <div className="flex items-center mb-4">
+                  <CheckCircle className="h-8 w-8 text-blue-600 mr-3" />
+                  <h4 className="text-xl font-bold text-gray-900">Processing Integrity</h4>
+                </div>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  System processing is complete, valid, accurate, timely, and authorized. Ensures data quality and processing reliability throughout system operations.
+                </p>
+              </div>
+
+              {/* Confidentiality */}
+              <div className="bg-gradient-to-br from-purple-50 to-violet-50 rounded-xl p-6 border border-purple-200">
+                <div className="flex items-center mb-4">
+                  <FileText className="h-8 w-8 text-purple-600 mr-3" />
+                  <h4 className="text-xl font-bold text-gray-900">Confidentiality</h4>
+                </div>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  Information designated as confidential is protected as committed or agreed. Covers data classification, handling procedures, and disclosure controls.
+                </p>
+              </div>
+
+              {/* Privacy */}
+              <div className="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-xl p-6 border border-teal-200">
+                <div className="flex items-center mb-4">
+                  <Users className="h-8 w-8 text-teal-600 mr-3" />
+                  <h4 className="text-xl font-bold text-gray-900">Privacy</h4>
+                </div>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  Personal information is collected, used, retained, disclosed, and disposed of in conformity with privacy commitments and applicable privacy laws.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Decision Framework */}
+          <SectionDivider title="Choosing the Right SOC Report: A Decision Framework" />
+          <div className="mb-16">
+            <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-200">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Which SOC Report Do You Need?</h3>
+              
+              <div className="space-y-8">
+                {/* Decision Tree Style */}
+                <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                  <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                    <HelpCircle className="h-5 w-5 mr-2 text-blue-600" />
+                    Start Here: What's Your Primary Objective?
+                  </h4>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                      <h5 className="font-semibold text-blue-900 mb-2">Financial Reporting Focus</h5>
+                      <p className="text-sm text-blue-800 mb-3">
+                        Your services impact client financial statements or you handle financial data processing.
+                      </p>
+                      <div className="bg-blue-600 text-white text-center py-2 rounded font-semibold text-sm">
+                        → Choose SOC 1
+                      </div>
+                    </div>
+                    
+                    <div className="bg-emerald-50 rounded-lg p-4 border border-emerald-200">
+                      <h5 className="font-semibold text-emerald-900 mb-2">Security & Operations Focus</h5>
+                      <p className="text-sm text-emerald-800 mb-3">
+                        You provide technology services and need to demonstrate security, availability, or data protection controls.
+                      </p>
+                      <div className="bg-emerald-600 text-white text-center py-2 rounded font-semibold text-sm">
+                        → Choose SOC 2
+                      </div>
+                    </div>
+                    
+                    <div className="bg-teal-50 rounded-lg p-4 border border-teal-200">
+                      <h5 className="font-semibold text-teal-900 mb-2">Public Assurance Focus</h5>
+                      <p className="text-sm text-teal-800 mb-3">
+                        You want to publicly demonstrate your commitment to security and controls for marketing purposes.
+                      </p>
+                      <div className="bg-teal-600 text-white text-center py-2 rounded font-semibold text-sm">
+                        → Choose SOC 3
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Type Selection */}
+                <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                  <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                    <BarChart className="h-5 w-5 mr-2 text-emerald-600" />
+                    Next: Choose Your Report Type
+                  </h4>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="bg-amber-50 rounded-lg p-4 border border-amber-200">
+                      <h5 className="font-semibold text-amber-900 mb-2">Consider Type I If:</h5>
+                      <ul className="text-sm text-amber-800 space-y-1">
+                        <li>• You need a quick initial assessment</li>
+                        <li>• Budget or time constraints exist</li>
+                        <li>• You're new to SOC reporting</li>
+                        <li>• Controls are newly implemented</li>
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-emerald-50 rounded-lg p-4 border border-emerald-200">
+                      <h5 className="font-semibold text-emerald-900 mb-2">Choose Type II If:</h5>
+                      <ul className="text-sm text-emerald-800 space-y-1">
+                        <li>• You serve enterprise clients</li>
+                        <li>• Maximum credibility is important</li>
+                        <li>• Controls have been operating for 6+ months</li>
+                        <li>• You want competitive advantage</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Industry-Specific Guidance */}
+                <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+                  <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                    <Building2 className="h-5 w-5 mr-2 text-purple-600" />
+                    Industry-Specific Recommendations
+                  </h4>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                    <div>
+                      <h5 className="font-semibold text-gray-900 mb-2">SOC 1 Industries:</h5>
+                      <ul className="text-gray-700 space-y-1">
+                        <li>• Payroll and benefits administration</li>
+                        <li>• Investment management and advisory</li>
+                        <li>• Loan servicing and mortgage processing</li>
+                        <li>• Claims processing and administration</li>
+                        <li>• Transfer agent services</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-gray-900 mb-2">SOC 2 Industries:</h5>
+                      <ul className="text-gray-700 space-y-1">
+                        <li>• Software as a Service (SaaS)</li>
+                        <li>• Cloud hosting and infrastructure</li>
+                        <li>• Data centers and colocation</li>
+                        <li>• Managed IT services</li>
+                        <li>• Healthcare technology platforms</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Implementation Timeline */}
+          <SectionDivider title="Planning Your SOC Report Journey" />
+          <div className="mb-16">
+            <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl p-8 border border-indigo-200">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Typical Implementation Timeline</h3>
+              
+              <div className="space-y-6">
+                {/* Pre-Assessment Phase */}
+                <div className="bg-white rounded-xl p-6 border border-indigo-200 shadow-sm">
+                  <div className="flex items-center mb-4">
+                    <div className="w-8 h-8 bg-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-sm mr-4">1</div>
+                    <h4 className="text-lg font-semibold text-gray-900">Pre-Assessment Phase (1-2 months)</h4>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                    <div>
+                      <h5 className="font-semibold text-gray-900 mb-2">Preparation Activities:</h5>
+                      <ul className="text-gray-700 space-y-1">
+                        <li>• Gap assessment</li>
+                        <li>• Control design</li>
+                        <li>• Policy development</li>
+                        <li>• Documentation creation</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-gray-900 mb-2">Team Assembly:</h5>
+                      <ul className="text-gray-700 space-y-1">
+                        <li>• Internal project team</li>
+                        <li>• External auditor selection</li>
+                        <li>• Stakeholder alignment</li>
+                        <li>• Resource allocation</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-gray-900 mb-2">Scope Definition:</h5>
+                      <ul className="text-gray-700 space-y-1">
+                        <li>• Service boundaries</li>
+                        <li>• System components</li>
+                        <li>• Trust Service Criteria</li>
+                        <li>• Report type selection</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Implementation Phase */}
+                <div className="bg-white rounded-xl p-6 border border-indigo-200 shadow-sm">
+                  <div className="flex items-center mb-4">
+                    <div className="w-8 h-8 bg-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-sm mr-4">2</div>
+                    <h4 className="text-lg font-semibold text-gray-900">Implementation Phase (3-6 months)</h4>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                    <div>
+                      <h5 className="font-semibold text-gray-900 mb-2">Control Implementation:</h5>
+                      <ul className="text-gray-700 space-y-1">
+                        <li>• Deploy security controls</li>
+                        <li>• Establish monitoring procedures</li>
+                        <li>• Train staff on new processes</li>
+                        <li>• Begin evidence collection</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-gray-900 mb-2">Operational Readiness:</h5>
+                      <ul className="text-gray-700 space-y-1">
+                        <li>• Test control effectiveness</li>
+                        <li>• Refine documentation</li>
+                        <li>• Address identified gaps</li>
+                        <li>• Prepare for audit</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Audit Phase */}
+                <div className="bg-white rounded-xl p-6 border border-indigo-200 shadow-sm">
+                  <div className="flex items-center mb-4">
+                    <div className="w-8 h-8 bg-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-sm mr-4">3</div>
+                    <h4 className="text-lg font-semibold text-gray-900">Audit Phase (1-3 months)</h4>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                    <div>
+                      <h5 className="font-semibold text-gray-900 mb-2">Audit Activities:</h5>
+                      <ul className="text-gray-700 space-y-1">
+                        <li>• Planning and risk assessment</li>
+                        <li>• Control testing and evaluation</li>
+                        <li>• Evidence review and validation</li>
+                        <li>• Management interviews</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-gray-900 mb-2">Deliverables:</h5>
+                      <ul className="text-gray-700 space-y-1">
+                        <li>• Draft report review</li>
+                        <li>• Management responses</li>
+                        <li>• Final report issuance</li>
+                        <li>• Remediation planning</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-8 bg-indigo-100 rounded-xl p-6 border border-indigo-300">
+                <h4 className="font-semibold text-indigo-900 mb-2 flex items-center">
+                  <Clock className="h-5 w-5 mr-2" />
+                  Timeline Considerations
+                </h4>
+                <p className="text-indigo-800 text-sm leading-relaxed">
+                  <strong>Type II reports require additional time</strong> for the observation period (typically 6-12 months of control operation). 
+                  Organizations should plan accordingly and consider starting with a Type I report if immediate assurance is needed, 
+                  followed by a Type II report once controls have operated for sufficient time.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Call to Action */}
+          <div className="bg-gradient-to-r from-emerald-600 to-teal-600 rounded-2xl p-8 text-center text-white">
+            <h3 className="text-2xl font-bold mb-4">Ready to Begin Your SOC Journey?</h3>
+            <p className="text-xl mb-6 opacity-90">
+              At Pragmatech, we help organizations navigate the complexities of SOC reporting with expert guidance and proven methodologies.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center px-8 py-4 bg-white text-emerald-600 font-semibold rounded-full shadow-lg hover:bg-gray-50 transition-all duration-300 text-lg"
+              >
+                Get Expert Guidance
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+              <Link
+                to="/services/soc2"
+                className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-emerald-600 transition-all duration-300 text-lg"
+              >
+                Explore SOC 2 Services
+              </Link>
+            </div>
+          </div>
+
+        </article>
+      </div>
+    </main>
+  );
+};
+
 // AI Model vs Solution Blog Post Component
 const AIModelVsSolutionPost: React.FC<{ post: any }> = ({ post }) => {
   const lifecyclePhases = [
@@ -1214,6 +1981,11 @@ const BlogPostContent: React.FC<BlogPostContentProps> = ({ slug }) => {
         </div>
       </main>
     );
+  }
+
+  // Handle SOC Reports Comparison blog post
+  if (slug === 'soc-reports-comparison-guide') {
+    return <SOCReportsComparisonPost post={post} />;
   }
 
   // Handle RBI FREE-AI Framework blog post

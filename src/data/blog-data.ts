@@ -10,6 +10,15 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'soc-reports-comparison-guide',
+    title: 'SOC Reports Demystified: A Complete Comparison Guide',
+    author: 'Pragmatech Team',
+    date: '2025-10-02',
+    description: "Understanding the differences between SOC 1, SOC 2, and SOC 3 reports, including Type I vs Type II assessments, to make informed compliance decisions for your organization.",
+    heroImage: '/logosmall.png',
+    readingTime: '10 min read',
+  },
+  {
     slug: 'rbi-free-ai-framework-guide',
     title: 'RBI\'s FREE-AI Framework: A Blueprint for Responsible AI in Finance',
     author: 'Pragmatech Team',
