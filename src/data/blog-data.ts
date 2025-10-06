@@ -45,4 +45,13 @@ export const blogPosts: BlogPost[] = [
     heroImage: '/logosmall.png', // Using existing logo image that we know works
     readingTime: '12 min read',
   },
+  {
+    slug: 'tisax-automotive-guide',
+    title: 'TISAX in the Automotive Ecosystem: A Comprehensive Guide',
+    author: 'Pragmatech Team',
+    date: '2025-07-06',
+    description: 'What TISAX is, how it relates to ISO 27001, assessment levels, prototype protection, supply chain security, and a pragmatic path to compliance—especially for India.',
+    heroImage: '/logosmall.png',
+    readingTime: '14 min read',
+  },
 ]; 

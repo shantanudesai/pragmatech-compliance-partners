@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ShieldCheck, ArrowRight, CheckCircle, Users, FileText, Award } from "lucide-react";
 import { useEffect } from "react";
 import Navbar from "../../components/Navbar";
+import ISO27001HighLevelStructure from "../../components/ISO27001HighLevelStructure";
 
 const ISO27001Service = () => {
   useEffect(() => {
@@ -96,6 +97,11 @@ const ISO27001Service = () => {
               </p>
             </div>
           </div>
+        </section>
+
+        {/* ISO 27001 High Level Structure */}
+        <section id="iso27001-structure" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 scroll-mt-24">
+          <ISO27001HighLevelStructure />
         </section>
 
         {/* Benefits Section */}
