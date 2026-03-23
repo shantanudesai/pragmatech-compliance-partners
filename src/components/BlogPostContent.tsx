@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { blogPosts } from "../data/blog-data";
+import { blogPosts, type BlogPost } from "../data/blog-data";
 import React from "react";
 import {
   ArrowLeft,
@@ -2542,6 +2542,347 @@ const AIModelVsSolutionPost: React.FC<{ post: any }> = ({ post }) => {
   );
 };
 
+const OrganizationAIPolicyPost: React.FC<{ post: BlogPost }> = ({ post }) => {
+  const ethicalPrinciples = [
+    { title: 'Transparency', body: 'People should know when AI is being used.' },
+    { title: 'Fairness', body: 'AI should not create bias or discrimination.' },
+    { title: 'Explainability', body: 'AI decisions should be understandable.' },
+    { title: 'Human focus', body: 'AI should support humans, not replace judgment completely.' },
+    { title: 'Reliability and safety', body: 'AI should be used within its intended limits.' },
+    { title: 'Do no harm', body: 'Avoid use cases that could cause damage.' },
+  ];
+
+  const dos = [
+    'Use AI to improve efficiency',
+    'Verify outputs before using them',
+    'Be transparent about AI usage',
+    'Use only approved tools',
+  ];
+
+  const donts = [
+    'Share confidential information',
+    'Depend on AI for critical decisions',
+    'Present AI work as completely your own',
+    'Use AI in unethical ways',
+  ];
+
+  const approvalSteps = [
+    'Request for a new tool',
+    'Risk and security assessment',
+    'Approval or rejection',
+    'Addition to approved tools list',
+    'Review if usage changes',
+  ];
+
+  return (
+    <main className="min-h-screen bg-gradient-to-b from-white to-zinc-50/50">
+      <nav className="border-b border-gray-100 bg-white/80 backdrop-blur-sm sticky top-0 z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-4">
+            <Link
+              to="/blog"
+              className="inline-flex items-center text-base font-medium text-gray-500 hover:text-gray-900 transition-colors"
+            >
+              <ArrowLeft className="mr-2 h-5 w-5" />
+              Back to Blog
+            </Link>
+            <div className="flex space-x-8">
+              <Link to="/blog" className="text-base font-medium text-gray-500 hover:text-gray-900 transition-colors">
+                Blog
+              </Link>
+              <Link to="/about" className="text-base font-medium text-gray-500 hover:text-gray-900 transition-colors">
+                About
+              </Link>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div className="relative bg-gradient-to-br from-slate-900 via-emerald-950 to-slate-900 py-20 mb-16 overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `radial-gradient(circle at 20% 30%, #34d399 0%, transparent 45%),
+                             radial-gradient(circle at 80% 70%, #2dd4bf 0%, transparent 45%)`,
+            }}
+          />
+        </div>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
+          <article className="max-w-4xl mx-auto">
+            <header className="text-center mb-8">
+              <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-gray-300 mb-10">
+                <div className="flex items-center bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+                  <User className="h-4 w-4 mr-2 text-emerald-400" />
+                  <span className="text-white">{post.author}</span>
+                </div>
+                <div className="flex items-center bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+                  <Calendar className="h-4 w-4 mr-2 text-emerald-400" />
+                  <span className="text-white">
+                    {new Date(post.date).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })}
+                  </span>
+                </div>
+                <div className="flex items-center bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+                  <Clock className="h-4 w-4 mr-2 text-emerald-400" />
+                  <span className="text-white">{post.readingTime}</span>
+                </div>
+              </div>
+              <div className="flex justify-center mb-10">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-lg shadow-emerald-900/40">
+                  <FileText className="h-8 w-8 text-white" />
+                </div>
+              </div>
+              <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6 font-heading leading-tight">
+                Your Organization is Using AI. Do You Have a Policy for It?
+              </h1>
+              <p className="text-lg md:text-xl text-emerald-100/90 max-w-2xl mx-auto leading-relaxed">
+                {post.description}
+              </p>
+            </header>
+          </article>
+        </div>
+      </div>
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-24">
+        <article className="max-w-4xl mx-auto prose prose-lg">
+          <SectionDivider title="Why This Matters" />
+          <div className="mb-16 space-y-4 text-lg text-gray-600 leading-relaxed">
+            <p>
+              Let&apos;s be honest. AI is already being used inside your organization. Your employees are already using AI
+              tools, with or without a policy. Tools like ChatGPT, Copilot, and Gemini are helping people write emails,
+              generate content, and speed up daily work. Most of this is happening quietly, without formal approval or
+              clear guidelines.
+            </p>
+            <p>This is where the real risk begins.</p>
+            <p>
+              AI brings efficiency and innovation, but it also creates risks like data leaks, bias, and compliance issues
+              if not handled properly.
+            </p>
+            <p>
+              So the question is no longer &ldquo;Do we need an AI policy?&rdquo; It is &ldquo;How quickly can we put one in
+              place?&rdquo;
+            </p>
+            <p>
+              AI policies also cannot remain static. They need to be reviewed regularly because both technology and
+              regulations are evolving rapidly.
+            </p>
+          </div>
+
+          <SectionDivider title="1. Start with a Clear Purpose" />
+          <div className="mb-16 space-y-4 text-lg text-gray-600 leading-relaxed">
+            <p>Every good policy starts with clarity. Before writing rules, define why the policy exists.</p>
+            <p>A strong purpose statement should answer:</p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>What does this policy cover?</li>
+              <li>Who does it apply to?</li>
+              <li>What is the objective?</li>
+            </ul>
+            <p>
+              It should include all AI tools, not just advanced systems but also everyday tools with AI features. It
+              should apply to employees, contractors, and anyone using company systems.
+            </p>
+            <p>
+              Avoid vague statements like &ldquo;We use AI responsibly.&rdquo; Be specific. For example, employees must not
+              upload company data into AI tools without approval.
+            </p>
+            <p>Clear purpose prevents confusion later.</p>
+          </div>
+
+          <SectionDivider title="2. Define What You Mean by AI" />
+          <div className="mb-16 space-y-4 text-lg text-gray-600 leading-relaxed">
+            <p>Not everyone understands AI the same way. That is why a Definitions section is important.</p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>
+                <strong className="text-gray-900">AI</strong> refers to systems that perform tasks that normally require
+                human intelligence.
+              </li>
+              <li>
+                <strong className="text-gray-900">AI tools</strong> are any software that use AI, such as smart email
+                writing, chatbots, or meeting transcription tools.
+              </li>
+              <li>
+                <strong className="text-gray-900">Approved tools</strong> are those allowed by the organization.
+              </li>
+              <li>
+                <strong className="text-gray-900">AI output</strong> is any content generated by AI.
+              </li>
+            </ul>
+            <p>Simple definitions make the policy easier to follow and enforce.</p>
+          </div>
+
+          <SectionDivider title="3. Build on Ethical Foundations" />
+          <div className="mb-16 space-y-4 text-lg text-gray-600 leading-relaxed">
+            <p>Before rules, there should be principles. An AI policy should be grounded in ethics, not just compliance.</p>
+            <div className="grid gap-4 sm:grid-cols-2 not-prose">
+              {ethicalPrinciples.map((p) => (
+                <div
+                  key={p.title}
+                  className="rounded-xl border border-emerald-100 bg-gradient-to-br from-emerald-50/80 to-white p-5"
+                >
+                  <h3 className="text-base font-semibold text-emerald-900 mb-2">{p.title}</h3>
+                  <p className="text-gray-600 text-base leading-relaxed">{p.body}</p>
+                </div>
+              ))}
+            </div>
+            <p>These principles guide how AI is used in the organization.</p>
+          </div>
+
+          <SectionDivider title="4. Approved and Prohibited Tools" />
+          <div className="mb-16 space-y-4 text-lg text-gray-600 leading-relaxed">
+            <p>
+              Approved tools should be reviewed by IT or leadership, used through official accounts, and regularly
+              evaluated. Employees should always know where to find the latest approved tools list.
+            </p>
+            <p>
+              Prohibited tools include any unapproved platforms, tools that do not protect data, or tools with unclear
+              security practices.
+            </p>
+            <p>
+              A clear AI policy doesn&apos;t just reduce risk. It also gives employees the confidence to use AI in a safe
+              and innovative way. This list should be updated regularly as new tools are introduced.
+            </p>
+          </div>
+
+          <SectionDivider title="5. Data Guardrails" />
+          <div className="mb-16 space-y-4 text-lg text-gray-600 leading-relaxed">
+            <p>
+              Data protection is the most critical part of AI usage. AI tools process the data you provide, and that can
+              lead to exposure if not handled carefully.
+            </p>
+            <p className="font-medium text-gray-900">Do not input the following into AI tools:</p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>Personal information such as names, emails, and phone numbers</li>
+              <li>Financial details like bank accounts or card information</li>
+              <li>Medical records</li>
+              <li>Passwords or system credentials</li>
+              <li>Company confidential or client data</li>
+            </ul>
+            <p>
+              Best practices include using only necessary data, removing sensitive details, and using secure and approved
+              tools. A simple way to think about it: if the data gets exposed, would it cause a problem? If yes, do not
+              use it in AI.
+            </p>
+          </div>
+
+          <SectionDivider title="6. Keep It Simple with Dos and Don&apos;ts" />
+          <div className="mb-16 grid gap-6 md:grid-cols-2 not-prose">
+            <div className="rounded-xl border border-green-200 bg-green-50/50 p-6">
+              <h3 className="text-lg font-semibold text-green-900 mb-4">Do</h3>
+              <ul className="space-y-2 text-gray-700">
+                {dos.map((item) => (
+                  <li key={item} className="flex gap-2">
+                    <CheckCircle className="h-5 w-5 text-green-600 shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-xl border border-red-200 bg-red-50/50 p-6">
+              <h3 className="text-lg font-semibold text-red-900 mb-4">Don&apos;t</h3>
+              <ul className="space-y-2 text-gray-700">
+                {donts.map((item) => (
+                  <li key={item} className="flex gap-2">
+                    <span className="text-red-500 font-bold shrink-0" aria-hidden>
+                      ×
+                    </span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <p className="text-lg text-gray-600 leading-relaxed mb-16">
+            Simple rules are more likely to be followed.
+          </p>
+
+          <SectionDivider title="7. Be Careful with AI Outputs" />
+          <div className="mb-16 space-y-4 text-lg text-gray-600 leading-relaxed">
+            <p>AI-generated content should not be used blindly.</p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>Content should be reviewed before use.</li>
+              <li>AI-generated code should be tested.</li>
+              <li>Images and media should be checked for copyright issues.</li>
+              <li>If AI is used in customer communication, it should be clearly disclosed.</li>
+            </ul>
+            <p>Even when AI is used, responsibility remains with the user.</p>
+          </div>
+
+          <SectionDivider title="8. Define Roles and Responsibilities" />
+          <div className="mb-16 space-y-4 text-lg text-gray-600 leading-relaxed">
+            <p>AI governance is a shared responsibility.</p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>IT teams maintain the policy.</li>
+              <li>Leadership ensures compliance.</li>
+              <li>Managers guide their teams.</li>
+              <li>Employees follow the rules and report any issues.</li>
+            </ul>
+            <p>Assigning clear ownership helps ensure accountability.</p>
+          </div>
+
+          <SectionDivider title="9. Approval Process for New Tools" />
+          <div className="mb-16 space-y-4 text-lg text-gray-600 leading-relaxed">
+            <p>New AI tools are constantly emerging. Organizations should have a simple approval process:</p>
+            <ol className="list-decimal pl-6 space-y-2">
+              {approvalSteps.map((step) => (
+                <li key={step}>{step}</li>
+              ))}
+            </ol>
+            <p>This allows controlled adoption instead of unrestricted usage.</p>
+          </div>
+
+          <SectionDivider title="10. Compliance and Enforcement" />
+          <div className="mb-16 space-y-4 text-lg text-gray-600 leading-relaxed">
+            <p>A policy is effective only if it is enforced.</p>
+            <p>
+              Organizations should provide clear reporting channels for issues, define consequences for misuse, and
+              conduct regular audits and security checks. Employees should also feel safe reporting concerns.
+            </p>
+          </div>
+
+          <SectionDivider title="11. Keep It Updated" />
+          <div className="mb-16 space-y-4 text-lg text-gray-600 leading-relaxed">
+            <p>
+              AI is evolving quickly, and policies must keep up. Review the policy regularly, update tools and rules,
+              track regulatory changes, and inform employees about updates. A policy should grow along with your
+              organization&apos;s use of AI.
+            </p>
+          </div>
+
+          <SectionDivider title="Final Thought" />
+          <div className="mb-16 rounded-2xl border border-gray-200 bg-gradient-to-br from-slate-50 to-white p-8 space-y-4 text-lg text-gray-600 leading-relaxed">
+            <p>You do not need a perfect policy to begin.</p>
+            <p>
+              Even a simple guideline covering approved tools, data protection, and basic rules is better than having no
+              policy at all. Start small and improve over time.
+            </p>
+            <p className="font-medium text-gray-900">
+              Because using AI without a policy is a risk no organization should take.
+            </p>
+          </div>
+
+          <div className="bg-gradient-to-r from-emerald-600 to-teal-600 rounded-2xl p-8 text-center text-white not-prose">
+            <h3 className="text-2xl font-bold mb-4">Need help drafting or operationalizing an AI use policy?</h3>
+            <p className="text-lg mb-6 opacity-95">
+              We help teams align AI governance with your risk appetite, regulations, and day-to-day workflows.
+            </p>
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white text-emerald-700 font-semibold rounded-full shadow-lg hover:bg-gray-50 transition-all duration-300 text-lg"
+            >
+              Let&apos;s Talk
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+          </div>
+        </article>
+      </div>
+    </main>
+  );
+};
+
 const BlogPostContent: React.FC<BlogPostContentProps> = ({ slug }) => {
   const post = blogPosts.find((p) => p.slug === slug);
 
@@ -2582,6 +2923,11 @@ const BlogPostContent: React.FC<BlogPostContentProps> = ({ slug }) => {
   // Handle AI Model vs Solution blog post
   if (slug === 'ai-model-vs-solution-lifecycle') {
     return <AIModelVsSolutionPost post={post} />;
+  }
+
+  // Organization AI use policy
+  if (slug === 'organization-ai-policy') {
+    return <OrganizationAIPolicyPost post={post} />;
   }
 
   // Handle TISAX automotive blog post

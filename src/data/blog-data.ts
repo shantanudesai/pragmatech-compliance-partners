@@ -10,6 +10,16 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'organization-ai-policy',
+    title: 'Your Organization is Using AI. Do You Have a Policy for It?',
+    author: 'Pragmatech Team',
+    date: '2026-03-23',
+    description:
+      'Why every organization needs a living AI use policy: purpose, definitions, ethics, approved tools, data guardrails, roles, and how to start without waiting for perfection.',
+    heroImage: '/logosmall.png',
+    readingTime: '10 min read',
+  },
+  {
     slug: 'soc-reports-comparison-guide',
     title: 'SOC Reports Demystified: A Complete Comparison Guide',
     author: 'Pragmatech Team',
